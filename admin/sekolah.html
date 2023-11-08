@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Daftar Siswa | Sekolah</title>
+    <title>Daftar Sekolah | Sekolah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -38,7 +38,7 @@
           <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-              <a href="home.php" class="logo logo-dark">
+              <a href="home.html" class="logo logo-dark">
                 <span class="logo-sm">
                   <img src="assets/images/logo.png" alt="logo-sm-dark" height="30" />
                 </span>
@@ -47,7 +47,7 @@
                 </span>
               </a>
 
-              <a href="home.php" class="logo logo-light">
+              <a href="home.html" class="logo logo-light">
                 <span class="logo-sm">
                   <img src="assets/images/logo.png" alt="logo-sm-light" height="30" />
                 </span>
@@ -66,7 +66,9 @@
               <div class="input-group">
                 <button class="btn btn-rounded dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu <i class="mdi mdi-chevron-down ms-2"></i></button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="pendaftaran.php">Pendaftaran</a></li>
+                  <li><a class="dropdown-item" href="siswa.html">Data Siswa</a></li>
+                  <li><a class="dropdown-item" href="jadwal.html.html">Data Jadwal</a></li>
+                  <li><a class="dropdown-item" href="mutasi.html">Data Laporan</a></li>
                 </ul>
                 <input type="text" class="form-control bg-transparent" placeholder="Search.." aria-label="Text input with dropdown button" />
                 <span class="mdi mdi-magnify"></span>
@@ -143,7 +145,7 @@
               <li class="menu-title">Menu</li>
 
               <li>
-                <a href="home.php" class="waves-effect">
+                <a href="home.html" class="waves-effect">
                   <i class="ri-dashboard-line"></i>
                   <span>Dashboard</span>
                 </a>
@@ -154,7 +156,7 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="pendaftaran.php">Pengajuan Masuk</a></li>
+                  <li><a href="pendaftaran.html">Pengajuan Masuk</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -164,7 +166,7 @@
                   <span>Sekolah</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="sekolah.php">Daftar Sekolah</a></li>
+                  <li><a href="sekolah.html">Daftar Sekolah</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -174,9 +176,9 @@
                   <span>Master</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="siswa.php">Data Siswa</a></li>
-                  <li><a href="jadwal.php">Data jadwal</a></li>
-                  <li><a href="mutasi.php">Laporan Mutasi Siswa</a></li>
+                  <li><a href="siswa.html">Data Siswa</a></li>
+                  <li><a href="jadwal.html">Data jadwal</a></li>
+                  <li><a href="mutasi.html">Laporan Mutasi Siswa</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -186,7 +188,7 @@
                   <span>Setting</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="batas.php">Batas Waktu Mutasi</a></li>
+                  <li><a href="batas.html">Batas Waktu Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -206,12 +208,12 @@
             <div class="row">
               <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                  <h4 class="mb-sm-0">Data Siswa</h4>
+                  <h4 class="mb-sm-0">Daftar Sekolah</h4>
 
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                      <li class="breadcrumb-item"><a href="javascript: void(0);">Master</a></li>
-                      <li class="breadcrumb-item active">Data Siswa</li>
+                      <li class="breadcrumb-item"><a href="javascript: void(0);">Sekolah</a></li>
+                      <li class="breadcrumb-item active">Daftar Sekolah</li>
                     </ol>
                   </div>
                 </div>
@@ -229,11 +231,11 @@
                       <thead>
                         <tr>
                           <th style="text-align: center;">No.</th>
-                          <th>NISN</th>
-                          <th>Nama Siswa</th>
-                          <th>Tempat Lahir</th>
-                          <th>Tanggal Lahir</th>
-                          <th>Email</th>
+                          <th>NPSN</th>
+                          <th>Nama Sekolah</th>
+                          <th>Kabupaten/Kota</th>
+                          <th>Kecamatan</th>
+                          <th>Jenjang</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
@@ -241,11 +243,11 @@
                       <tbody>
                         <tr>
                           <th style="text-align: center;">1</th>
-                          <td>21155832</td>
-                          <td>Muhammad Faris Adira</td>
+                          <td>004574</td>
+                          <td>Man 1</td>
                           <td>Medan</td>
-                          <td>21 Juni 2003</td>
-                          <td>faris21@gmail.com</td>
+                          <td>Medan Tembung</td>
+                          <td>SMA</td>
                           <td>
                             <button type="button" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></button>
                             <button type="button" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></button>

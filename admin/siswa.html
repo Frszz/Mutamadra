@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Daftar Siswa | Sekolah</title>
+    <title>Data Siswa | Sekolah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -42,8 +42,8 @@
                 <span class="logo-sm">
                   <img src="assets/images/logo.png" alt="logo-sm-dark" height="30" />
                 </span>
-                <span class="logo-lg">
-                  <h2 style="margin-top: 1rem"><img src="assets/images/logo.png" alt="logo-sm-dark" height="30" /> Sekolah</h2>
+                <span class="logo-lg"
+                  ><h2 style="margin-top: 1rem"><img src="assets/images/logo.png" alt="logo-sm-dark" height="30" /> SEKOLAH</h2>
                 </span>
               </a>
 
@@ -52,7 +52,7 @@
                   <img src="assets/images/logo.png" alt="logo-sm-light" height="30" />
                 </span>
                 <span class="logo-lg">
-                  <h2 style="margin-top: 1rem; color: white"><img src="assets/images/logo.png" alt="logo-sm-light" height="30" /> Sekolah</h2>
+                  <h2 style="margin-top: 1rem; color: white"><img src="assets/images/logo.png" alt="logo-sm-light" height="30" /> SEKOLAH</h2>
                 </span>
               </a>
             </div>
@@ -66,9 +66,9 @@
               <div class="input-group">
                 <button class="btn btn-rounded dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu <i class="mdi mdi-chevron-down ms-2"></i></button>
                 <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="daftar.html">Data Pendaftaran</a></li>
+                  <li><a class="dropdown-item" href="mutasi.html">Data Mutasi</a></li>
                   <li><a class="dropdown-item" href="siswa.html">Data Siswa</a></li>
-                  <li><a class="dropdown-item" href="jadwal.html.html">Data Jadwal</a></li>
-                  <li><a class="dropdown-item" href="mutasi.html">Data Laporan</a></li>
                 </ul>
                 <input type="text" class="form-control bg-transparent" placeholder="Search.." aria-label="Text input with dropdown button" />
                 <span class="mdi mdi-magnify"></span>
@@ -110,7 +110,7 @@
             <div class="dropdown d-inline-block user-dropdown">
               <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img class="rounded-circle header-profile-user" src="assets/images/users/person.png" alt="Header Avatar" />
-                <span class="d-none d-xl-inline-block ms-1">Sekolah</span>
+                <span class="d-none d-xl-inline-block ms-1">Mutamadra</span>
                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-end">
@@ -156,39 +156,30 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="pendaftaran.html">Pengajuan Masuk</a></li>
+                  <li><a href="daftar.html">Pengajuan Daftar</a></li>
+                  <li><a href="mutasi.html">Pengajuan Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
               <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-government-fill"></i>
-                  <span>Sekolah</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="sekolah.html">Daftar Sekolah</a></li>
-                </ul>
-              </li>
-              <!-- end li -->
-              <li>
-                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-layout-masonry-fill"></i>
+                    <i class="ri-grid-fill"></i>
                   <span>Master</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
                   <li><a href="siswa.html">Data Siswa</a></li>
-                  <li><a href="jadwal.html">Data jadwal</a></li>
-                  <li><a href="mutasi.html">Laporan Mutasi Siswa</a></li>
+                  <li><a href="sekolah.html">Data Sekolah</a></li>
+                  <li><a href="batas.html">Batas Waktu Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
               <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-settings-fill"></i>
-                  <span>Setting</span>
+                    <i class="ri-question-fill"></i>
+                  <span>Bantuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="batas.html">Batas Waktu Mutasi</a></li>
+                  <li><a href="bantuan.html">Information</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -225,29 +216,28 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-body">
-                  `<button type="button" class="btn btn-success mb-3">Tambah</button>
 
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%">
                       <thead>
                         <tr>
-                          <th style="text-align: center;">No.</th>
                           <th>NISN</th>
                           <th>Nama Siswa</th>
                           <th>Tempat Lahir</th>
                           <th>Tanggal Lahir</th>
                           <th>Email</th>
+                          <th>Sekolah</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
 
                       <tbody>
                         <tr>
-                          <th style="text-align: center;">1</th>
                           <td>21155832</td>
                           <td>Muhammad Faris Adira</td>
                           <td>Medan</td>
                           <td>21 Juni 2003</td>
                           <td>faris21@gmail.com</td>
+                          <td>Man 1</td>
                           <td>
                             <button type="button" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></button>
                             <button type="button" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></button>

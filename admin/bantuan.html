@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Data Jadwal | Sekolah</title>
+    <title>Bantuan | Sekolah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -14,8 +14,6 @@
 
     <!-- DataTables -->
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/libs/datatables.net-select-bs4/css//select.bootstrap4.min.css" rel="stylesheet" type="text/css" />
 
     <!-- Responsive datatable examples -->
     <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -42,8 +40,8 @@
                 <span class="logo-sm">
                   <img src="assets/images/logo.png" alt="logo-sm-dark" height="30" />
                 </span>
-                <span class="logo-lg">
-                  <h2 style="margin-top: 1rem"><img src="assets/images/logo.png" alt="logo-sm-dark" height="30" /> Sekolah</h2>
+                <span class="logo-lg"
+                  ><h2 style="margin-top: 1rem"><img src="assets/images/logo.png" alt="logo-sm-dark" height="30" /> SEKOLAH</h2>
                 </span>
               </a>
 
@@ -52,7 +50,7 @@
                   <img src="assets/images/logo.png" alt="logo-sm-light" height="30" />
                 </span>
                 <span class="logo-lg">
-                  <h2 style="margin-top: 1rem; color: white"><img src="assets/images/logo.png" alt="logo-sm-light" height="30" /> Sekolah</h2>
+                  <h2 style="margin-top: 1rem; color: white"><img src="assets/images/logo.png" alt="logo-sm-light" height="30" /> SEKOLAH</h2>
                 </span>
               </a>
             </div>
@@ -66,9 +64,9 @@
               <div class="input-group">
                 <button class="btn btn-rounded dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu <i class="mdi mdi-chevron-down ms-2"></i></button>
                 <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="daftar.html">Data Pendaftaran</a></li>
+                  <li><a class="dropdown-item" href="mutasi.html">Data Mutasi</a></li>
                   <li><a class="dropdown-item" href="siswa.html">Data Siswa</a></li>
-                  <li><a class="dropdown-item" href="jadwal.html.html">Data Jadwal</a></li>
-                  <li><a class="dropdown-item" href="mutasi.html">Data Laporan</a></li>
                 </ul>
                 <input type="text" class="form-control bg-transparent" placeholder="Search.." aria-label="Text input with dropdown button" />
                 <span class="mdi mdi-magnify"></span>
@@ -110,7 +108,7 @@
             <div class="dropdown d-inline-block user-dropdown">
               <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img class="rounded-circle header-profile-user" src="assets/images/users/person.png" alt="Header Avatar" />
-                <span class="d-none d-xl-inline-block ms-1">Sekolah</span>
+                <span class="d-none d-xl-inline-block ms-1">Mutamadra</span>
                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-end">
@@ -152,43 +150,34 @@
               </li>
               <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-inbox-archive-fill"></i>
+                  <i class="ri-inbox-archive-fill"></i>
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="pendaftaran.html">Pengajuan Masuk</a></li>
+                  <li><a href="daftar.html">Pengajuan Daftar</a></li>
+                  <li><a href="mutasi.html">Pengajuan Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
               <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-government-fill"></i>
-                  <span>Sekolah</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="sekolah.html">Daftar Sekolah</a></li>
-                </ul>
-              </li>
-              <!-- end li -->
-              <li>
-                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-layout-masonry-fill"></i>
+                  <i class="ri-grid-fill"></i>
                   <span>Master</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
                   <li><a href="siswa.html">Data Siswa</a></li>
-                  <li><a href="jadwal.html">Data jadwal</a></li>
-                  <li><a href="mutasi.html">Laporan Mutasi Siswa</a></li>
+                  <li><a href="sekolah.html">Data Sekolah</a></li>
+                  <li><a href="batas.html">Batas Waktu Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
               <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-settings-fill"></i>
-                  <span>Setting</span>
+                  <i class="ri-question-fill"></i>
+                  <span>Bantuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="batas.html">Batas Waktu Mutasi</a></li>
+                  <li><a href="bantuan.html">Information</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -208,12 +197,12 @@
             <div class="row">
               <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                  <h4 class="mb-sm-0">Data Jadwal</h4>
+                  <h4 class="mb-sm-0">Detail Informasi</h4>
 
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
-                      <li class="breadcrumb-item"><a href="javascript: void(0);">Master</a></li>
-                      <li class="breadcrumb-item active">Data Jadwal</li>
+                      <li class="breadcrumb-item"><a href="javascript: void(0);">Bantuan</a></li>
+                      <li class="breadcrumb-item active">Informasi</li>
                     </ol>
                   </div>
                 </div>
@@ -221,40 +210,112 @@
             </div>
             <!-- end page title -->
 
+            <!-- Collapse -->
             <div class="row">
-              <div class="col-12">
+              <div class="col-xl-12">
                 <div class="card">
                   <div class="card-body">
-                  `<button type="button" class="btn btn-success mb-3">Tambah</button>
 
-                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%">
-                      <thead>
-                        <tr>
-                          <th style="text-align: center;">No.</th>
-                          <th>Nama Siswa</th>
-                          <th>Sekolah</th>
-                          <th>Tanggal</th>
-                          <th>Status</th>
-                          <th>Aksi</th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-                        <tr>
-                          <th style="text-align: center;">1</th>
-                          <td>Muhammad Faris Adira</td>
-                          <td>Man 1</td>
-                          <td>07-09-2022</td>
-                          <td>Daftar/Mutasi</td>
-                          <td>
-                            <button type="button" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></button>
-                            <button type="button" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></button>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
+                    <div id="accordion" class="custom-accordion">
+                      <div class="card mb-1 shadow-none">
+                        <a href="#collapseOne" class="text-dark" data-bs-toggle="collapse" aria-expanded="true" aria-controls="collapseOne">
+                          <div class="card-header" id="headingOne">
+                            <h6 class="m-0">
+                              Profil
+                              <i class="mdi mdi-minus float-end accor-plus-icon"></i>
+                            </h6>
+                          </div>
+                        </a>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-bs-parent="#accordion">
+                          <div class="card-body">
+                            <div class="row mb-3">
+                                <label for="nama-admin" class="col-sm-2 col-form-label">Nama Admin</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text" id="nama-admin">
+                                </div>
+                            </div>
+                            <!-- end row -->
+                            <div class="row mb-3">
+                                <label for="foto-admin" class="col-sm-2 col-form-label">Foto Admin</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="file"  id="foto-admin">
+                                </div>
+                            </div>
+                            <!-- end row -->
+                            <div class="row mb-3">
+                                <label for="link-admin" class="col-sm-2 col-form-label">Link Profil</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="text"  id="link-admin">
+                                </div>
+                            </div>
+                            <!-- end row -->
+                            <div class="mb-3 row mt-4">
+                                <div class="col">
+                                  <a href="profil-kelola.html" type="button" class="btn btn-success"><i class="ri-pencil-fill"></i> Ubah</a>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End Collapse -->
+                      <div class="card mb-1 shadow-none">
+                        <a href="#collapseTwo" class="text-dark collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseTwo">
+                          <div class="card-header" id="headingTwo">
+                            <h6 class="m-0">
+                              Email
+                              <i class="mdi mdi-minus float-end accor-plus-icon"></i>
+                            </h6>
+                          </div>
+                        </a>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-bs-parent="#accordion">
+                          <div class="card-body">
+                            <div class="row mb-3">
+                                <label for="email" class="col-sm-2 col-form-label">Email Admin</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="email"  id="email-admin">
+                                </div>
+                            </div>
+                            <!-- end row -->
+                            <div class="mb-3 row mt-4">
+                                <div class="col">
+                                  <a href="email-kelola.html" type="button" class="btn btn-success"><i class="ri-pencil-fill"></i> Ubah</a>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End Collapse -->
+                      <div class="card mb-1 shadow-none">
+                        <a href="#collapseThree" class="text-dark collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseThree">
+                          <div class="card-header" id="headingThree">
+                            <h6 class="m-0">
+                              Password
+                              <i class="mdi mdi-minus float-end accor-plus-icon"></i>
+                            </h6>
+                          </div>
+                        </a>
+                        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-bs-parent="#accordion">
+                          <div class="card-body">
+                            <div class="row mb-3">
+                                <label for="password-admin" class="col-sm-2 col-form-label">Password</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="password"  id="password-admin">
+                                </div>
+                            </div>
+                            <!-- end row -->
+                            <div class="mb-3 row mt-4">
+                                <div class="col">
+                                  <a href="password-kelola.html" type="button" class="btn btn-success"><i class="ri-pencil-fill"></i> Reset</a>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!-- End Collapse -->
+                    </div>
                   </div>
                 </div>
+                <!-- end card -->
               </div>
               <!-- end col -->
             </div>
@@ -271,10 +332,10 @@
                 <script>
                   document.write(new Date().getFullYear());
                 </script>
-                © DIFA.
+                © Upbond.
               </div>
               <div class="col-sm-6">
-                <div class="text-sm-end d-none d-sm-block">Crafted with <i class="mdi mdi-fire text-danger"></i> by DIFA</div>
+                <div class="text-sm-end d-none d-sm-block">Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesdesign</div>
               </div>
             </div>
           </div>
@@ -340,29 +401,24 @@
     <script src="assets/libs/simplebar/simplebar.min.js"></script>
     <script src="assets/libs/node-waves/waves.min.js"></script>
 
+    <!-- apexcharts -->
+    <script src="assets/libs/apexcharts/apexcharts.min.js"></script>
+
+    <!-- jquery.vectormap map -->
+    <script src="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js"></script>
+
     <!-- Required datatable js -->
     <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <!-- Buttons examples -->
-    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-    <script src="assets/libs/jszip/jszip.min.js"></script>
-    <script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
-    <script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
-    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
-
-    <script src="assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
 
     <!-- Responsive examples -->
     <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
 
-    <!-- Datatable init js -->
-    <script src="assets/js/pages/datatables.init.js"></script>
+    <script src="assets/js/pages/dashboard.init.js"></script>
 
+    <!-- App js -->
     <script src="assets/js/app.js"></script>
   </body>
 </html>

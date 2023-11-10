@@ -38,19 +38,19 @@
             <div class="navbar-brand-box">
               <a href="dashboard.html" class="logo logo-dark">
                 <span class="logo-sm">
-                  <img src="assets/images/logo.png" alt="logo-sm-dark" height="22" />
+                  <img src="assets/images/logo.png" alt="logo-sm-dark" height="30" />
                 </span>
                 <span class="logo-lg"
-                  ><h2 style="margin-top: 1rem"><img src="assets/images/logo.png" alt="logo-sm-dark" height="22" /> Sekolah</h2>
+                  ><h2 style="margin-top: 1rem"><img src="assets/images/logo.png" alt="logo-sm-dark" height="30" /> SEKOLAH</h2>
                 </span>
               </a>
 
               <a href="dashboard.html" class="logo logo-light">
                 <span class="logo-sm">
-                  <img src="assets/images/logo.png" alt="logo-sm-light" height="22" />
+                  <img src="assets/images/logo.png" alt="logo-sm-light" height="30" />
                 </span>
-                <span class="logo-lg"
-                  ><h2 style="margin-top: 1rem; color: white"><img src="assets/images/logo.png" alt="logo-sm-light" height="22" /> Sekolah</h2>
+                <span class="logo-lg">
+                  <h2 style="margin-top: 1rem; color: white"><img src="assets/images/logo.png" alt="logo-sm-light" height="30" /> SEKOLAH</h2>
                 </span>
               </a>
             </div>
@@ -64,9 +64,9 @@
               <div class="input-group">
                 <button class="btn btn-rounded dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu <i class="mdi mdi-chevron-down ms-2"></i></button>
                 <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="daftar.html">Data Pendaftaran</a></li>
+                  <li><a class="dropdown-item" href="mutasi.html">Data Mutasi</a></li>
                   <li><a class="dropdown-item" href="siswa.html">Data Siswa</a></li>
-                  <li><a class="dropdown-item" href="jadwal.html">Data Jadwal</a></li>
-                  <li><a class="dropdown-item" href="mutasi.html">Data Laporan</a></li>
                 </ul>
                 <input type="text" class="form-control bg-transparent" placeholder="Search.." aria-label="Text input with dropdown button" />
                 <span class="mdi mdi-magnify"></span>
@@ -108,7 +108,7 @@
             <div class="dropdown d-inline-block user-dropdown">
               <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img class="rounded-circle header-profile-user" src="assets/images/users/person.png" alt="Header Avatar" />
-                <span class="d-none d-xl-inline-block ms-1">Sekolah</span>
+                <span class="d-none d-xl-inline-block ms-1">Mutamadra</span>
                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-end">
@@ -154,39 +154,30 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="pendaftaran.html">Pengajuan Masuk</a></li>
+                  <li><a href="daftar.html">Pengajuan Daftar</a></li>
+                  <li><a href="mutasi.html">Pengajuan Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
               <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-government-fill"></i>
-                  <span>Sekolah</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="sekolah.html">Daftar Sekolah</a></li>
-                </ul>
-              </li>
-              <!-- end li -->
-              <li>
-                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-layout-masonry-fill"></i>
+                    <i class="ri-grid-fill"></i>
                   <span>Master</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="#">Data Siswa</a></li>
-                  <li><a href="#">Data jadwal</a></li>
-                  <li><a href="#">Laporan Mutasi Siswa</a></li>
+                  <li><a href="siswa.html">Data Siswa</a></li>
+                  <li><a href="sekolah.html">Data Sekolah</a></li>
+                  <li><a href="batas.html">Batas Waktu Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
               <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-settings-fill"></i>
-                  <span>Setting</span>
+                    <i class="ri-question-fill"></i>
+                  <span>Bantuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="#">Batas Waktu Mutasi</a></li>
+                  <li><a href="bantuan.html">Information</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -317,13 +308,11 @@
                       </a>
                       <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item">Status</a>
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item">Sekolah</a>
+                        <a href="javascript:void(0);" class="dropdown-item">Detail Data</a>
                       </div>
                     </div>
                     <!-- end dropdown -->
-                    <h4 class="card-title mb-4">Daftar Pengajuan</h4>
+                    <h4 class="card-title mb-4">Data Pendaftaran</h4>
                     <div class="table-responsive">
                       <table class="table table-centered border table-nowrap mb-0" style="border-collapse: collapse; border-spacing: 0; width: 100%">
                         <thead class="table-light">
@@ -390,8 +379,8 @@
                                 <i class="mdi mdi-cog text-muted"></i>
                               </a>
                               <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">Lihat Data</a>
-                                <a class="dropdown-item" href="#">Tambah Data</a>
+                                <a class="dropdown-item" href="#">Detail Data</a>
+                                <a class="dropdown-item" href="#">Status Data</a>
                                 <a class="dropdown-item" href="#">Hapus Data</a>
                               </div>
                             </div>

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Pengajuan Masuk | Sekolah</title>
+    <title>Data Sekolah| Sekolah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -27,21 +27,21 @@
           <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-              <a href="home.php" class="logo logo-dark">
+              <a href="dashboard.html" class="logo logo-dark">
                 <span class="logo-sm">
                   <img src="assets/images/logo.png" alt="logo-sm-dark" height="30" />
                 </span>
-                <span class="logo-lg">
-                  <h2 style="margin-top: 1rem"><img src="assets/images/logo.png" alt="logo-sm-dark" height="30" /> Sekolah</h2>
+                <span class="logo-lg"
+                  ><h2 style="margin-top: 1rem"><img src="assets/images/logo.png" alt="logo-sm-dark" height="30" /> SEKOLAH</h2>
                 </span>
               </a>
 
-              <a href="home.php" class="logo logo-light">
+              <a href="dashboard.html" class="logo logo-light">
                 <span class="logo-sm">
                   <img src="assets/images/logo.png" alt="logo-sm-light" height="30" />
                 </span>
                 <span class="logo-lg">
-                  <h2 style="margin-top: 1rem; color: white"><img src="assets/images/logo.png" alt="logo-sm-light" height="30" /> Sekolah</h2>
+                  <h2 style="margin-top: 1rem; color: white"><img src="assets/images/logo.png" alt="logo-sm-light" height="30" /> SEKOLAH</h2>
                 </span>
               </a>
             </div>
@@ -55,9 +55,9 @@
               <div class="input-group">
                 <button class="btn btn-rounded dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu <i class="mdi mdi-chevron-down ms-2"></i></button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="siswa.php">Data Siswa</a></li>
-                  <li><a class="dropdown-item" href="jadwal.php.php">Data Jadwal</a></li>
-                  <li><a class="dropdown-item" href="mutasi.php">Data Laporan</a></li>
+                  <li><a class="dropdown-item" href="daftar.html">Data Pendaftaran</a></li>
+                  <li><a class="dropdown-item" href="mutasi.html">Data Mutasi</a></li>
+                  <li><a class="dropdown-item" href="siswa.html">Data Siswa</a></li>
                 </ul>
                 <input type="text" class="form-control bg-transparent" placeholder="Search.." aria-label="Text input with dropdown button" />
                 <span class="mdi mdi-magnify"></span>
@@ -99,7 +99,7 @@
             <div class="dropdown d-inline-block user-dropdown">
               <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <img class="rounded-circle header-profile-user" src="assets/images/users/person.png" alt="Header Avatar" />
-                <span class="d-none d-xl-inline-block ms-1">Sekolah</span>
+                <span class="d-none d-xl-inline-block ms-1">Mutamadra</span>
                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-end">
@@ -134,7 +134,7 @@
               <li class="menu-title">Menu</li>
 
               <li>
-                <a href="home.php" class="waves-effect">
+                <a href="dashboard.html" class="waves-effect">
                   <i class="ri-dashboard-line"></i>
                   <span>Dashboard</span>
                 </a>
@@ -145,29 +145,20 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="pendaftaran.php">Pengajuan Masuk</a></li>
+                  <li><a href="daftar.html">Pengajuan Daftar</a></li>
+                  <li><a href="mutasi.html">Pengajuan Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
               <li>
                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-government-fill"></i>
-                  <span>Sekolah</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="sekolah.php">Daftar Sekolah</a></li>
-                </ul>
-              </li>
-              <!-- end li -->
-              <li>
-                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-layout-masonry-fill"></i>
+                    <i class="ri-grid-fill"></i>
                   <span>Master</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="siswa.php">Data Siswa</a></li>
-                  <li><a href="jadwal.php">Data jadwal</a></li>
-                  <li><a href="mutasi.php">Laporan Mutasi Siswa</a></li>
+                  <li><a href="siswa.html">Data Siswa</a></li>
+                  <li><a href="sekolah.html">Data Sekolah</a></li>
+                  <li><a href="batas.html">Batas Waktu Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -177,7 +168,7 @@
                   <span>Setting</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="batas.php">Batas Waktu Mutasi</a></li>
+                  <li><a href="#">Bantuan</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -198,12 +189,13 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Forms Elements</h4>
+                                <h4 class="mb-sm-0">Tambah Data Sekolah</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Forms</a></li>
-                                        <li class="breadcrumb-item active">Forms Elements</li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Master</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Data Sekolah</a></li>
+                                        <li class="breadcrumb-item active">Tambah Data</li>
                                     </ol>
                                 </div>
 
@@ -217,64 +209,50 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row mb-3">
-                                        <label for="example-text-input" class="col-sm-2 col-form-label">Text</label>
+                                        <label for="npsn" class="col-sm-2 col-form-label">NPSN</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="text" placeholder="Artisanal kale"
-                                                id="example-text-input">
+                                            <input class="form-control" type="number" id="npsn">
                                         </div>
                                     </div>
                                     <!-- end row -->
                                     <div class="row mb-3">
-                                        <label for="example-search-input" class="col-sm-2 col-form-label">Search</label>
+                                        <label for="sekolah" class="col-sm-2 col-form-label">Nama Sekolah</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="search" placeholder="How do I shoot web"
-                                                id="example-search-input">
+                                            <input class="form-control" type="text"  id="sekolah">
                                         </div>
                                     </div>
                                     <!-- end row -->
                                     <div class="row mb-3">
-                                        <label for="example-email-input" class="col-sm-2 col-form-label">Email</label>
+                                        <label for="kota" class="col-sm-2 col-form-label">Kabupaten/Kota</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="email" placeholder="bootstrap@example.com"
-                                                id="example-email-input">
+                                            <input class="form-control" type="text" id="kota">
                                         </div>
                                     </div>
                                     <!-- end row -->
                                     <div class="row mb-3">
-                                        <label for="example-tel-input" class="col-sm-2 col-form-label">Telephone</label>
+                                        <label for="kecamatan" class="col-sm-2 col-form-label">Kecamatan</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="tel" placeholder="1-(555)-555-5555"
-                                                id="example-tel-input">
+                                            <input class="form-control" type="text" id="kecamatan">
                                         </div>
                                     </div>
                                     <!-- end row -->
                                     <div class="row mb-3">
-                                        <label for="example-number-input" class="col-sm-2 col-form-label">Number</label>
+                                        <label for="jenjang" id="jenjang" class="col-sm-2 col-form-label">Jenjang</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" value="42" id="example-number-input">
-                                        </div>
-                                    </div>
-                                    <!-- end row -->
-                                    <div class="row mb-3">
-                                        <label for="example-date-input" class="col-sm-2 col-form-label">Date</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="date" value="2011-08-19"
-                                                id="example-date-input">
-                                        </div>
-                                    </div>
-                                    <!-- end row -->
-                                    <div class="row mb-3">
-                                        <label class="col-sm-2 col-form-label">Select</label>
-                                        <div class="col-sm-10">
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option selected="">Open this select menu</option>
-                                                <option value="1">One</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
+                                            <select class="form-select">
+                                                <option selected="">Pilih</option>
+                                                <option value="1">SMA</option>
+                                                <option value="2">MTS</option>
                                             </select>
                                         </div>
                                     </div>
                                     <!-- end row -->
+                                    <div class="mb-3 row mt-5">
+                                      <div class="col">
+                                        <a href="#" type="button" class="btn btn-success"><i class="ri-save-3-fill"></i> Tambah</a>
+                                        <a href="sekolah.html" type="button" class="btn btn-danger"><i class="ri-reply-fill"></i> Kembali</a>
+                                      </div>
+                                    </div>
                                 </div>
                                 <!-- end cardbody -->
                             </div>

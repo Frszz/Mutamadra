@@ -2842,7 +2842,7 @@ table.dataTable thead .sorting_desc_disabled:before {
   content: "\f0360";
   font-family: "Material Design Icons";
   font-size: 1rem;
-  top: 9px;
+  top: 9px; 
 }
 table.dataTable thead .sorting:after,
 table.dataTable thead .sorting_asc:after,

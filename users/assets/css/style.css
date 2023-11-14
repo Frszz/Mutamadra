@@ -1,0 +1,181 @@
+:root {
+    --white: #fff;
+    --black: #000000;
+    --bg: #383838;
+    --first: rgb(88, 185, 50);
+    --second: rgb(6, 80, 241);
+    --hover-first: rgb(112, 252, 57);
+    --hover-second: rgb(67, 122, 243);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+body{
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--white);
+}
+
+/* Navbar */
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 28px 12%;
+    transition: all .50s ease;
+}
+/* Left Nav */
+.logo{
+    display: flex;
+    align-items: center;
+}
+.logo i{
+    color: var(--hover-first);
+    font-size: 28px;
+    margin-right: 3px;
+}
+.logo span{
+    color: var(--white);
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+/* Center Nav */
+.navbar{
+    display: flex;
+}
+.navbar a{
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 5px 0;
+    margin: 0 30px;
+    transition: all .50s ease;
+}
+.navbar a:hover{
+    color: var(--hover-first);
+}
+.navbar a.active{
+    color: var(--hover-first);
+}
+/* Right Nav */
+.main{
+    display: flex;
+    align-items: center;
+}
+.main a{
+    margin-right: 25px;
+    margin-left: 10px;
+    color: var(--white);
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all.50s ease;
+}
+.user {
+    display: flex;
+    align-items: center;
+}
+.user i{
+    color: var(--hover-first);
+    font-size: 28px;
+    margin-right: 7px;
+}
+.main a:hover{
+    color: var(--hover-first);
+}
+/* Toggle */
+#menu-icon{
+    font-size: 35px;
+    color: var(--white);
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+/* Reponsive */
+@media (max-width: 1280px){
+    header{
+        padding: 14px 2%;
+        transition: .2s;
+    }
+    .navbar a{
+        padding: 5px 0;
+        margin: 0px 20px;
+    }
+}
+
+@media (max-width: 1090px){
+    #menu-icon{
+        display: block;
+    }
+    .navbar{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 270px;
+        height: 220px;
+        background: var(--hover-first);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all .50s ease;
+    }
+    .navbar a{
+        display: block;
+        margin: 12px 0;
+        padding: 0px 25px;
+        transition: all .50s ease;
+    }
+    .navbar a:hover{
+        color: var(--white);
+        transform: translateX(10px);
+    }
+    .navbar a.active{
+        color: var(--white);
+    }
+    .navbar.open{
+        right: 2%;
+        transition: all .5s ease;
+    }
+}
+@media (max-width: 440px){
+    .main a{
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-right: 20px;
+        margin-left: 5px;
+    }
+}
+@media (max-width: 390px){
+    .logo span{
+        font-size: 1.5rem;
+    }
+    .main a{
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-right: 20px;
+        margin-left: 5px;
+    }
+}
+@media (max-width: 390px){
+    .logo span{
+        font-size: 1.3rem;
+    }
+    .main a{
+        font-size: 0.8rem;
+        font-weight: 500;
+        margin-right: 15px;
+        margin-left: 5px;
+    }
+}

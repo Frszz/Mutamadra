@@ -36,7 +36,7 @@
       <!-- Navbar Right -->
         <div class="main">
             <a href="akun.php" class="user"><i class="ri-user-fill"></i>Akun</a>
-            <a href="../auth/login-user.php" class="user">Logout</a>
+            <a href="../auth/Login-Sekolah/logout.php" class="user">Logout</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
 

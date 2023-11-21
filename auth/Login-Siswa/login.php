@@ -1,3 +1,9 @@
+<?php
+  require_once "../../config/config.php";
+  if(isset($_SESSION['nisnSiswa'])) {
+      echo "<script>window.location='../../siswa/home.php';</script>";
+  } else {
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,21 +24,39 @@
       <!-- Form -->
         <div class="forms-container">
           <div class="signin-signup">
+          <?php
+            if(isset($_POST['loginSiswa'])) {
+              $nisn = trim(mysqli_real_escape_string($con, $_POST['nisn']));
+              $pass = trim(mysqli_real_escape_string($con, $_POST['password']));
+              $sql_login = mysqli_query($con, "SELECT * FROM siswa WHERE nisn = '$nisn' AND password = '$pass'") or die (mysqli_error($con));
+              if(mysqli_num_rows($sql_login) > 0){
+                  $_SESSION['nisnSiswa'] = $nisn;
+                  echo "<script>window.location='../../siswa/home.php';</script>";
+              } else{ ?>
+                  <div class="login-rejected" id="login-rejected">
+                      <button onclick="closeDiv()">X</button>
+                      <p class="failed-1"><strong>Login Gagal</strong></p>
+                      <p class="failed-2">Email / Password salah</p>
+                  </div>
+              <?php
+              }
+            }
+          ?>
             <!-- Sign in -->
-            <form action="../../users/home.php" class="sign-in-form">
+            <form method="POST" action="" class="sign-in-form">
               <h2 class="title">Masuk</h2>
                 <div class="input-field">
                   <i class="ri-user-3-fill"></i>
-                  <input type="text" placeholder="NISN" />
+                  <input type="text" name="nisn" placeholder="NISN" required />
                 </div>
                 <div class="input-field">
                   <i class="ri-lock-fill"></i>
-                  <input type="password" placeholder="Password" />
+                  <input type="password" name="password" placeholder="Password" required />
                 </div>
                 <p><a href="../Password-user/password-sekolah.php"> Lupa Password ?</a></p>
                 <div class="bungkus">
                   <a href="../Login-Siswa/login.php" class="btn solid back">Kembali</a>
-                  <input type="submit" value="Login" class="btn solid" />
+                  <input type="submit" name="loginSiswa" value="Login" class="btn solid" />
                 </div>
 
                 <!-- Bottom Icon -->
@@ -53,22 +77,33 @@
                 </div>
             </form>
             
+          <?php
+            if(isset($_POST['regisSiswa'])){
+              $nisn = trim(mysqli_real_escape_string($con, $_POST['nisn']));
+              $email = trim(mysqli_real_escape_string($con, $_POST['email']));
+              $pass = trim(mysqli_real_escape_string($con, $_POST['password']));
+              mysqli_query($con, "INSERT INTO siswa (id, nisn, email, password) VALUES ('', '$nisn', '$email', '$pass')") or die (mysqli_error($con));
+              echo "<script>alert('Registrasi Berhasil Silahkan Login');
+              window.location='login.php';
+              </script>";
+            }
+          ?>
             <!-- Sign up -->
-            <form action="#" class="sign-up-form">
+            <form method="POST" action="" class="sign-up-form">
               <h2 class="title">Mendaftar</h2>
                 <div class="input-field">
                   <i class="ri-user-3-fill"></i>
-                  <input type="text" placeholder="NISN" />
+                  <input type="text" name="nisn" placeholder="NISN" required />
                 </div>
                 <div class="input-field">
                   <i class="ri-mail-fill"></i>
-                  <input type="email" placeholder="Email" />
+                  <input type="email" name="email" placeholder="Email" required />
                 </div>
                 <div class="input-field">
                   <i class="ri-lock-fill"></i>
-                  <input type="password" placeholder="Password" />
+                  <input type="password" name="password" placeholder="Password" required />
                 </div>
-                <input type="submit" class="btn" value="Sign up" />
+                <input type="submit" name="regisSiswa" class="btn" value="Sign up" />
 
                 <!-- Bottom Icon -->
                 <p class="social-text">Kunjungi Sosial Media Kami</p>
@@ -122,3 +157,6 @@
     <script src="assets/app.js"></script>
   </body>
 </html>
+<?php
+  }
+?>

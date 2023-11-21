@@ -26,12 +26,12 @@
           <div class="signin-signup">
           <?php
             if(isset($_POST['loginSekolah'])) {
-              $email = trim(mysqli_real_escape_string($con, $_POST['emailAdmin']));
-              $pass = trim(mysqli_real_escape_string($con, $_POST['passwordAdmin']));
-              $sql_login = mysqli_query($con, "SELECT * FROM admin WHERE email = '$email' AND password = '$pass'") or die (mysqli_error($con));
+              $npsn = trim(mysqli_real_escape_string($con, $_POST['npsn']));
+              $pass = trim(mysqli_real_escape_string($con, $_POST['password']));
+              $sql_login = mysqli_query($con, "SELECT * FROM sekolah WHERE npsn = '$npsn' AND password = '$pass'") or die (mysqli_error($con));
               if(mysqli_num_rows($sql_login) > 0){
-                  $_SESSION['npsnSekolah'] = $email;
-                  echo "<script>window.location='../../admin/dashboard.php';</script>";
+                  $_SESSION['npsnSekolah'] = $npsn;
+                  echo "<script>window.location='../../sekolah/home.php';</script>";
               } else{ ?>
                   <div class="login-rejected" id="login-rejected">
                       <button onclick="closeDiv()">X</button>
@@ -43,73 +43,84 @@
             }
           ?>
             <!-- Sign in -->
-            <form action="../../users/home.php" class="sign-in-form">
+            <form method="POST" action="" class="sign-in-form">
               <h2 class="title">Masuk</h2>
-                <div class="input-field">
-                  <i class="ri-user-3-fill"></i>
-                  <input type="text" placeholder="NPSN" />
-                </div>
-                <div class="input-field">
-                  <i class="ri-lock-fill"></i>
-                  <input type="password" placeholder="Password" />
-                </div>
-                <p><a href="../Password-user/password-sekolah.php"> Lupa Password ?</a></p>
-                <div class="bungkus">
-                  <a href="../login-user.php" class="btn solid back">Kembali</a>
-                  <input type="submit" name="loginSekolah" value="Login" class="btn solid" />
-                </div>
+              <div class="input-field">
+                <i class="ri-user-3-fill"></i>
+                <input type="text" name="npsn" placeholder="NPSN" required  />
+              </div>
+              <div class="input-field">
+                <i class="ri-lock-fill"></i>
+                <input type="password" name="password" placeholder="Password" required  />
+              </div>
+              <p><a href="../Password-user/password-sekolah.php"> Lupa Password ?</a></p>
+              <div class="bungkus">
+                <a href="../login-user.php" class="btn solid back">Kembali</a>
+                <input type="submit" name="loginSekolah" value="Login" class="btn solid" />
+              </div>
 
-                <!-- Bottom Icon -->
-                <p class="social-text">Kunjungi Sosial Media Kami</p>
-                <div class="social-media">
-                  <a href="#" class="social-icon">
-                    <i class="ri-facebook-fill"></i>
-                  </a>
-                  <a href="#" class="social-icon">
-                    <i class="ri-twitter-fill"></i>
-                  </a>
-                  <a href="#" class="social-icon">
-                    <i class="ri-instagram-fill"></i>
-                  </a>
-                  <a href="#" class="social-icon">
-                    <i class="ri-whatsapp-fill"></i>
-                  </a>
-                </div>
+              <!-- Bottom Icon -->
+              <p class="social-text">Kunjungi Sosial Media Kami</p>
+              <div class="social-media">
+                <a href="#" class="social-icon">
+                  <i class="ri-facebook-fill"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="ri-twitter-fill"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="ri-instagram-fill"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="ri-whatsapp-fill"></i>
+                </a>
+              </div>
             </form>
             
+          <?php
+            if(isset($_POST['regisSekolah'])){
+              $npsn = trim(mysqli_real_escape_string($con, $_POST['npsn']));
+              $email = trim(mysqli_real_escape_string($con, $_POST['email']));
+              $pass = trim(mysqli_real_escape_string($con, $_POST['password']));
+              mysqli_query($con, "INSERT INTO sekolah (id, npsn, email, password) VALUES ('', '$npsn', '$email', '$pass')") or die (mysqli_error($con));
+              echo "<script>alert('Registrasi Berhasil Silahkan Login');
+              window.location='login.php';
+              </script>";
+            }
+          ?>
             <!-- Sign up -->
-            <form action="#" class="sign-up-form">
+            <form method="POST" action="" class="sign-up-form">
               <h2 class="title">Mendaftar</h2>
-                <div class="input-field">
-                  <i class="ri-user-3-fill"></i>
-                  <input type="text" placeholder="NPSN" />
-                </div>
-                <div class="input-field">
-                  <i class="ri-mail-fill"></i>
-                  <input type="email" placeholder="Email" />
-                </div>
-                <div class="input-field">
-                  <i class="ri-lock-fill"></i>
-                  <input type="password" placeholder="Password" />
-                </div>
-                <input type="submit" class="btn" value="Sign up" />
+              <div class="input-field">
+                <i class="ri-user-3-fill"></i>
+                <input type="text" name="npsn" placeholder="NPSN" required />
+              </div>
+              <div class="input-field">
+                <i class="ri-mail-fill"></i>
+                <input type="email" name="email" placeholder="Email" required />
+              </div>
+              <div class="input-field">
+                <i class="ri-lock-fill"></i>
+                <input type="password" name="password" placeholder="Password" required />
+              </div>
+              <input type="submit" name="regisSekolah" class="btn" value="Sign up"/>
 
                 <!-- Bottom Icon -->
-                <p class="social-text">Kunjungi Sosial Media Kami</p>
-                <div class="social-media">
-                  <a href="#" class="social-icon">
-                    <i class="ri-facebook-fill"></i>
-                  </a>
-                  <a href="#" class="social-icon">
-                    <i class="ri-twitter-fill"></i>
-                  </a>
-                  <a href="#" class="social-icon">
-                    <i class="ri-instagram-fill"></i>
-                  </a>
-                  <a href="#" class="social-icon">
-                    <i class="ri-whatsapp-fill"></i>
-                  </a>
-                </div>
+              <p class="social-text">Kunjungi Sosial Media Kami</p>
+              <div class="social-media">
+                <a href="#" class="social-icon">
+                  <i class="ri-facebook-fill"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="ri-twitter-fill"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="ri-instagram-fill"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="ri-whatsapp-fill"></i>
+                </a>
+              </div>
             </form>
           </div>
         </div>

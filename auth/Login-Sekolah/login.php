@@ -1,3 +1,9 @@
+<?php
+  require_once "../../config/config.php";
+  if(isset($_SESSION['npsnSekolah'])) {
+      echo "<script>window.location='../../sekolah/home.php';</script>";
+  } else {
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,8 +24,26 @@
       <!-- Form -->
         <div class="forms-container">
           <div class="signin-signup">
+          <?php
+            if(isset($_POST['loginSekolah'])) {
+              $email = trim(mysqli_real_escape_string($con, $_POST['emailAdmin']));
+              $pass = trim(mysqli_real_escape_string($con, $_POST['passwordAdmin']));
+              $sql_login = mysqli_query($con, "SELECT * FROM admin WHERE email = '$email' AND password = '$pass'") or die (mysqli_error($con));
+              if(mysqli_num_rows($sql_login) > 0){
+                  $_SESSION['npsnSekolah'] = $email;
+                  echo "<script>window.location='../../admin/dashboard.php';</script>";
+              } else{ ?>
+                  <div class="login-rejected" id="login-rejected">
+                      <button onclick="closeDiv()">X</button>
+                      <p class="failed-1"><strong>Login Gagal</strong></p>
+                      <p class="failed-2">Email / Password salah</p>
+                  </div>
+              <?php
+              }
+            }
+          ?>
             <!-- Sign in -->
-            <form action="../../sekolah/home.php" class="sign-in-form">
+            <form action="../../users/home.php" class="sign-in-form">
               <h2 class="title">Masuk</h2>
                 <div class="input-field">
                   <i class="ri-user-3-fill"></i>
@@ -32,7 +56,7 @@
                 <p><a href="../Password-user/password-sekolah.php"> Lupa Password ?</a></p>
                 <div class="bungkus">
                   <a href="../login-user.php" class="btn solid back">Kembali</a>
-                  <input type="submit" value="Login" class="btn solid" />
+                  <input type="submit" name="loginSekolah" value="Login" class="btn solid" />
                 </div>
 
                 <!-- Bottom Icon -->
@@ -122,3 +146,6 @@
     <script src="assets/app.js"></script>
   </body>
 </html>
+<?php
+  }
+?>

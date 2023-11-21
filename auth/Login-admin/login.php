@@ -1,3 +1,9 @@
+<?php
+    require_once "../../config/config.php";
+    if(isset($_SESSION['emailAdmin'])) {
+        echo "<script>window.location='../../admin/dashboard.php';</script>";
+    } else {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,22 +45,40 @@
         </div>
         <!-- Login -->
         <div class="form-container login">
-            <form>
+            <form method="POST" action="">
                 <h1>Halaman Login</h1>
                 <!-- Icons -->
                 <div class="social-icons">
                     <a href="#" class="icon"><i class="fa-solid fa-envelope"></i></a>
                     <a href="#" class="icon"><i class="fa-solid fa-school"></i></a>
                 </div>
+                <?php
+                    if(isset($_POST['loginAdmin'])) {
+                        $email = trim(mysqli_real_escape_string($con, $_POST['emailAdmin']));
+                        $pass = trim(mysqli_real_escape_string($con, $_POST['passwordAdmin']));
+                        $sql_login = mysqli_query($con, "SELECT * FROM admin WHERE email = '$email' AND password = '$pass'") or die (mysqli_error($con));
+                        if(mysqli_num_rows($sql_login) > 0){
+                            $_SESSION['emailAdmin'] = $email;
+                            echo "<script>window.location='../../admin/dashboard.php';</script>";
+                        } else{ ?>
+                            <div class="login-rejected" id="login-rejected">
+                                <button class="btn-rejected" onclick="closeDiv()">X</button>
+                                <p class="failed-1"><strong>Login Gagal</strong></p>
+                                <p class="failed-2">Email / Password salah</p>
+                            </div>
+                        <?php
+                        }
+                    }
+                ?>
                 <!-- Form -->
                 <span>Masuk Menggunakan Email Admin </span>
                 <div class="log">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
+                    <input type="email" name="emailAdmin" placeholder="Email">
+                    <input type="password" name="passwordAdmin" placeholder="Password">
                 </div>
                 <!-- Button -->
                 <div class="enter">
-                    <a href="../../admin/dashboard.php" type="button">Login</a>
+                    <input type="submit" name="loginAdmin" value="LOGIN">
                 </div>
             </form>
         </div>
@@ -83,6 +107,23 @@
 
     <!-- Script -->
     <script src="../assets/script.js"></script>
+    <script>
+        function closeDiv() {
+            document.getElementById("login-rejected").style.display = "none";
+        }
+        const password = document.getElementById('Password');
+        const unhideButton = document.getElementById('unhide');
+        unhideButton.addEventListener('click', function(){
+            if(password.type === 'password'){
+                password.type = 'text';
+            } else{
+                password.type = 'password';
+            }
+        });
+    </script>
 </body>
 
 </html>
+<?php
+    }
+?>

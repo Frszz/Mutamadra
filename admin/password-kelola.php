@@ -1,3 +1,7 @@
+<?php
+    require_once "../config/config.php";
+    if(isset($_SESSION['emailAdmin'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -111,7 +115,7 @@
                 <a class="dropdown-item" href="#"><i class="ri-user-line align-middle me-1"></i> Profile</a>
                 <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> Email</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item text-danger" href="../auth/Login-admin/login.php"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                <a class="dropdown-item text-danger" href="../auth/Login-admin/logout.php"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
               </div>
             </div>
             <!-- end user -->
@@ -452,3 +456,8 @@
     <script src="assets/js/app.js"></script>
   </body>
 </html>
+<?php
+    } else{
+        echo "<script>window.location='../auth/Login-admin/login.php';</script>";
+    }
+?>

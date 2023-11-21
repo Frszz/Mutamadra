@@ -23,8 +23,6 @@
                         <a class="list-group-item list-group-item-action" data-toggle="list"
                             href="#account-change-password">Ubah Password</a>
                         <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#siswa">Formulir Siswa</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
                             href="#sekolah">Formulir Sekolah</a>
                     </div>
                 </div>
@@ -43,69 +41,6 @@
                                 <div class="form-group">
                                     <label class="form-label">Konfirmasi Password</label>
                                     <input type="password" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane fade" id="siswa">
-                            <div class="card-body pb-2">
-                                <h6 class="mb-4">Data Pribadi</h6>
-                                <div class="form-group">
-                                    <label class="form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Tanggal Lahir</label>
-                                    <input type="date" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Nomor Telepon</label>
-                                    <input type="number" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Jenis Kelamin</label>
-                                    <select class="custom-select">
-                                        <option>Laki-laki</option>
-                                        <option>Perempuan</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Alamat</label>
-                                    <input type="text" class="form-control" value="">
-                                </div>
-                            </div>
-                            <hr class="border-light m-0">
-                            <div class="card-body pb-2">
-                                <h6 class="mb-4">Data Sekolah</h6>
-                                <div class="form-group">
-                                    <label class="form-label">NISN</label>
-                                    <input type="number" class="form-control" value="+0 (123) 456 7891">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="file">Surat Daftar</label>
-                                    <input type="file" class="form-control" id="file" name="file">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="foto">Foto</label>
-                                    <input type="file" class="form-control" id="foto" name="foto">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Nama Sekolah</label>
-                                    <input type="text" class="form-control" value>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Jenjang</label>
-                                    <select class="custom-select">
-                                        <option>SMA</option>
-                                        <option>MTS</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Tanggal Daftar</label>
-                                    <input type="date" class="form-control" value>
                                 </div>
                             </div>
                         </div>

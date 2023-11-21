@@ -48,35 +48,71 @@
 
     <!-- From Daftar Siswa -->
     <div class="container">
-        <h3>Daftar (Sekolah)</h3>
-
-        <a href="daftar-siswa.php" class="next">
-            <span class="btnText">Siswa</span>
-        </a>
+        <h3>Daftar (Siswa)</h3>
         <form action="#">
             <div class="form first">
                 <div class="details personal">
-                    <span class="title">Data Sekolah</span>
+                    <span class="title">Data Pribadi</span>
 
                     <div class="fields">
                         <div class="input-field">
-                            <label>Nama Sekolah</label>
+                            <label>Nama Lengkap</label>
                             <input type="text" placeholder="Masukkan nama" required>
                         </div>
 
                         <div class="input-field">
-                            <label>NPSN</label>
-                            <input type="number" placeholder="Masukkan npsn" required>
+                            <label>Tanggal Lahir</label>
+                            <input type="date" placeholder="Masukkan tanggal lahir" required>
                         </div>
 
                         <div class="input-field">
                             <label>Email</label>
-                            <input type="text" placeholder="Masukkan email" required>
+                            <input type="email" placeholder="Masukkan email" required>
                         </div>
 
                         <div class="input-field">
                             <label>Nomor Telepon</label>
                             <input type="number" placeholder="Masukkan nomor telepon" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Jenis Kelamin</label>
+                            <select required>
+                                <option disabled selected>Pilih Jenis Kelamin</option>
+                                <option>Laki-laki</option>
+                                <option>Perempuan</option>
+                            </select>
+                        </div>
+
+                        <div class="input-field">
+                            <label>Alamat</label>
+                            <input type="text" placeholder="Masukkan alamat" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="details ID">
+                    <span class="title">Data Sekolah</span>
+
+                    <div class="fields">
+                        <div class="input-field">
+                            <label>NISN</label>
+                            <input type="number" placeholder="Masukkan nisn" required>
+                        </div>
+
+                        <div class="input-field">
+                            <label for="file">Surat Daftar</label>
+                            <input type="file" id="file" name="file">
+                        </div>
+                        
+                        <div class="input-field">
+                            <label for="foto">Foto</label>
+                            <input type="file" id="foto" name="foto">
+                        </div>
+
+                        <div class="input-field">
+                            <label>Nama Sekolah</label>
+                            <input type="text" placeholder="Masukan sekolah" required>
                         </div>
 
                         <div class="input-field">
@@ -89,45 +125,8 @@
                         </div>
 
                         <div class="input-field">
-                            <label>Alamat</label>
-                            <input type="text" placeholder="Masukkan alamat" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Kecamatan</label>
-                            <input type="text" placeholder="Masukkan kecamatan" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Kabupaten/Kota</label>
-                            <input type="text" placeholder="Masukkan kabupaten/kota" required>
-                        </div>
-                        
-                        <div class="input-field">
-                            <label for="file">Surat Sekolah</label>
-                            <input type="file" id="file" name="file">
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="details ID">
-                    <span class="title">Data Pendaftaran</span>
-
-                    <div class="fields">
-                        <div class="input-field">
-                            <label for="file">Surat Izin Pendaftaran</label>
-                            <input type="file" id="file" name="file">
-                        </div>
-
-                        <div class="input-field">
-                            <label>Tanggal Batas Pendaftaran</label>
+                            <label>Tanggal Daftar</label>
                             <input type="date" placeholder="Masukan tanggal daftar" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Tanggal Batas Mutasi</label>
-                            <input type="date" placeholder="Masukan tanggal mutasi" required>
                         </div>
 
                     </div>

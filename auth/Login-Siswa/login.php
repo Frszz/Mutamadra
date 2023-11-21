@@ -19,7 +19,7 @@
         <div class="forms-container">
           <div class="signin-signup">
             <!-- Sign in -->
-            <form action="../../users/home.php" class="sign-in-form">
+            <form action="../../siswa/home.php" class="sign-in-form">
               <h2 class="title">Masuk</h2>
                 <div class="input-field">
                   <i class="ri-user-3-fill"></i>
@@ -29,9 +29,9 @@
                   <i class="ri-lock-fill"></i>
                   <input type="password" placeholder="Password" />
                 </div>
-                <p><a href="../Password-user/password-sekolah.php"> Lupa Password ?</a></p>
+                <p><a href="../Password-user/password-sekolah.html"> Lupa Password ?</a></p>
                 <div class="bungkus">
-                  <a href="../Login-Siswa/login.php" class="btn solid back">Kembali</a>
+                  <a href="../Login-Siswa/login.html" class="btn solid back">Kembali</a>
                   <input type="submit" value="Login" class="btn solid" />
                 </div>
 

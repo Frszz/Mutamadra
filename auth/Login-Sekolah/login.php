@@ -19,7 +19,7 @@
         <div class="forms-container">
           <div class="signin-signup">
             <!-- Sign in -->
-            <form action="../../users/home.php" class="sign-in-form">
+            <form action="../../sekolah/home.php" class="sign-in-form">
               <h2 class="title">Masuk</h2>
                 <div class="input-field">
                   <i class="ri-user-3-fill"></i>

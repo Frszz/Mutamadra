@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Data Sekolah | Sekolah</title>
+    <title>Batas Waktu Mutasi | Sekolah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -32,13 +32,13 @@
     <!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
     <!-- Begin page -->
-    <div id="layout-wrapper"> 
+    <div id="layout-wrapper">
       <header id="page-topbar">
         <div class="navbar-header">
           <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-              <a href="dashboard.html" class="logo logo-dark">
+              <a href="dashboard.php" class="logo logo-dark">
                 <span class="logo-sm">
                   <img src="assets/images/logo.png" alt="logo-sm-dark" height="30" />
                 </span>
@@ -47,7 +47,7 @@
                 </span>
               </a>
 
-              <a href="dashboard.html" class="logo logo-light">
+              <a href="dashboard.php" class="logo logo-light">
                 <span class="logo-sm">
                   <img src="assets/images/logo.png" alt="logo-sm-light" height="30" />
                 </span>
@@ -66,9 +66,9 @@
               <div class="input-group">
                 <button class="btn btn-rounded dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu <i class="mdi mdi-chevron-down ms-2"></i></button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="daftar.html">Data Pendaftaran</a></li>
-                  <li><a class="dropdown-item" href="mutasi.html">Data Mutasi</a></li>
-                  <li><a class="dropdown-item" href="siswa.html">Data Siswa</a></li>
+                  <li><a class="dropdown-item" href="daftar.php">Data Pendaftaran</a></li>
+                  <li><a class="dropdown-item" href="mutasi.php">Data Mutasi</a></li>
+                  <li><a class="dropdown-item" href="siswa.php">Data Siswa</a></li>
                 </ul>
                 <input type="text" class="form-control bg-transparent" placeholder="Search.." aria-label="Text input with dropdown button" />
                 <span class="mdi mdi-magnify"></span>
@@ -118,7 +118,7 @@
                 <a class="dropdown-item" href="#"><i class="ri-user-line align-middle me-1"></i> Profile</a>
                 <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> Email</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item text-danger" href="../auth/Login-admin/login.html"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                <a class="dropdown-item text-danger" href="../auth/Login-admin/login.php"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
               </div>
             </div>
             <!-- end user -->
@@ -145,7 +145,7 @@
               <li class="menu-title">Menu</li>
 
               <li>
-                <a href="dashboard.html" class="waves-effect">
+                <a href="dashboard.php" class="waves-effect">
                   <i class="ri-dashboard-line"></i>
                   <span>Dashboard</span>
                 </a>
@@ -156,8 +156,8 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="daftar.html">Pengajuan Daftar</a></li>
-                  <li><a href="mutasi.html">Pengajuan Mutasi</a></li>
+                  <li><a href="daftar.php">Pengajuan Daftar</a></li>
+                  <li><a href="mutasi.php">Pengajuan Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -167,9 +167,9 @@
                   <span>Master</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="siswa.html">Data Siswa</a></li>
-                  <li><a href="sekolah.html">Data Sekolah</a></li>
-                  <li><a href="batas.html">Batas Waktu Mutasi</a></li>
+                  <li><a href="siswa.php">Data Siswa</a></li>
+                  <li><a href="sekolah.php">Data Sekolah</a></li>
+                  <li><a href="batas.php">Batas Waktu Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -179,7 +179,7 @@
                   <span>Bantuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="bantuan.html">Information</a></li>
+                  <li><a href="bantuan.php">Information</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -199,12 +199,12 @@
             <div class="row">
               <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                  <h4 class="mb-sm-0">Data Sekolah</h4>
+                  <h4 class="mb-sm-0">Batas Waktu Mutasi</h4>
 
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                       <li class="breadcrumb-item"><a href="javascript: void(0);">Master</a></li>
-                      <li class="breadcrumb-item active">Data Sekolah</li>
+                      <li class="breadcrumb-item active">Batas Waktu Mutasi</li>
                     </ol>
                   </div>
                 </div>
@@ -216,16 +216,15 @@
               <div class="col-12">
                 <div class="card">
                   <div class="card-body">
-                  `<a href="sekolah-tambah.html" type="button" class="btn btn-success mb-3">Tambah</a>
+                  `<a href="batas-tambah.php" type="button" class="btn btn-success mb-3">Tambah</a>
 
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%">
                       <thead>
                         <tr>
                           <th>NPSN</th>
                           <th>Nama Sekolah</th>
-                          <th>Kabupaten/Kota</th>
-                          <th>Kecamatan</th>
-                          <th>Jenjang</th>
+                          <th>Tanggal Batas</th>
+                          <th>Status</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
@@ -234,9 +233,8 @@
                         <tr>
                           <td>004574</td>
                           <td>Man 1</td>
-                          <td>Medan</td>
-                          <td>Medan Tembung</td>
-                          <td>SMA</td>
+                          <td>07-09-2022</td>
+                          <td>Buka/Tutup</td>
                           <td>
                             <button type="button" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></button>
                             <button type="button" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></button>
@@ -340,7 +338,7 @@
     <script src="assets/libs/jszip/jszip.min.js"></script>
     <script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
     <script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.php5.min.js"></script>
     <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
 

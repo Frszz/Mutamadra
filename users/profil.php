@@ -25,22 +25,22 @@
     
     <header>
       <!-- Navbar Left -->
-        <a href="home.html" class="logo">
+        <a href="home.php" class="logo">
             <i class="ri-home-7-fill"></i><span>Mutamadra</span>
         </a>
 
       <!-- Navbar Center -->
         <ul class="navbar">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="profil.html" class="active">Profil</a></li>
-            <li><a href="daftar-siswa.html">Daftar</a></li>
-            <li><a href="mutasi-siswa.html">Mutasi</a></li>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="profil.php" class="active">Profil</a></li>
+            <li><a href="daftar-siswa.php">Daftar</a></li>
+            <li><a href="mutasi-siswa.php">Mutasi</a></li>
         </ul>
 
       <!-- Navbar Right -->
         <div class="main">
-            <a href="akun.html" class="user"><i class="ri-user-fill"></i>Akun</a>
-            <a href="../auth/login-user.html" class="user">Logout</a>
+            <a href="akun.php" class="user"><i class="ri-user-fill"></i>Akun</a>
+            <a href="../auth/login-user.php" class="user">Logout</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
 

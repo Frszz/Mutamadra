@@ -33,7 +33,7 @@
                 </div>
                 <!-- Button -->
                 <div class="enter">
-                    <a href="login.html" type="button">Konfirmasi</a>
+                    <a href="login.php" type="button">Konfirmasi</a>
                 </div> 
             </form>
         </div>
@@ -54,7 +54,7 @@
                 </div>
                 <!-- Button -->
                 <div class="enter">
-                    <a href="../../admin/dashboard.html" type="button">Login</a>
+                    <a href="../../admin/dashboard.php" type="button">Login</a>
                 </div>
             </form>
         </div>
@@ -72,7 +72,9 @@
                     <img src="../../admin/assets/images/logo.png" class="image" alt="" />
                     <br>
                     <h1>E - MUTAMADRA</h1>
-                    <p>Selamat Datang !</p>
+                    <p>Selamat Datang ! <br>
+                        Dashboard Manajemen Data Sekolah
+                    </p>
                     <button class="hidden" id="reset">Reset Password</button>
                 </div>
             </div>

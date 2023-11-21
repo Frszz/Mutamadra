@@ -23,7 +23,7 @@
                 </div>
                 <!-- Button -->
                 <div class="enter">
-                    <a href="Login-Sekolah/login.html" type="button">Sekolah</a>
+                    <a href="Login-Sekolah/login.php" type="button">Sekolah</a>
                 </div> 
             </form>
         </div>
@@ -36,7 +36,7 @@
                 </div>
                 <!-- Button -->
                 <div class="enter">
-                    <a href="Login-Siswa/login.html" type="button">Siswa</a>
+                    <a href="Login-Siswa/login.php" type="button">Siswa</a>
                 </div>
             </form>
         </div>

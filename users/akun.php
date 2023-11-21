@@ -175,7 +175,7 @@
         </div>
         <div class="text-right mt-3">
             <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
-            <a href="home.html" type="button" class="btn btn-default">Back</a>
+            <a href="home.php" type="button" class="btn btn-default">Back</a>
         </div>
     </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

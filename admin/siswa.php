@@ -38,7 +38,7 @@
           <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-              <a href="dashboard.html" class="logo logo-dark">
+              <a href="dashboard.php" class="logo logo-dark">
                 <span class="logo-sm">
                   <img src="assets/images/logo.png" alt="logo-sm-dark" height="30" />
                 </span>
@@ -47,7 +47,7 @@
                 </span>
               </a>
 
-              <a href="dashboard.html" class="logo logo-light">
+              <a href="dashboard.php" class="logo logo-light">
                 <span class="logo-sm">
                   <img src="assets/images/logo.png" alt="logo-sm-light" height="30" />
                 </span>
@@ -66,9 +66,9 @@
               <div class="input-group">
                 <button class="btn btn-rounded dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu <i class="mdi mdi-chevron-down ms-2"></i></button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="daftar.html">Data Pendaftaran</a></li>
-                  <li><a class="dropdown-item" href="mutasi.html">Data Mutasi</a></li>
-                  <li><a class="dropdown-item" href="siswa.html">Data Siswa</a></li>
+                  <li><a class="dropdown-item" href="daftar.php">Data Pendaftaran</a></li>
+                  <li><a class="dropdown-item" href="mutasi.php">Data Mutasi</a></li>
+                  <li><a class="dropdown-item" href="siswa.php">Data Siswa</a></li>
                 </ul>
                 <input type="text" class="form-control bg-transparent" placeholder="Search.." aria-label="Text input with dropdown button" />
                 <span class="mdi mdi-magnify"></span>
@@ -118,7 +118,7 @@
                 <a class="dropdown-item" href="#"><i class="ri-user-line align-middle me-1"></i> Profile</a>
                 <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> Email</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item text-danger" href="../auth/Login-admin/login.html"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                <a class="dropdown-item text-danger" href="../auth/Login-admin/login.php"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
               </div>
             </div>
             <!-- end user -->
@@ -145,7 +145,7 @@
               <li class="menu-title">Menu</li>
 
               <li>
-                <a href="dashboard.html" class="waves-effect">
+                <a href="dashboard.php" class="waves-effect">
                   <i class="ri-dashboard-line"></i>
                   <span>Dashboard</span>
                 </a>
@@ -156,8 +156,8 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="daftar.html">Pengajuan Daftar</a></li>
-                  <li><a href="mutasi.html">Pengajuan Mutasi</a></li>
+                  <li><a href="daftar.php">Pengajuan Daftar</a></li>
+                  <li><a href="mutasi.php">Pengajuan Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -167,9 +167,9 @@
                   <span>Master</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="siswa.html">Data Siswa</a></li>
-                  <li><a href="sekolah.html">Data Sekolah</a></li>
-                  <li><a href="batas.html">Batas Waktu Mutasi</a></li>
+                  <li><a href="siswa.php">Data Siswa</a></li>
+                  <li><a href="sekolah.php">Data Sekolah</a></li>
+                  <li><a href="batas.php">Batas Waktu Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -179,7 +179,7 @@
                   <span>Bantuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="bantuan.html">Information</a></li>
+                  <li><a href="bantuan.php">Information</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -341,7 +341,7 @@
     <script src="assets/libs/jszip/jszip.min.js"></script>
     <script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
     <script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script src="assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="assets/libs/datatables.net-buttons/js/buttons.php5.min.js"></script>
     <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
     <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
 

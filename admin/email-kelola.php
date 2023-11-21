@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Data Sekolah| Sekolah</title>
+    <title>Bantuan | Sekolah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -27,7 +27,7 @@
           <div class="d-flex">
             <!-- LOGO -->
             <div class="navbar-brand-box">
-              <a href="dashboard.html" class="logo logo-dark">
+              <a href="dashboard.php" class="logo logo-dark">
                 <span class="logo-sm">
                   <img src="assets/images/logo.png" alt="logo-sm-dark" height="30" />
                 </span>
@@ -36,7 +36,7 @@
                 </span>
               </a>
 
-              <a href="dashboard.html" class="logo logo-light">
+              <a href="dashboard.php" class="logo logo-light">
                 <span class="logo-sm">
                   <img src="assets/images/logo.png" alt="logo-sm-light" height="30" />
                 </span>
@@ -55,9 +55,9 @@
               <div class="input-group">
                 <button class="btn btn-rounded dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu <i class="mdi mdi-chevron-down ms-2"></i></button>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="daftar.html">Data Pendaftaran</a></li>
-                  <li><a class="dropdown-item" href="mutasi.html">Data Mutasi</a></li>
-                  <li><a class="dropdown-item" href="siswa.html">Data Siswa</a></li>
+                  <li><a class="dropdown-item" href="daftar.php">Data Pendaftaran</a></li>
+                  <li><a class="dropdown-item" href="mutasi.php">Data Mutasi</a></li>
+                  <li><a class="dropdown-item" href="siswa.php">Data Siswa</a></li>
                 </ul>
                 <input type="text" class="form-control bg-transparent" placeholder="Search.." aria-label="Text input with dropdown button" />
                 <span class="mdi mdi-magnify"></span>
@@ -107,7 +107,7 @@
                 <a class="dropdown-item" href="#"><i class="ri-user-line align-middle me-1"></i> Profile</a>
                 <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> Email</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item text-danger" href="../auth/Login-admin/login.html"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                <a class="dropdown-item text-danger" href="../auth/Login-admin/login.php"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
               </div>
             </div>
             <!-- end user -->
@@ -134,7 +134,7 @@
               <li class="menu-title">Menu</li>
 
               <li>
-                <a href="dashboard.html" class="waves-effect">
+                <a href="dashboard.php" class="waves-effect">
                   <i class="ri-dashboard-line"></i>
                   <span>Dashboard</span>
                 </a>
@@ -145,8 +145,8 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="daftar.html">Pengajuan Daftar</a></li>
-                  <li><a href="mutasi.html">Pengajuan Mutasi</a></li>
+                  <li><a href="daftar.php">Pengajuan Daftar</a></li>
+                  <li><a href="mutasi.php">Pengajuan Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -156,9 +156,9 @@
                   <span>Master</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="siswa.html">Data Siswa</a></li>
-                  <li><a href="sekolah.html">Data Sekolah</a></li>
-                  <li><a href="batas.html">Batas Waktu Mutasi</a></li>
+                  <li><a href="siswa.php">Data Siswa</a></li>
+                  <li><a href="sekolah.php">Data Sekolah</a></li>
+                  <li><a href="batas.php">Batas Waktu Mutasi</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -168,7 +168,7 @@
                   <span>Bantuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="bantuan.html">Information</a></li>
+                  <li><a href="bantuan.php">Information</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -189,13 +189,13 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                <h4 class="mb-sm-0">Tambah Data Sekolah</h4>
+                                <h4 class="mb-sm-0">Ubah Data Email</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Master</a></li>
-                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Data Sekolah</a></li>
-                                        <li class="breadcrumb-item active">Tambah Data</li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Bantuan</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">Informasi</a></li>
+                                        <li class="breadcrumb-item active">Ubah Data</li>
                                     </ol>
                                 </div>
 
@@ -209,48 +209,23 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row mb-3">
-                                        <label for="npsn" class="col-sm-2 col-form-label">NPSN</label>
+                                        <label for="email-admin" class="col-sm-2 col-form-label">Email Admin</label>
                                         <div class="col-sm-10">
-                                            <input class="form-control" type="number" id="npsn">
+                                            <input class="form-control" type="email"  id="email-admin">
                                         </div>
                                     </div>
                                     <!-- end row -->
                                     <div class="row mb-3">
-                                        <label for="sekolah" class="col-sm-2 col-form-label">Nama Sekolah</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="text"  id="sekolah">
-                                        </div>
-                                    </div>
-                                    <!-- end row -->
-                                    <div class="row mb-3">
-                                        <label for="kota" class="col-sm-2 col-form-label">Kabupaten/Kota</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="text" id="kota">
-                                        </div>
-                                    </div>
-                                    <!-- end row -->
-                                    <div class="row mb-3">
-                                        <label for="kecamatan" class="col-sm-2 col-form-label">Kecamatan</label>
-                                        <div class="col-sm-10">
-                                            <input class="form-control" type="text" id="kecamatan">
-                                        </div>
-                                    </div>
-                                    <!-- end row -->
-                                    <div class="row mb-3">
-                                        <label for="jenjang" id="jenjang" class="col-sm-2 col-form-label">Jenjang</label>
-                                        <div class="col-sm-10">
-                                            <select class="form-select">
-                                                <option selected="">Pilih</option>
-                                                <option value="1">SMA</option>
-                                                <option value="2">MTS</option>
-                                            </select>
-                                        </div>
+                                      <label for="email-admin" class="col-sm-2 col-form-label">Konfirmasi Email</label>
+                                      <div class="col-sm-10">
+                                          <input class="form-control" type="email"  id="email-admin">
+                                      </div>
                                     </div>
                                     <!-- end row -->
                                     <div class="mb-3 row mt-5">
                                       <div class="col">
-                                        <a href="#" type="button" class="btn btn-success"><i class="ri-save-3-fill"></i> Tambah</a>
-                                        <a href="sekolah.html" type="button" class="btn btn-danger"><i class="ri-reply-fill"></i> Kembali</a>
+                                        <a href="#" type="button" class="btn btn-success"><i class="ri-save-3-fill"></i> Simpan</a>
+                                        <a href="bantuan.php" type="button" class="btn btn-danger"><i class="ri-reply-fill"></i> Kembali</a>
                                       </div>
                                     </div>
                                 </div>

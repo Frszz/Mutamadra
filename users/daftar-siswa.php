@@ -25,22 +25,22 @@
     
     <header>
       <!-- Navbar Left -->
-        <a href="home.html" class="logo">
+        <a href="home.php" class="logo">
             <i class="ri-home-7-fill"></i><span>Mutamadra</span>
         </a>
 
       <!-- Navbar Center -->
         <ul class="navbar">
-            <li><a href="home.html">Home</a></li>
-            <li><a href="profil.html">Profil</a></li>
-            <li><a href="daftar-siswa.html">Daftar</a></li>
-            <li><a href="mutasi-siswa.html" class="active">Mutasi</a></li>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="profil.php">Profil</a></li>
+            <li><a href="daftar-siswa.php" class="active">Daftar</a></li>
+            <li><a href="mutasi-siswa.php">Mutasi</a></li>
         </ul>
 
       <!-- Navbar Right -->
         <div class="main">
-            <a href="akun.html" class="user"><i class="ri-user-fill"></i>Akun</a>
-            <a href="../auth/login-user.html" class="user">Logout</a>
+            <a href="akun.php" class="user"><i class="ri-user-fill"></i>Akun</a>
+            <a href="../auth/login-user.php" class="user">Logout</a>
             <div class="bx bx-menu" id="menu-icon"></div>
         </div>
 
@@ -48,8 +48,11 @@
 
     <!-- From Daftar Siswa -->
     <div class="container">
-        <h3>Mutasi (Siswa)</h3>
+        <h3>Daftar (Siswa)</h3>
 
+        <a href="daftar-sekolah.php" class="next">
+            <span class="btnText">Sekolah</span>
+        </a>
         <form action="#">
             <div class="form first">
                 <div class="details personal">
@@ -68,7 +71,7 @@
 
                         <div class="input-field">
                             <label>Email</label>
-                            <input type="text" placeholder="Masukkan email" required>
+                            <input type="email" placeholder="Masukkan email" required>
                         </div>
 
                         <div class="input-field">
@@ -102,7 +105,7 @@
                         </div>
 
                         <div class="input-field">
-                            <label for="file">Surat Pindah</label>
+                            <label for="file">Surat Daftar</label>
                             <input type="file" id="file" name="file">
                         </div>
                         
@@ -112,13 +115,17 @@
                         </div>
 
                         <div class="input-field">
-                            <label>Sekolah Sebelumnya</label>
-                            <input type="text" placeholder="Masukan sekolah sebelum" required>
+                            <label>Nama Sekolah</label>
+                            <input type="text" placeholder="Masukan sekolah" required>
                         </div>
 
                         <div class="input-field">
-                            <label>Sekolah yang Dituju</label>
-                            <input type="text" placeholder="Masukan sekolah tujuan" required>
+                            <label>Jenjang</label>
+                            <select required>
+                                <option disabled selected>Pilih</option>
+                                <option>SMA</option>
+                                <option>MTS</option>
+                            </select>
                         </div>
 
                         <div class="input-field">

@@ -227,25 +227,44 @@
                         <tr>
                           <th>NPSN</th>
                           <th>Nama Sekolah</th>
+                          <th>Alamat</th>
                           <th>Kabupaten/Kota</th>
                           <th>Kecamatan</th>
                           <th>Jenjang</th>
+                          <th>Surat Sekolah</th>
+                          <th>Email</th>
+                          <th>Password</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
-
                       <tbody>
-                        <tr>
-                          <td>004574</td>
-                          <td>Man 1</td>
-                          <td>Medan</td>
-                          <td>Medan Tembung</td>
-                          <td>SMA</td>
-                          <td>
-                            <button type="button" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></button>
-                            <button type="button" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></button>
-                          </td>
-                        </tr>
+                        <?php
+                          $query = "SELECT * FROM sekolah";
+                          $sql_sekolah = mysqli_query($con, $query) or die (mysqli_error($con));
+                          if(mysqli_num_rows($sql_sekolah) > 0){
+                              while($data = mysqli_fetch_array($sql_sekolah)){
+                        ?>
+                                <tr>
+                                  <td><?=$data['npsn']?></td>
+                                  <td><?=$data['nama_sekolah']?></td>
+                                  <td><?=$data['alamat']?></td>
+                                  <td><?=$data['kab_kota']?></td>
+                                  <td><?=$data['kecamatan']?></td>
+                                  <td><?=$data['jenjang']?></td>
+                                  <td><?=$data['surat_sekolah']?></td>
+                                  <td><?=$data['email_sekolah']?></td>
+                                  <td><?=$data['password_sekolah']?></td>
+                                  <td>
+                                    <a href="crud/sekolah/update.php?id=<?=$data['id']?>" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></a>
+                                    <a href="crud/sekolah/delete.php?id=<?=$data['id']?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data Ini?')" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></a>
+                                  </td>
+                                </tr>
+                        <?php
+                              }
+                          } else{
+                              echo "<tr><td colspan=\"4\" align=\"center\">Data Tidak Ditemukan</td></tr>";
+                          }
+                        ?>
                       </tbody>
                     </table>
                   </div>

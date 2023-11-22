@@ -28,7 +28,7 @@
             if(isset($_POST['loginSiswa'])) {
               $nisn = trim(mysqli_real_escape_string($con, $_POST['nisn']));
               $pass = trim(mysqli_real_escape_string($con, $_POST['password']));
-              $sql_login = mysqli_query($con, "SELECT * FROM siswa WHERE nisn = '$nisn' AND password = '$pass'") or die (mysqli_error($con));
+              $sql_login = mysqli_query($con, "SELECT * FROM siswa WHERE nisn = '$nisn' AND password_siswa = '$pass'") or die (mysqli_error($con));
               if(mysqli_num_rows($sql_login) > 0){
                   $_SESSION['nisnSiswa'] = $nisn;
                   echo "<script>window.location='../../siswa/home.php';</script>";
@@ -82,7 +82,7 @@
               $nisn = trim(mysqli_real_escape_string($con, $_POST['nisn']));
               $email = trim(mysqli_real_escape_string($con, $_POST['email']));
               $pass = trim(mysqli_real_escape_string($con, $_POST['password']));
-              mysqli_query($con, "INSERT INTO siswa (id, nisn, email, password) VALUES ('', '$nisn', '$email', '$pass')") or die (mysqli_error($con));
+              mysqli_query($con, "INSERT INTO siswa (id, nisn, email_siswa, password_siswa) VALUES ('', '$nisn', '$email', '$pass')") or die (mysqli_error($con));
               echo "<script>alert('Registrasi Berhasil Silahkan Login');
               window.location='login.php';
               </script>";

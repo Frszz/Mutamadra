@@ -28,7 +28,7 @@
             if(isset($_POST['loginSekolah'])) {
               $npsn = trim(mysqli_real_escape_string($con, $_POST['npsn']));
               $pass = trim(mysqli_real_escape_string($con, $_POST['password']));
-              $sql_login = mysqli_query($con, "SELECT * FROM sekolah WHERE npsn = '$npsn' AND password = '$pass'") or die (mysqli_error($con));
+              $sql_login = mysqli_query($con, "SELECT * FROM sekolah WHERE npsn = '$npsn' AND password_sekolah = '$pass'") or die (mysqli_error($con));
               if(mysqli_num_rows($sql_login) > 0){
                   $_SESSION['npsnSekolah'] = $npsn;
                   echo "<script>window.location='../../sekolah/home.php';</script>";
@@ -82,7 +82,7 @@
               $npsn = trim(mysqli_real_escape_string($con, $_POST['npsn']));
               $email = trim(mysqli_real_escape_string($con, $_POST['email']));
               $pass = trim(mysqli_real_escape_string($con, $_POST['password']));
-              mysqli_query($con, "INSERT INTO sekolah (id, npsn, email, password) VALUES ('', '$npsn', '$email', '$pass')") or die (mysqli_error($con));
+              mysqli_query($con, "INSERT INTO sekolah (id, npsn, email_sekolah, password_sekolah) VALUES ('', '$npsn', '$email', '$pass')") or die (mysqli_error($con));
               echo "<script>alert('Registrasi Berhasil Silahkan Login');
               window.location='login.php';
               </script>";

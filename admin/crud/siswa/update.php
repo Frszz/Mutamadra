@@ -1,35 +1,24 @@
 <?php
-    require_once "../config/config.php";
+    require_once "../../../config/config.php";
     if(isset($_SESSION['emailAdmin'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Data Siswa | Sekolah</title>
+    <title>Batas Waktu Mutasi| Sekolah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="assets/images/favicon.ico" />
-
-    <!-- jquery.vectormap css -->
-    <link href="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
-
-    <!-- DataTables -->
-    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-    <link href="assets/libs/datatables.net-select-bs4/css//select.bootstrap4.min.css" rel="stylesheet" type="text/css" />
-
-    <!-- Responsive datatable examples -->
-    <link href="assets/libs/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="../../assets/images/favicon.ico" />
 
     <!-- Bootstrap Css -->
-    <link href="assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="../../assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+    <link href="../../assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
   </head>
 
   <body data-topbar="dark">
@@ -196,101 +185,112 @@
       <!-- Left Sidebar End -->
 
       <!-- Start right Content here -->
-      <div class="main-content">
-        <div class="page-content">
-          <div class="container-fluid">
-            <!-- start page title -->
-            <div class="row">
-              <div class="col-12">
-                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                  <h4 class="mb-sm-0">Data Siswa</h4>
+        <div class="main-content">
+            <?php
+                $id = @$_GET['id'];
+                $sql_siswa = mysqli_query($con, "SELECT * FROM siswa, sekolah WHERE siswa.id = '$id' && sekolah.id = siswa.id") or die (mysqli_error($con));
+                $data = mysqli_fetch_array($sql_siswa);
+            ?>
+            <form method="POST" action="">
+                <div class="page-content">
+                    <div class="container-fluid">
+                        <!-- start page title -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                                    <h4 class="mb-sm-0">Edit</h4>
 
-                  <div class="page-title-right">
-                    <ol class="breadcrumb m-0">
-                      <li class="breadcrumb-item"><a href="javascript: void(0);">Master</a></li>
-                      <li class="breadcrumb-item active">Data Siswa</li>
-                    </ol>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- end page title -->
+                                    <div class="page-title-right">
+                                        <ol class="breadcrumb m-0">
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Master</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Batas Waktu Mutasi</a></li>
+                                            <li class="breadcrumb-item active">Tambah Data</li>
+                                        </ol>
+                                    </div>
 
-            <div class="row">
-              <div class="col-12">
-                <div class="card">
-                  <div class="card-body">
-                    
-                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%">
-                      <thead>
-                        <tr>
-                          <th>NISN</th>
-                          <th>Nama Siswa</th>
-                          <th>Sekolah</th>
-                          <th>Tempat Lahir</th>
-                          <th>Tanggal Lahir</th>
-                          <th>No. Hp</th>
-                          <th>Email</th>
-                          <th>Password</th>
-                          <th>Aksi</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php
-                          $query = "SELECT * FROM siswa INNER JOIN sekolah ON siswa.id_sekolah = sekolah.id";
-                          $sql_siswa = mysqli_query($con, $query) or die (mysqli_error($con));
-                          if(mysqli_num_rows($sql_siswa) > 0){
-                              while($data = mysqli_fetch_array($sql_siswa)){
-                        ?>
-                                <tr>
-                                  <td><?=$data['nisn']?></td>
-                                  <td><?=$data['nama_siswa']?></td>
-                                  <td><?=$data['nama_sekolah']?></td>
-                                  <td><?=$data['tmpt_lahir']?></td>
-                                  <td><?=$data['tgl_lahir']?></td>
-                                  <td><?=$data['no_hp']?></td>
-                                  <td><?=$data['email_siswa']?></td>
-                                  <td><?=$data['password_siswa']?></td>
-                                  <td>
-                                    <a href="crud/siswa/update.php?id=<?=$data['id']?>" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></a>
-                                    <a href="crud/siswa/delete.php?id=<?=$data['id']?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data Ini?')" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></a>
-                                  </td>
-                                </tr>
-                        <?php
-                              }
-                          } else{
-                              echo "<tr><td colspan=\"4\" align=\"center\">Data Tidak Ditemukan</td></tr>";
-                          }
-                        ?>
-                      </tbody>
-                    </table>
-                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end page title -->
+
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card">
+                                    <div class="card-body">
+                                    <input type="hidden" name="id" value="<?=$data['id']?>">
+                                        <div class="row mb-3">
+                                            <label for="npsn" class="col-sm-2 col-form-label">NISN</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="number" value="<?=$data['nisn']?>" id="npsn">
+                                            </div>
+                                        </div>
+                                        <!-- end row -->
+                                        <div class="row mb-3">
+                                            <label for="sekolah" class="col-sm-2 col-form-label">Nama Siswa</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="<?=$data['nama_siswa']?>" id="sekolah">
+                                            </div>
+                                        </div>
+                                        <!-- end row -->
+                                        <div class="row mb-3">
+                                            <label for="sekolah" class="col-sm-2 col-form-label">Nama Sekolah</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="<?=$data['nama_sekolah']?>" id="sekolah">
+                                            </div>
+                                        </div>
+                                        <!-- end row -->
+                                        <div class="row mb-3">
+                                            <label for="tgl-batas" class="col-sm-2 col-form-label">Tempat Lahir</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="<?=$data['tmpt_lahir']?>" id="tgl-batas">
+                                            </div>
+                                        </div>
+                                        <!-- end row -->
+                                        <div class="row mb-3">
+                                            <label for="jenjang" id="jenjang" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="date" value="<?=$data['tgl_lahir']?>" id="tgl-batas">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="jenjang" id="jenjang" class="col-sm-2 col-form-label">No. Hp</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="<?=$data['no_hp']?>" id="tgl-batas">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="jenjang" id="jenjang" class="col-sm-2 col-form-label">Email</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="<?=$data['email_siswa']?>" id="tgl-batas">
+                                            </div>
+                                        </div>
+                                        <div class="row mb-3">
+                                            <label for="jenjang" id="jenjang" class="col-sm-2 col-form-label">Password</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="<?=$data['password_siswa']?>" id="tgl-batas">
+                                            </div>
+                                        </div>
+                                        <!-- end row -->
+                                        <div class="mb-3 row mt-5">
+                                        <div class="col">
+                                            <a href="#" type="button" class="btn btn-success"><i class="ri-save-3-fill"></i> Tambah</a>
+                                            <a href="batas.php" type="button" class="btn btn-danger"><i class="ri-reply-fill"></i> Kembali</a>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <!-- end cardbody -->
+                                </div>
+                                <!-- end card -->
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- end row -->
                 </div>
-              </div>
-              <!-- end col -->
-            </div>
+            </form>
             <!-- end row -->
-          </div>
-          <!-- container-fluid -->
         </div>
-        <!-- End Page-content -->
-
-        <footer class="footer">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-sm-6">
-                <script>
-                  document.write(new Date().getFullYear());
-                </script>
-                © DIFA.
-              </div>
-              <div class="col-sm-6">
-                <div class="text-sm-end d-none d-sm-block">Crafted with <i class="mdi mdi-fire text-danger"></i> by DIFA</div>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
       <!-- end main content-->
     </div>
     <!-- END layout-wrapper -->
@@ -345,40 +345,22 @@
     <div class="rightbar-overlay"></div>
 
     <!-- JAVASCRIPT -->
-    <script src="assets/libs/jquery/jquery.min.js"></script>
-    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/libs/metismenu/metisMenu.min.js"></script>
-    <script src="assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="assets/libs/node-waves/waves.min.js"></script>
+    <script src="../../assets/libs/jquery/jquery.min.js"></script>
+    <script src="../../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/libs/metismenu/metisMenu.min.js"></script>
+    <script src="../../assets/libs/simplebar/simplebar.min.js"></script>
+    <script src="../../assets/libs/node-waves/waves.min.js"></script>
 
-    <!-- Required datatable js -->
-    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
-    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
-    <!-- Buttons examples -->
-    <script src="assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-    <script src="assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
-    <script src="assets/libs/jszip/jszip.min.js"></script>
-    <script src="assets/libs/pdfmake/build/pdfmake.min.js"></script>
-    <script src="assets/libs/pdfmake/build/vfs_fonts.js"></script>
-    <script src="assets/libs/datatables.net-buttons/js/buttons.php5.min.js"></script>
-    <script src="assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
-    <script src="assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+    <!-- bs custom file input plugin -->
+    <script src="../../assets/libs/bs-custom-file-input/bs-custom-file-input.min.js"></script>
 
-    <script src="assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-    <script src="assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+    <script src="../../assets/js/pages/form-element.init.js"></script>
 
-    <!-- Responsive examples -->
-    <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-    <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
-
-    <!-- Datatable init js -->
-    <script src="assets/js/pages/datatables.init.js"></script>
-
-    <script src="assets/js/app.js"></script>
+    <script src="../../assets/js/app.js"></script>
   </body>
 </html>
 <?php
     } else{
-        echo "<script>window.location='../auth/Login-admin/login.php';</script>";
+        echo "<script>window.location='../../../auth/Login-admin/login.php';</script>";
     }
 ?>

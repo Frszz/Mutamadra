@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Mutamadra</title>
+    <title>Profil | Mutamadra</title>
 
     <!-- remixicon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -34,6 +34,7 @@
             <li><a href="home.php">Home</a></li>
             <li><a href="profil.php" class="active">Profil</a></li>
             <li><a href="daftar-sekolah.php">Daftar</a></li>
+            <li><a href="data-sekolah.php">Data</a></li>
         </ul>
 
       <!-- Navbar Right -->

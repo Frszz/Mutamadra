@@ -34,7 +34,6 @@
             <li><a href="home.php">Home</a></li>
             <li><a href="profil.php">Profil</a></li>
             <li><a href="daftar-siswa.php" class="active">Daftar</a></li>
-            <li><a href="mutasi-siswa.php">Mutasi</a></li>
         </ul>
 
       <!-- Navbar Right -->
@@ -49,6 +48,7 @@
     <!-- From Daftar Siswa -->
     <div class="container">
         <h3>Daftar (Siswa)</h3>
+        
         <form action="#">
             <div class="form first">
                 <div class="details personal">

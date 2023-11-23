@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Mutamadra</title>
+    <title>Daftar | Mutamadra</title>
 
     <!-- remixicon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
@@ -34,6 +34,7 @@
             <li><a href="home.php">Home</a></li>
             <li><a href="profil.php">Profil</a></li>
             <li><a href="daftar-sekolah.php" class="active">Daftar</a></li>
+            <li><a href="data-sekolah.php">Data</a></li>
         </ul>
 
       <!-- Navbar Right -->
@@ -48,89 +49,37 @@
     <!-- From Daftar Siswa -->
     <div class="container">
         <h3>Daftar (Sekolah)</h3>
-
-        <a href="daftar-siswa.php" class="next">
-            <span class="btnText">Siswa</span>
-        </a>
+        
         <form action="#">
             <div class="form first">
                 <div class="details personal">
-                    <span class="title">Data Sekolah</span>
+                    <span class="title">Daftar Sekolah</span>
 
                     <div class="fields">
                         <div class="input-field">
-                            <label>Nama Sekolah</label>
-                            <input type="text" placeholder="Masukkan nama" required>
+                            <label>Tanggal Buka Pendaftaran</label>
+                            <input type="Date" required>
                         </div>
 
                         <div class="input-field">
-                            <label>NPSN</label>
-                            <input type="number" placeholder="Masukkan npsn" required>
+                            <label>Tanggal Tutup Pendaftaran</label>
+                            <input type="Date" required>
                         </div>
 
                         <div class="input-field">
-                            <label>Email</label>
-                            <input type="text" placeholder="Masukkan email" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Nomor Telepon</label>
-                            <input type="number" placeholder="Masukkan nomor telepon" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Jenjang</label>
-                            <select required>
-                                <option disabled selected>Pilih</option>
-                                <option>SMA</option>
-                                <option>MTS</option>
-                            </select>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Alamat</label>
-                            <input type="text" placeholder="Masukkan alamat" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Kecamatan</label>
-                            <input type="text" placeholder="Masukkan kecamatan" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Kabupaten/Kota</label>
-                            <input type="text" placeholder="Masukkan kabupaten/kota" required>
-                        </div>
-                        
-                        <div class="input-field">
-                            <label for="file">Surat Sekolah</label>
+                            <label for="file">Surat Penerimaan Siswa</label>
                             <input type="file" id="file" name="file">
+                        </div>
+
+                        <div class="input-field" style="opacity: 0;">
+                            <label>Tanggal Buka Mutasi</label>
+                            <input type="" required>
                         </div>
 
                     </div>
                 </div>
 
                 <div class="details ID">
-                    <span class="title">Data Pendaftaran</span>
-
-                    <div class="fields">
-                        <div class="input-field">
-                            <label for="file">Surat Izin Pendaftaran</label>
-                            <input type="file" id="file" name="file">
-                        </div>
-
-                        <div class="input-field">
-                            <label>Tanggal Batas Pendaftaran</label>
-                            <input type="date" placeholder="Masukan tanggal daftar" required>
-                        </div>
-
-                        <div class="input-field">
-                            <label>Tanggal Batas Mutasi</label>
-                            <input type="date" placeholder="Masukan tanggal mutasi" required>
-                        </div>
-
-                    </div>
-
                     <button class="sumbit">
                         <span class="btnText">Submit</span>
                         <i class="uil uil-navigator"></i>

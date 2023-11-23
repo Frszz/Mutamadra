@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Pengajuan Daftar | Sekolah</title>
+    <title>Pengajuan Siswa | Sekolah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -64,20 +64,6 @@
             <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
               <i class="ri-menu-2-line align-middle"></i>
             </button>
-
-            <!-- App Search-->
-            <form class="app-search d-none d-lg-block">
-              <div class="input-group">
-                <button class="btn btn-rounded dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu <i class="mdi mdi-chevron-down ms-2"></i></button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="daftar.php">Data Pendaftaran</a></li>
-                  <li><a class="dropdown-item" href="mutasi.php">Data Mutasi</a></li>
-                  <li><a class="dropdown-item" href="siswa.php">Data Siswa</a></li>
-                </ul>
-                <input type="text" class="form-control bg-transparent" placeholder="Search.." aria-label="Text input with dropdown button" />
-                <span class="mdi mdi-magnify"></span>
-              </div>
-            </form>
           </div>
 
           <div class="d-flex">
@@ -119,8 +105,6 @@
               </button>
               <div class="dropdown-menu dropdown-menu-end">
                 <!-- item-->
-                <a class="dropdown-item" href="#"><i class="ri-user-line align-middle me-1"></i> Profile</a>
-                <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> Email</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item text-danger" href="../auth/Login-admin/logout.php"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
               </div>
@@ -160,8 +144,8 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="daftar.php">Pengajuan Daftar</a></li>
-                  <li><a href="mutasi.php">Pengajuan Mutasi</a></li>
+                  <li><a href="daftar.php">Pengajuan Siswa</a></li>
+                  <li><a href="mutasi.php">Pengajuan Pendaftaran</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -173,17 +157,6 @@
                 <ul class="sub-menu" aria-expanded="false">
                   <li><a href="siswa.php">Data Siswa</a></li>
                   <li><a href="sekolah.php">Data Sekolah</a></li>
-                  <li><a href="batas.php">Batas Waktu Mutasi</a></li>
-                </ul>
-              </li>
-              <!-- end li -->
-              <li>
-                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-question-fill"></i>
-                  <span>Bantuan</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="bantuan.php">Information</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -208,7 +181,7 @@
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                       <li class="breadcrumb-item"><a href="javascript: void(0);">Pengajuan</a></li>
-                      <li class="breadcrumb-item active">Pengajuan Daftar</li>
+                      <li class="breadcrumb-item active">Pengajuan Siswa</li>
                     </ol>
                   </div>
                 </div>
@@ -226,8 +199,10 @@
                         <tr>
                           <th>NISN</th>
                           <th>Nama Siswa</th>
-                          <th>Tanggal</th>
-                          <th>Sekolah</th>
+                          <th>Tanggal Daftar</th>
+                          <th>Asal Sekolah</th>
+                          <th>Tujuan Sekolah</th>
+                          <th>Tujuan</th>
                           <th>Surat</th>
                           <th>Status</th>
                           <th>Aksi</th>
@@ -240,6 +215,8 @@
                           <td>Muhammad Faris Adira</td>
                           <td>07-09-2022</td>
                           <td>Man 1</td>
+                          <td>Man 2</td>
+                          <td>tujuan</td>
                           <td style="text-align:center"><embed src="assets/file/Surat.pdf"type="application/pdf" width="100" height="100" alt="surat" /><br><a href="assets/file/Surat.pdf"type="application/pdf" alt="surat" target="_blank">Download Surat</a></td>
                           <td>Diterima/Ditolak</td>
                           <td style="text-align: center;">

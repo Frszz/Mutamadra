@@ -62,20 +62,6 @@
             <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
               <i class="ri-menu-2-line align-middle"></i>
             </button>
-
-            <!-- App Search-->
-            <form class="app-search d-none d-lg-block">
-              <div class="input-group">
-                <button class="btn btn-rounded dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu <i class="mdi mdi-chevron-down ms-2"></i></button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="daftar.php">Data Pendaftaran</a></li>
-                  <li><a class="dropdown-item" href="mutasi.php">Data Mutasi</a></li>
-                  <li><a class="dropdown-item" href="siswa.php">Data Siswa</a></li>
-                </ul>
-                <input type="text" class="form-control bg-transparent" placeholder="Search.." aria-label="Text input with dropdown button" />
-                <span class="mdi mdi-magnify"></span>
-              </div>
-            </form>
           </div>
 
           <div class="d-flex">
@@ -117,8 +103,6 @@
               </button>
               <div class="dropdown-menu dropdown-menu-end">
                 <!-- item-->
-                <a class="dropdown-item" href="#"><i class="ri-user-line align-middle me-1"></i> Profile</a>
-                <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> Email</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item text-danger" href="../auth/Login-admin/logout.php"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
               </div>
@@ -158,8 +142,8 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="daftar.php">Pengajuan Daftar</a></li>
-                  <li><a href="mutasi.php">Pengajuan Mutasi</a></li>
+                  <li><a href="daftar.php">Pengajuan Siswa</a></li>
+                  <li><a href="mutasi.php">Pengajuan Pendaftaran</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -171,17 +155,6 @@
                 <ul class="sub-menu" aria-expanded="false">
                   <li><a href="siswa.php">Data Siswa</a></li>
                   <li><a href="sekolah.php">Data Sekolah</a></li>
-                  <li><a href="batas.php">Batas Waktu Mutasi</a></li>
-                </ul>
-              </li>
-              <!-- end li -->
-              <li>
-                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-question-fill"></i>
-                  <span>Bantuan</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="bantuan.php">Information</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -219,7 +192,7 @@
 
             <div class="col-xl-12">
               <div class="row">
-                <div class="col-xl-3 col-md-4">
+                <div class="col-xl-6 col-md-4">
                   <div class="card">
                     <div class="card-body p-0">
                       <div class="p-4">
@@ -239,7 +212,7 @@
                   <!-- end card -->
                 </div>
                 <!-- end col -->
-                <div class="col-xl-3 col-md-4">
+                <div class="col-xl-6 col-md-4">
                   <div class="card">
                     <div class="card-body p-0">
                       <div class="p-4">
@@ -259,7 +232,7 @@
                   <!-- end card -->
                 </div>
                 <!-- end col -->
-                <div class="col-xl-3 col-md-4">
+                <div class="col-xl-6 col-md-4">
                   <div class="card">
                     <div class="card-body p-0">
                       <div class="p-4">
@@ -279,7 +252,7 @@
                   <!-- end card -->
                 </div>
                 <!-- end col -->
-                <div class="col-xl-3 col-md-4">
+                <div class="col-xl-6 col-md-4">
                   <div class="card">
                     <div class="card-body p-0">
                       <div class="p-4">
@@ -301,146 +274,6 @@
               </div>
             </div>
             <!-- end col -->
-
-            <div class="row">
-              <div class="col-xl-7">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="dropdown float-end">
-                      <a href="#" class="dropdown-toggle arrow-none card-drop" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="mdi mdi-dots-vertical text-muted"></i>
-                      </a>
-                      <div class="dropdown-menu dropdown-menu-end">
-                        <!-- item-->
-                        <a href="javascript:void(0);" class="dropdown-item">Detail Data</a>
-                      </div>
-                    </div>
-                    <!-- end dropdown -->
-                    <h4 class="card-title mb-4">Data Pendaftaran</h4>
-                    <div class="table-responsive">
-                      <table class="table table-centered border table-nowrap mb-0" style="border-collapse: collapse; border-spacing: 0; width: 100%">
-                        <thead class="table-light">
-                          <tr>
-                            <th>No.</th>
-                            <th>NISN</th>
-                            <th>Nama</th>
-                            <th>Tanggal</th>
-                            <th>Sekolah</th>
-                          </tr>
-                          <!-- end tr -->
-                        </thead>
-                        <!-- end thead -->
-                        <tbody>
-                          <tr>
-                            <td>1</td>
-                            <td>21155832</td>
-                            <td>Muhammad Faris</td>
-                            <td>11 Juli 2022</td>
-                            <td>Man 1</td>
-                          </tr>
-                        </tbody>
-                        <!-- end tbody -->
-                      </table>
-                      <!-- end table -->
-                    </div>
-                    <!-- end tableresponsive -->
-                  </div>
-                </div>
-              </div>
-              <!-- end col -->
-
-              <div class="col-xl-5">
-                <div class="card">
-                  <div class="card-body">
-                    <div class="row align-items-center">
-                      <div class="col-md-5 col-9">
-                        <h5 class="font-size-15 mb-3">Daftar Siswa Mutasi</h5>
-                      </div>
-                      <!-- end col -->
-                      <div class="col-md-7 col-3">
-                        <ul class="list-inline user-chat-nav text-end mb-2">
-                          <li class="list-inline-item">
-                            <div class="dropdown">
-                              <a href="#" class="dropdown-toggle card-drop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="mdi mdi-magnify text-muted"></i>
-                              </a>
-                              <div class="dropdown-menu dropdown-menu-end dropdown-menu-md p-0">
-                                <form class="p-2">
-                                  <div class="search-box">
-                                    <div class="position-relative">
-                                      <input type="text" class="form-control rounded bg-light border-0" placeholder="Search..." />
-                                      <i class="mdi mdi-magnify search-icon"></i>
-                                    </div>
-                                  </div>
-                                </form>
-                              </div>
-                            </div>
-                          </li>
-                          <!-- end li -->
-                          <li class="list-inline-item d-none d-sm-inline-block">
-                            <div class="dropdown">
-                              <a href="#" class="dropdown-toggle card-drop" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="mdi mdi-cog text-muted"></i>
-                              </a>
-                              <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="#">Detail Data</a>
-                                <a class="dropdown-item" href="#">Status Data</a>
-                                <a class="dropdown-item" href="#">Hapus Data</a>
-                              </div>
-                            </div>
-                          </li>
-                          <!-- end li -->
-                        </ul>
-                        <!-- end ul -->
-                      </div>
-                      <!-- end col -->
-                    </div>
-                    <!-- end row -->
-
-                    <div class="table-responsive">
-                      <table class="table table-nowrap mb-0">
-                        <tbody>
-                          <tr>
-                            <td>
-                              <div class="avatar-sm">
-                                <span class="avatar-title rounded bg-light">
-                                  <img src="assets/images/users/person.png" class="avatar-sm" alt="Error" />
-                                </span>
-                              </div>
-                            </td>
-                            <td>
-                              <div class="">
-                                <h6 class="mb-0">Muhammad Faris</h6>
-                              </div>
-                            </td>
-                            <td>
-                              <div class="">
-                                <h6 class="mb-0">Man 1</h6>
-                                <p class="fw-bold mb-0">Dari</p>
-                              </div>
-                            </td>
-                            <td>
-                              <div class="">
-                                <h6 class="mb-0">Man 2</h6>
-                                <p class="fw-bold mb-0 text-success">ke</p>
-                              </div>
-                            </td>
-                          </tr>
-                          <!-- end tr -->
-                        </tbody>
-                        <!-- end t-body -->
-                      </table>
-                      <!-- end table -->
-                    </div>
-                    <!-- end table-responsive -->
-                  </div>
-                  <!-- end cardbody -->
-                </div>
-                <!-- end card -->
-              </div>
-              <!-- end col -->
-            </div>
-            <!-- end row -->
           </div>
           <!-- end container-fluid -->
         </div>

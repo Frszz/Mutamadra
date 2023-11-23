@@ -62,9 +62,9 @@
                             echo "<script>window.location='../../admin/dashboard.php';</script>";
                         } else{ ?>
                             <div class="login-rejected" id="login-rejected">
-                                <button class="btn-rejected" onclick="closeDiv()">X</button>
+                                <button class="btn-rejected" onclick="closeDiv()">Konfirmasi</button>
                                 <p class="failed-1"><strong>Login Gagal</strong></p>
-                                <p class="failed-2">Email / Password salah</p>
+                                <p class="failed-2">Email / Password salah</p> 
                             </div>
                         <?php
                         }

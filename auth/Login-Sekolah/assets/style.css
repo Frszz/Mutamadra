@@ -421,3 +421,17 @@ form.sign-in-form {
   display: flex;
   gap: 10px;
 }
+.login-rejected{
+  display: flex;
+  flex-direction: column;
+}
+.login-rejected .btn-rejected{
+  background: #14c022;
+  color: #fff;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 0;
+}
+.login-rejected p{
+  text-align: center;
+}

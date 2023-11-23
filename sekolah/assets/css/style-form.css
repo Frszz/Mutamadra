@@ -175,7 +175,7 @@ header{
 
 /* Form */
 .container{
-    top: 4rem;
+    top: 1rem;
     position: relative;
     max-width: 900px;
     width: 100%;
@@ -205,7 +205,7 @@ header{
 .container form{
     position: relative;
     margin-top: 16px;
-    min-height: 490px;
+    min-height: 370px;
     background-color: #fff;
     overflow: hidden;
 }
@@ -347,41 +347,4 @@ form .buttons button , .backBtn{
 }
 .next:hover{
     background: var(--second);
-}
-/* Footer */
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-main {
-  flex: 1;
-}
-
-footer {
-  background: transparent;
-  font-family: "Open Sans";
-  padding-top: 40px;
-  color: var(--black);
-}
-
-.footer-bottom {
-  background: var(--brown);
-  padding: 20px 0;
-  text-align: center;
-}
-
-.footer-bottom p {
-  font-size: 14px;
-  word-spacing: 2px;
-  text-transform: capitalize;
-}
-
-.footer-bottom span {
-  text-transform: uppercase;
-  opacity: 0.4;
-  font-weight: 200;
 }

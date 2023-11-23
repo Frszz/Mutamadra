@@ -306,3 +306,15 @@ body{
         transform: translateY(100%);
     }
 }
+
+.login-rejected{
+    display: flex;
+    flex-direction: column;
+}
+.login-rejected p{
+    text-align: center;
+    margin-top: -0.1rem;
+}
+.login-rejected .failed-2{
+    margin-top: -1.2rem;
+}

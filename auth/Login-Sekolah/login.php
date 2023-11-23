@@ -24,24 +24,6 @@
       <!-- Form -->
         <div class="forms-container">
           <div class="signin-signup">
-          <?php
-            if(isset($_POST['loginSekolah'])) {
-              $npsn = trim(mysqli_real_escape_string($con, $_POST['npsn']));
-              $pass = trim(mysqli_real_escape_string($con, $_POST['password']));
-              $sql_login = mysqli_query($con, "SELECT * FROM sekolah WHERE npsn = '$npsn' AND password_sekolah = '$pass'") or die (mysqli_error($con));
-              if(mysqli_num_rows($sql_login) > 0){
-                  $_SESSION['npsnSekolah'] = $npsn;
-                  echo "<script>window.location='../../sekolah/home.php';</script>";
-              } else{ ?>
-                  <div class="login-rejected" id="login-rejected">
-                      <button onclick="closeDiv()">X</button>
-                      <p class="failed-1"><strong>Login Gagal</strong></p>
-                      <p class="failed-2">Email / Password salah</p>
-                  </div>
-              <?php
-              }
-            }
-          ?>
             <!-- Sign in -->
             <form method="POST" action="" class="sign-in-form">
               <h2 class="title">Masuk</h2>
@@ -53,6 +35,24 @@
                 <i class="ri-lock-fill"></i>
                 <input type="password" name="password" placeholder="Password" required  />
               </div>
+              <?php
+                if(isset($_POST['loginSekolah'])) {
+                  $npsn = trim(mysqli_real_escape_string($con, $_POST['npsn']));
+                  $pass = trim(mysqli_real_escape_string($con, $_POST['password']));
+                  $sql_login = mysqli_query($con, "SELECT * FROM sekolah WHERE npsn = '$npsn' AND password_sekolah = '$pass'") or die (mysqli_error($con));
+                  if(mysqli_num_rows($sql_login) > 0){
+                      $_SESSION['npsnSekolah'] = $npsn;
+                      echo "<script>window.location='../../sekolah/home.php';</script>";
+                  } else{ ?>
+                      <div class="login-rejected" id="login-rejected">
+                          <button class="btn-rejected" onclick="closeDiv()">Konfirmasi</button>
+                          <p class="failed-1"><strong>Login Gagal</strong></p>
+                          <p class="failed-2">Email / Password salah</p> 
+                      </div>
+                  <?php
+                  }
+                }
+              ?>
               <p><a href="../Password-user/password-sekolah.php"> Lupa Password ?</a></p>
               <div class="bungkus">
                 <a href="../login-user.php" class="btn solid back">Kembali</a>

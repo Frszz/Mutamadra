@@ -87,22 +87,6 @@
                                     <input type="file" class="form-control" id="file" name="file">
                                 </div>
                             </div>
-                            <hr class="border-light m-0">
-                            <div class="card-body pb-2">
-                                <h6 class="mb-4">Data Sekolah</h6>
-                                <div class="form-group">
-                                    <label class="form-label" for="file">Surat Izin Pendaftaran</label>
-                                    <input type="file" class="form-control" id="file" name="file">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Tanggal Batas Pendaftaran</label>
-                                    <input type="date" class="form-control" value="+0 (123) 456 7891">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Tanggal Batas Mutasi</label>
-                                    <input type="date" class="form-control" value>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

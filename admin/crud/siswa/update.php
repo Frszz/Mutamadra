@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Batas Waktu Mutasi| Sekolah</title>
+    <title>Data Siswa | Sekolah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -33,19 +33,19 @@
             <div class="navbar-brand-box">
               <a href="dashboard.php" class="logo logo-dark">
                 <span class="logo-sm">
-                  <img src="assets/images/logo.png" alt="logo-sm-dark" height="30" />
+                  <img src="../../assets/images/logo.png" alt="logo-sm-dark" height="30" />
                 </span>
                 <span class="logo-lg"
-                  ><h2 style="margin-top: 1rem"><img src="assets/images/logo.png" alt="logo-sm-dark" height="30" /> SEKOLAH</h2>
+                  ><h2 style="margin-top: 1rem"><img src="../../assets/images/logo.png" alt="logo-sm-dark" height="30" /> SEKOLAH</h2>
                 </span>
               </a>
 
               <a href="dashboard.php" class="logo logo-light">
                 <span class="logo-sm">
-                  <img src="assets/images/logo.png" alt="logo-sm-light" height="30" />
+                  <img src="../../assets/images/logo.png" alt="logo-sm-light" height="30" />
                 </span>
                 <span class="logo-lg">
-                  <h2 style="margin-top: 1rem; color: white"><img src="assets/images/logo.png" alt="logo-sm-light" height="30" /> SEKOLAH</h2>
+                  <h2 style="margin-top: 1rem; color: white"><img src="../../assets/images/logo.png" alt="logo-sm-light" height="30" /> SEKOLAH</h2>
                 </span>
               </a>
             </div>
@@ -53,20 +53,6 @@
             <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect" id="vertical-menu-btn">
               <i class="ri-menu-2-line align-middle"></i>
             </button>
-
-            <!-- App Search-->
-            <form class="app-search d-none d-lg-block">
-              <div class="input-group">
-                <button class="btn btn-rounded dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Menu <i class="mdi mdi-chevron-down ms-2"></i></button>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="daftar.php">Data Pendaftaran</a></li>
-                  <li><a class="dropdown-item" href="mutasi.php">Data Mutasi</a></li>
-                  <li><a class="dropdown-item" href="siswa.php">Data Siswa</a></li>
-                </ul>
-                <input type="text" class="form-control bg-transparent" placeholder="Search.." aria-label="Text input with dropdown button" />
-                <span class="mdi mdi-magnify"></span>
-              </div>
-            </form>
           </div>
 
           <div class="d-flex">
@@ -102,14 +88,12 @@
 
             <div class="dropdown d-inline-block user-dropdown">
               <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img class="rounded-circle header-profile-user" src="assets/images/users/person.png" alt="Header Avatar" />
+                <img class="rounded-circle header-profile-user" src="../../assets/images/users/person.png" alt="Header Avatar" />
                 <span class="d-none d-xl-inline-block ms-1">Mutamadra</span>
                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
               </button>
               <div class="dropdown-menu dropdown-menu-end">
                 <!-- item-->
-                <a class="dropdown-item" href="#"><i class="ri-user-line align-middle me-1"></i> Profile</a>
-                <a class="dropdown-item" href="#"><i class="ri-wallet-2-line align-middle me-1"></i> Email</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item text-danger" href="../auth/Login-admin/logout.php"><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
               </div>
@@ -138,7 +122,7 @@
               <li class="menu-title">Menu</li>
 
               <li>
-                <a href="dashboard.php" class="waves-effect">
+                <a href="../../dashboard.php" class="waves-effect">
                   <i class="ri-dashboard-line"></i>
                   <span>Dashboard</span>
                 </a>
@@ -149,8 +133,8 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="daftar.php">Pengajuan Daftar</a></li>
-                  <li><a href="mutasi.php">Pengajuan Mutasi</a></li>
+                  <li><a href="../../daftar.php">Pengajuan Siswa</a></li>
+                  <li><a href="../../mutasi.php">Pengajuan Pendaftaran</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -160,19 +144,8 @@
                   <span>Master</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="siswa.php">Data Siswa</a></li>
-                  <li><a href="sekolah.php">Data Sekolah</a></li>
-                  <li><a href="batas.php">Batas Waktu Mutasi</a></li>
-                </ul>
-              </li>
-              <!-- end li -->
-              <li>
-                <a href="javascript: void(0);" class="has-arrow waves-effect">
-                    <i class="ri-question-fill"></i>
-                  <span>Bantuan</span>
-                </a>
-                <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="bantuan.php">Information</a></li>
+                  <li><a href="../../siswa.php">Data Siswa</a></li>
+                  <li><a href="../../sekolah.php">Data Sekolah</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -188,7 +161,7 @@
         <div class="main-content">
             <?php
                 $id = @$_GET['id'];
-                $sql_siswa = mysqli_query($con, "SELECT * FROM siswa, sekolah WHERE siswa.id = '$id' && sekolah.id = siswa.id") or die (mysqli_error($con));
+                $sql_siswa = mysqli_query($con, "SELECT * FROM siswa, sekolah WHERE siswa.id = '$id' && sekolah.id = siswa.id_sekolah") or die (mysqli_error($con));
                 $data = mysqli_fetch_array($sql_siswa);
             ?>
             <form method="POST" action="">
@@ -203,8 +176,8 @@
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Master</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Batas Waktu Mutasi</a></li>
-                                            <li class="breadcrumb-item active">Tambah Data</li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Data Siswa</a></li>
+                                            <li class="breadcrumb-item active">Edit Data</li>
                                         </ol>
                                     </div>
 
@@ -219,62 +192,62 @@
                                     <div class="card-body">
                                     <input type="hidden" name="id" value="<?=$data['id']?>">
                                         <div class="row mb-3">
-                                            <label for="npsn" class="col-sm-2 col-form-label">NISN</label>
+                                            <label for="nisn" class="col-sm-2 col-form-label">NISN</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="number" value="<?=$data['nisn']?>" id="npsn">
+                                                <input class="form-control" type="number" value="<?=$data['nisn']?>" id="nisn">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
-                                            <label for="sekolah" class="col-sm-2 col-form-label">Nama Siswa</label>
+                                            <label for="nama_siswa" class="col-sm-2 col-form-label">Nama Siswa</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['nama_siswa']?>" id="sekolah">
+                                                <input class="form-control" type="text" value="<?=$data['nama_siswa']?>" id="nama_siswa">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
-                                            <label for="sekolah" class="col-sm-2 col-form-label">Nama Sekolah</label>
+                                            <label for="nama_sekolah" class="col-sm-2 col-form-label">Nama Sekolah</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['nama_sekolah']?>" id="sekolah">
+                                                <input class="form-control" type="text" value="<?=$data['nama_sekolah']?>" id="nama_sekolah">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
-                                            <label for="tgl-batas" class="col-sm-2 col-form-label">Tempat Lahir</label>
+                                            <label for="tmpt_lahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['tmpt_lahir']?>" id="tgl-batas">
+                                                <input class="form-control" type="text" value="<?=$data['tmpt_lahir']?>" id="tmpt_lahir">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
-                                            <label for="jenjang" id="jenjang" class="col-sm-2 col-form-label">Tanggal Lahir</label>
+                                            <label for="tgl_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="date" value="<?=$data['tgl_lahir']?>" id="tgl-batas">
+                                                <input class="form-control" type="date" value="<?=$data['tgl_lahir']?>" id="tgl_lahir">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <label for="jenjang" id="jenjang" class="col-sm-2 col-form-label">No. Hp</label>
+                                            <label for="no_hp" class="col-sm-2 col-form-label">No. Hp</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['no_hp']?>" id="tgl-batas">
+                                                <input class="form-control" type="text" value="<?=$data['no_hp']?>" id="no_hp">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <label for="jenjang" id="jenjang" class="col-sm-2 col-form-label">Email</label>
+                                            <label for="email_siswa" class="col-sm-2 col-form-label">Email</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['email_siswa']?>" id="tgl-batas">
+                                                <input class="form-control" type="text" value="<?=$data['email_siswa']?>" id="email_siswa">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
-                                            <label for="jenjang" id="jenjang" class="col-sm-2 col-form-label">Password</label>
+                                            <label for="password_siswa" class="col-sm-2 col-form-label">Password</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['password_siswa']?>" id="tgl-batas">
+                                                <input class="form-control" type="text" value="<?=$data['password_siswa']?>" id="password_siswa">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="mb-3 row mt-5">
                                         <div class="col">
-                                            <a href="#" type="button" class="btn btn-success"><i class="ri-save-3-fill"></i> Tambah</a>
-                                            <a href="batas.php" type="button" class="btn btn-danger"><i class="ri-reply-fill"></i> Kembali</a>
+                                            <input type="submit" class="btn btn-success" value="Simpan" name="simpan">
+                                            <a href="../../siswa.php" type="button" class="btn btn-danger"><i class="ri-reply-fill"></i> Kembali</a>
                                         </div>
                                         </div>
                                     </div>
@@ -312,7 +285,7 @@
 
         <div class="p-4">
           <div class="mb-2">
-            <img src="assets/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="layout-1" />
+            <img src="../../assets/images/layouts/layout-1.jpg" class="img-fluid img-thumbnail" alt="layout-1" />
           </div>
 
           <div class="form-check form-switch mb-3">
@@ -321,18 +294,18 @@
           </div>
 
           <div class="mb-2">
-            <img src="assets/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="layout-2" />
+            <img src="../../assets/images/layouts/layout-2.jpg" class="img-fluid img-thumbnail" alt="layout-2" />
           </div>
           <div class="form-check form-switch mb-3">
-            <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch" data-bsStyle="assets/css/bootstrap-dark.min.css" data-appStyle="assets/css/app-dark.min.css" />
+            <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch" data-bsStyle="../../assets/css/bootstrap-dark.min.css" data-appStyle="../../assets/css/app-dark.min.css" />
             <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
           </div>
 
           <div class="mb-2">
-            <img src="assets/images/layouts/layout-3.jpg" class="img-fluid img-thumbnail" alt="layout-3" />
+            <img src="../../assets/images/layouts/layout-3.jpg" class="img-fluid img-thumbnail" alt="layout-3" />
           </div>
           <div class="form-check form-switch mb-5">
-            <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch" data-appStyle="assets/css/app-rtl.min.css" />
+            <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch" data-appStyle="../../assets/css/app-rtl.min.css" />
             <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
           </div>
         </div>

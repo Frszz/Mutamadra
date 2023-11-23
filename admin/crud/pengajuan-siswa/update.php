@@ -6,7 +6,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Data Sekolah | Sekolah</title>
+    <title>Pengajuan Siswa | Sekolah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
@@ -161,8 +161,8 @@
         <div class="main-content">
             <?php
                 $id = @$_GET['id'];
-                $sql_sekolah = mysqli_query($con, "SELECT * FROM sekolah WHERE id = '$id'") or die (mysqli_error($con));
-                $data = mysqli_fetch_array($sql_sekolah);
+                $sql_siswa = mysqli_query($con, "SELECT * FROM siswa, sekolah WHERE siswa.id = '$id' && sekolah.id = siswa.id_sekolah") or die (mysqli_error($con));
+                $data = mysqli_fetch_array($sql_siswa);
             ?>
             <form method="POST" action="">
                 <div class="page-content">
@@ -176,7 +176,7 @@
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Master</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Data Sekolah</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Data Siswa</a></li>
                                             <li class="breadcrumb-item active">Edit Data</li>
                                         </ol>
                                     </div>
@@ -192,9 +192,16 @@
                                     <div class="card-body">
                                     <input type="hidden" name="id" value="<?=$data['id']?>">
                                         <div class="row mb-3">
-                                            <label for="npsn" class="col-sm-2 col-form-label">NPSN</label>
+                                            <label for="nisn" class="col-sm-2 col-form-label">NISN</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['npsn']?>" id="npsn">
+                                                <input class="form-control" type="number" value="<?=$data['nisn']?>" id="nisn">
+                                            </div>
+                                        </div>
+                                        <!-- end row -->
+                                        <div class="row mb-3">
+                                            <label for="nama_siswa" class="col-sm-2 col-form-label">Nama Siswa</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" value="<?=$data['nama_siswa']?>" id="nama_siswa">
                                             </div>
                                         </div>
                                         <!-- end row -->
@@ -206,55 +213,41 @@
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
-                                            <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                                            <label for="tmpt_lahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['alamat']?>" id="alamat">
+                                                <input class="form-control" type="text" value="<?=$data['tmpt_lahir']?>" id="tmpt_lahir">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
-                                            <label for="kab_kota" class="col-sm-2 col-form-label">Kabupatan/Kota</label>
+                                            <label for="tgl_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['kab_kota']?>" id="kab_kota">
+                                                <input class="form-control" type="date" value="<?=$data['tgl_lahir']?>" id="tgl_lahir">
                                             </div>
                                         </div>
-                                        <!-- end row -->
                                         <div class="row mb-3">
-                                            <label for="kecamatan" class="col-sm-2 col-form-label">Kecamatan</label>
+                                            <label for="no_hp" class="col-sm-2 col-form-label">No. Hp</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['kecamatan']?>" id="kecamatan">
+                                                <input class="form-control" type="text" value="<?=$data['no_hp']?>" id="no_hp">
                                             </div>
                                         </div>
-                                        <!-- end row -->
                                         <div class="row mb-3">
-                                            <label class="col-sm-2 col-form-label">Jenjang</label>
+                                            <label for="email_siswa" class="col-sm-2 col-form-label">Email</label>
                                             <div class="col-sm-10">
-                                                <select class="form-select">
-                                                    <option disabled selected style="display: none;">Pilih</option>
-                                                    <option value="1">SMA</option>
-                                                    <option value="2">MTS</option>
-                                                </select>
+                                                <input class="form-control" type="text" value="<?=$data['email_siswa']?>" id="email_siswa">
                                             </div>
                                         </div>
-                                        <!-- end row -->
                                         <div class="row mb-3">
-                                            <label for="surat_sekolah" class="col-sm-2 col-form-label">Surat Sekolah</label>
+                                            <label for="password_siswa" class="col-sm-2 col-form-label">Password</label>
                                             <div class="col-sm-10">
-                                              <input class="form-control" type="file" id="surat_sekolah">
-                                            </div>
-                                        </div>
-                                        <!-- end row -->
-                                        <div class="row mb-3">
-                                            <label for="email_sekolah" class="col-sm-2 col-form-label">Email Sekolah</label>
-                                            <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['email_sekolah']?>" id="email_sekolah">
+                                                <input class="form-control" type="text" value="<?=$data['password_siswa']?>" id="password_siswa">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="mb-3 row mt-5">
                                         <div class="col">
                                             <input type="submit" class="btn btn-success" value="Simpan" name="simpan">
-                                            <a href="../../sekolah.php" type="button" class="btn btn-danger"><i class="ri-reply-fill"></i> Kembali</a>
+                                            <a href="../../siswa.php" type="button" class="btn btn-danger"><i class="ri-reply-fill"></i> Kembali</a>
                                         </div>
                                         </div>
                                     </div>

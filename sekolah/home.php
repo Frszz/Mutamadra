@@ -31,6 +31,7 @@
             <li><a href="home.php" class="active">Home</a></li>
             <li><a href="profil.php">Profil</a></li>
             <li><a href="daftar-sekolah.php">Daftar</a></li>
+            <li><a href="data-sekolah.php">Data</a></li>
         </ul>
 
       <!-- Navbar Right -->

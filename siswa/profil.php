@@ -34,7 +34,6 @@
             <li><a href="home.php">Home</a></li>
             <li><a href="profil.php" class="active">Profil</a></li>
             <li><a href="daftar-siswa.php">Daftar</a></li>
-            <li><a href="mutasi-siswa.php">Mutasi</a></li>
         </ul>
 
       <!-- Navbar Right -->

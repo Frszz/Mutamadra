@@ -158,13 +158,29 @@
       <!-- Left Sidebar End -->
 
       <!-- Start right Content here -->
+        <script>
+          function tampilkanSurat(event) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('previewSurat');
+                output.style.display = 'block';
+                output.src = reader.result;
+
+                // Sembunyikan Surat Lama
+                var oldKTM = document.getElementById('oldSurat');
+                oldKTM.style.display = 'none';
+            };
+            reader.readAsDataURL(input.files[0]);
+          }
+        </script>
         <div class="main-content">
             <?php
                 $id = @$_GET['id'];
                 $sql_sekolah = mysqli_query($con, "SELECT * FROM sekolah WHERE id = '$id'") or die (mysqli_error($con));
                 $data = mysqli_fetch_array($sql_sekolah);
             ?>
-            <form method="POST" action="">
+            <form method="POST" action="proses.php" enctype="multipart/form-data">
                 <div class="page-content">
                     <div class="container-fluid">
                         <!-- start page title -->
@@ -194,60 +210,69 @@
                                         <div class="row mb-3">
                                             <label for="npsn" class="col-sm-2 col-form-label">NPSN</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['npsn']?>" id="npsn">
+                                                <input class="form-control" name="npsn" type="text" value="<?=$data['npsn']?>" id="npsn">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
                                             <label for="nama_sekolah" class="col-sm-2 col-form-label">Nama Sekolah</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['nama_sekolah']?>" id="nama_sekolah">
+                                                <input class="form-control" name="nama_sekolah" type="text" value="<?=$data['nama_sekolah']?>" id="nama_sekolah">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
                                             <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['alamat']?>" id="alamat">
+                                                <input class="form-control" name="alamat" type="text" value="<?=$data['alamat']?>" id="alamat">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
                                             <label for="kab_kota" class="col-sm-2 col-form-label">Kabupatan/Kota</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['kab_kota']?>" id="kab_kota">
+                                                <input class="form-control" name="kab_kota" type="text" value="<?=$data['kab_kota']?>" id="kab_kota">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
                                             <label for="kecamatan" class="col-sm-2 col-form-label">Kecamatan</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['kecamatan']?>" id="kecamatan">
+                                                <input class="form-control" name="kecamatan" type="text" value="<?=$data['kecamatan']?>" id="kecamatan">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
                                             <label class="col-sm-2 col-form-label">Jenjang</label>
                                             <div class="col-sm-10">
-                                                <select class="form-select">
-                                                    <option disabled selected style="display: none;">Pilih</option>
-                                                    <option value="1">SMA</option>
-                                                    <option value="2">MTS</option>
-                                                </select>
+                                            <?php
+                                                echo "<select class=\"form-select\" id=\"jenjang\" name=\"jenjang\">
+                                                    <option value=\"\" disabled selected style=\"display:none;\">Pilih Jenjang</option>";
+                                                    $category = mysqli_query($con, "SHOW COLUMNS FROM `sekolah` WHERE `field` = 'jenjang'");
+                                                    while($result = mysqli_fetch_row($category)){
+                                                        foreach(explode("','",substr($result[1],6,-2)) as $option){
+                                                          $selected = ($option === $data['jenjang']) ? 'selected' : '';
+                                                          echo "<option $selected>$option</option>";
+                                                        }
+                                                    }
+                                                echo "</select>";
+                                            ?>
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
-                                            <label for="surat_sekolah" class="col-sm-2 col-form-label">Surat Sekolah</label>
-                                            <div class="col-sm-10">
-                                              <input class="form-control" type="file" id="surat_sekolah">
-                                            </div>
+                                          <label for="surat_sekolah" class="col-sm-2 col-form-label">Surat Sekolah</label>
+                                          <div class="col-sm-10">
+                                            <embed id="previewSurat" type="application/pdf" style="display: none; width :auto; height: auto;">
+                                            <embed id="oldSurat" src="../../assets/file/<?=$data['surat_sekolah']?>" type="application/pdf" width="auto" height="auto" alt="Surat Sekolah" alt="Foto">
+                                            <input class="form-control" name="surat_sekolah" type="file" id="surat_sekolah" value="<?=$data['surat_sekolah']?>" accept=".pdf" onchange="tampilkanSurat(event)">
+                                          </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
                                             <label for="email_sekolah" class="col-sm-2 col-form-label">Email Sekolah</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['email_sekolah']?>" id="email_sekolah">
+                                                <input class="form-control" name="email_sekolah" type="text" value="<?=$data['email_sekolah']?>" id="email_sekolah">
                                             </div>
                                         </div>
                                         <!-- end row -->

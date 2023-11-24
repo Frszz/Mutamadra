@@ -222,7 +222,7 @@
                                   <td><?=$data['kab_kota']?></td>
                                   <td><?=$data['kecamatan']?></td>
                                   <td><?=$data['jenjang']?></td>
-                                  <td><?=$data['surat_sekolah']?></td>
+                                  <td><embed src="assets/file/<?=$data['surat_sekolah']?>" type="application/pdf" width="100" height="100" alt="Surat Sekolah"><br><a href="assets/file/<?=$data['surat_sekolah']?>" type="application/pdf" target="_blank">Download Surat</a></td>
                                   <td><?=$data['email_sekolah']?></td>
                                   <td>
                                     <a href="crud/sekolah/update.php?id=<?=$data['id']?>" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></a>

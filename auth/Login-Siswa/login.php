@@ -1,6 +1,6 @@
 <?php
   require_once "../../config/config.php";
-  if(isset($_SESSION['nisnSiswa'])) {
+  if(isset($_SESSION['nisnSiswa']) && isset($_SESSION['idSiswa'])){
       echo "<script>window.location='../../siswa/home.php';</script>";
   } else {
 ?>
@@ -41,17 +41,20 @@
                   if(isset($_POST['loginSiswa'])) {
                     $nisn = trim(mysqli_real_escape_string($con, $_POST['nisn']));
                     $pass = trim(mysqli_real_escape_string($con, $_POST['password']));
-                    $sql_login = mysqli_query($con, "SELECT * FROM siswa WHERE nisn = '$nisn' AND password = '$pass'") or die (mysqli_error($con));
+                    $sql_login = mysqli_query($con, "SELECT * FROM siswa WHERE nisn = '$nisn' AND password_siswa = '$pass'") or die (mysqli_error($con));
                     if(mysqli_num_rows($sql_login) > 0){
-                        $_SESSION['nisnSiswa'] = $nisn;
-                        echo "<script>window.location='../../siswa/home.php';</script>";
-                    } else{ ?>
+                      $siswa = mysqli_fetch_array($sql_login); 
+                      $_SESSION['nisnSiswa'] = $nisn;
+                      $_SESSION['idSiswa'] = $siswa['id'];
+                      echo "<script>window.location='../../siswa/home.php';</script>";
+                    } else{ 
+                ?>
                         <div class="login-rejected" id="login-rejected">
                             <button class="btn-rejected" onclick="closeDiv()">Konfirmasi</button>
                             <p class="failed-1"><strong>Login Gagal</strong></p>
                             <p class="failed-2">Email / Password salah</p> 
                         </div>
-                    <?php
+                <?php
                     }
                   }
                 ?>

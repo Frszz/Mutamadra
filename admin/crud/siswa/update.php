@@ -161,10 +161,10 @@
         <div class="main-content">
             <?php
                 $id = @$_GET['id'];
-                $sql_siswa = mysqli_query($con, "SELECT * FROM siswa, sekolah WHERE siswa.id = '$id' && sekolah.id = siswa.id_sekolah") or die (mysqli_error($con));
+                $sql_siswa = mysqli_query($con, "SELECT * FROM siswa WHERE id = '$id'") or die (mysqli_error($con));
                 $data = mysqli_fetch_array($sql_siswa);
             ?>
-            <form method="POST" action="">
+            <form method="POST" action="proses.php">
                 <div class="page-content">
                     <div class="container-fluid">
                         <!-- start page title -->
@@ -194,53 +194,86 @@
                                         <div class="row mb-3">
                                             <label for="nisn" class="col-sm-2 col-form-label">NISN</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="number" value="<?=$data['nisn']?>" id="nisn">
+                                                <input class="form-control" name="nisn" type="number" value="<?=$data['nisn']?>" id="nisn">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
                                             <label for="nama_siswa" class="col-sm-2 col-form-label">Nama Siswa</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['nama_siswa']?>" id="nama_siswa">
+                                                <input class="form-control" type="text" name="nama_siswa" value="<?=$data['nama_siswa']?>" id="nama_siswa">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
                                             <label for="nama_sekolah" class="col-sm-2 col-form-label">Nama Sekolah</label>
-                                            <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['nama_sekolah']?>" id="nama_sekolah">
+                                            <div class="col-sm-10" id="nama_sekolah" name="nama_sekolah">
+                                              <?php
+                                                $query_sklh = mysqli_query($con, "SELECT * FROM sekolah");
+                                              ?>
+                                                <select class="form-select" name="nama_sekolah">
+                                                    <option disabled selected style="display: none;">Pilih</option>
+                                                    <?php
+                                                      while ($result = mysqli_fetch_array($query_sklh)) {
+                                                        $selected = ($result['id'] == $data['id_sekolah']) ? 'selected' : '';
+                                                    ?>
+                                                        <option <?=$selected?>><?=$result['nama_sekolah']?></option>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </select>
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
                                             <label for="tmpt_lahir" class="col-sm-2 col-form-label">Tempat Lahir</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['tmpt_lahir']?>" id="tmpt_lahir">
+                                                <input name="tmpt_lahir" class="form-control" type="text" value="<?=$data['tmpt_lahir']?>" id="tmpt_lahir">
                                             </div>
                                         </div>
                                         <!-- end row -->
                                         <div class="row mb-3">
                                             <label for="tgl_lahir" class="col-sm-2 col-form-label">Tanggal Lahir</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="date" value="<?=$data['tgl_lahir']?>" id="tgl_lahir">
+                                                <input class="form-control" name="tgl_lahir" type="date" value="<?=$data['tgl_lahir']?>" id="tgl_lahir">
                                             </div>
                                         </div>
                                         <div class="row mb-3">
                                             <label for="no_hp" class="col-sm-2 col-form-label">No. Hp</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['no_hp']?>" id="no_hp">
+                                                <input class="form-control" name="no_hp" type="text" value="<?=$data['no_hp']?>" id="no_hp">
                                             </div>
                                         </div>
+                                        <!-- end row -->
+                                        <div class="row mb-3">
+                                            <label for="gender" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+                                            <div class="col-sm-10">
+                                            <?php
+                                                echo "<select class=\"form-select\" id=\"gender\" name=\"gender\">
+                                                    <option value=\"\" disabled selected style=\"display:none;\">Pilih</option>";
+                                                    $jk = mysqli_query($con, "SHOW COLUMNS FROM `siswa` WHERE `field` = 'gender'");
+                                                    while($result = mysqli_fetch_row($jk)){
+                                                        foreach(explode("','",substr($result[1],6,-2)) as $option){
+                                                          $selected = ($option === $data['gender']) ? 'selected' : '';
+                                                          echo "<option $selected>$option</option>";
+                                                        }
+                                                    }
+                                                echo "</select>";
+                                            ?>
+                                            </div>
+                                        </div>
+                                        <!-- end row -->
+                                        <div class="row mb-3">
+                                            <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" name="alamat" type="text" value="<?=$data['alamat']?>" id="alamat">
+                                            </div>
+                                        </div>
+                                        <!-- end row -->
                                         <div class="row mb-3">
                                             <label for="email_siswa" class="col-sm-2 col-form-label">Email</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['email_siswa']?>" id="email_siswa">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <label for="password_siswa" class="col-sm-2 col-form-label">Password</label>
-                                            <div class="col-sm-10">
-                                                <input class="form-control" type="text" value="<?=$data['password_siswa']?>" id="password_siswa">
+                                                <input class="form-control" name="email_siswa" type="text" value="<?=$data['email_siswa']?>" id="email_siswa">
                                             </div>
                                         </div>
                                         <!-- end row -->

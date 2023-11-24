@@ -203,13 +203,16 @@
                           <th>Tempat Lahir</th>
                           <th>Tanggal Lahir</th>
                           <th>No. Hp</th>
+                          <th>Jenis Kelamin</th>
+                          <th>Alamat</th>
                           <th>Email</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php
-                          $query = "SELECT * FROM siswa INNER JOIN sekolah ON siswa.id_sekolah = sekolah.id";
+                          $query = "SELECT siswa.id AS siswa_id, siswa.nisn, siswa.nama_siswa, sekolah.id AS sekolah_id, sekolah.nama_sekolah, siswa.tmpt_lahir, siswa.tgl_lahir, siswa.no_hp, siswa.gender, siswa.alamat AS alamat_siswa, siswa.email_siswa 
+                          FROM siswa INNER JOIN sekolah ON siswa.id_sekolah = sekolah.id";
                           $sql_siswa = mysqli_query($con, $query) or die (mysqli_error($con));
                           if(mysqli_num_rows($sql_siswa) > 0){
                               while($data = mysqli_fetch_array($sql_siswa)){
@@ -221,10 +224,12 @@
                                   <td><?=$data['tmpt_lahir']?></td>
                                   <td><?=$data['tgl_lahir']?></td>
                                   <td><?=$data['no_hp']?></td>
+                                  <td><?=$data['gender']?></td>
+                                  <td><?=$data['alamat_siswa']?></td>
                                   <td><?=$data['email_siswa']?></td>
                                   <td>
-                                    <a href="crud/siswa/update.php?id=<?=$data['id']?>" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></a>
-                                    <a href="crud/siswa/delete.php?id=<?=$data['id']?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data Ini?')" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></a>
+                                    <a href="crud/siswa/update.php?id=<?=$data['siswa_id']?>" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></a>
+                                    <a href="crud/siswa/delete.php?id=<?=$data['siswa_id']?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data Ini?')" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></a>
                                   </td>
                                 </tr>
                         <?php

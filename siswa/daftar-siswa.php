@@ -1,3 +1,7 @@
+<?php
+  require_once "../config/config.php";
+  if(isset($_SESSION['nisnSiswa'])) {
+?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -148,3 +152,8 @@
 
 </body>
 </html>
+<?php
+  } else{
+      echo "<script>window.location='../auth/Login-Siswa/login.php';</script>";
+  }
+?>

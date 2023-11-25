@@ -314,6 +314,7 @@ body{
 .login-rejected p{
     text-align: center;
     margin-top: -0.1rem;
+    color: red;
 }
 .login-rejected .failed-2{
     margin-top: -1.2rem;

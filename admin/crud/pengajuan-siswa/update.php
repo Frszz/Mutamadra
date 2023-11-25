@@ -171,12 +171,12 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">Edit</h4>
+                                    <h4 class="mb-sm-0">Edit Pengajuan Siswa</h4>
 
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
                                             <li class="breadcrumb-item"><a href="javascript: void(0);">Master</a></li>
-                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Data Siswa</a></li>
+                                            <li class="breadcrumb-item"><a href="javascript: void(0);">Pengajuan Siswa</a></li>
                                             <li class="breadcrumb-item active">Edit Data</li>
                                         </ol>
                                     </div>
@@ -247,7 +247,7 @@
                                         <div class="mb-3 row mt-5">
                                         <div class="col">
                                             <input type="submit" class="btn btn-success" value="Simpan" name="simpan">
-                                            <a href="../../siswa.php" type="button" class="btn btn-danger"><i class="ri-reply-fill"></i> Kembali</a>
+                                            <a href="../../daftar.php" type="button" class="btn btn-danger"><i class="ri-reply-fill"></i> Kembali</a>
                                         </div>
                                         </div>
                                     </div>

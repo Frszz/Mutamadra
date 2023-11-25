@@ -43,8 +43,8 @@
             </div>
         </div>
         <div class="text-right mt-3">
-            <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
-            <a href="../Login-Sekolah/login.php" type="button" class="btn btn-default">Back</a>
+            <button type="button" class="btn btn-primary">Simpan</button>&nbsp;
+            <a href="../Login-Sekolah/login.php" type="button" class="btn btn-default">Kembali</a>
         </div>
     </div>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>

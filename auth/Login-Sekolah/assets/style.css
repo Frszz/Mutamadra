@@ -434,4 +434,5 @@ form.sign-in-form {
 }
 .login-rejected p{
   text-align: center;
+  color: red;
 }

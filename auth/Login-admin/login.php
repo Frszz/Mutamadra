@@ -52,6 +52,13 @@
                     <a href="#" class="icon"><i class="fa-solid fa-envelope"></i></a>
                     <a href="#" class="icon"><i class="fa-solid fa-school"></i></a>
                 </div>
+                <!-- Form -->
+                <span>Masuk Menggunakan Email Admin </span>
+                <div class="log">
+                    <input type="email" name="emailAdmin" placeholder="Email">
+                    <input type="password" name="passwordAdmin" placeholder="Password">
+                </div>
+                
                 <?php
                     if(isset($_POST['loginAdmin'])) {
                         $email = trim(mysqli_real_escape_string($con, $_POST['emailAdmin']));
@@ -62,20 +69,12 @@
                             echo "<script>window.location='../../admin/dashboard.php';</script>";
                         } else{ ?>
                             <div class="login-rejected" id="login-rejected">
-                                <button class="btn-rejected" onclick="closeDiv()">Konfirmasi</button>
-                                <p class="failed-1"><strong>Login Gagal</strong></p>
                                 <p class="failed-2">Email / Password salah</p> 
                             </div>
                         <?php
                         }
                     }
                 ?>
-                <!-- Form -->
-                <span>Masuk Menggunakan Email Admin </span>
-                <div class="log">
-                    <input type="email" name="emailAdmin" placeholder="Email">
-                    <input type="password" name="passwordAdmin" placeholder="Password">
-                </div>
                 <!-- Button -->
                 <div class="enter">
                     <input type="submit" name="loginAdmin" value="LOGIN">

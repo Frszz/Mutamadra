@@ -173,7 +173,7 @@
             <div class="row">
               <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                  <h4 class="mb-sm-0">Pengajuan Mutasi</h4>
+                  <h4 class="mb-sm-0">Pengajuan pendaftaran</h4>
 
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
@@ -205,11 +205,11 @@
                       <tbody>
                         <tr>
                           <td>221586746</td>
-                          <td style="text-align:center"><embed src="assets/file/Surat.pdf"type="application/pdf" width="100" height="100" alt="surat" /><br><a href="assets/file/Surat.pdf"type="application/pdf" alt="surat" target="_blank">Download Surat</a></td>
+                          <td style="text-align:center"><embed src="assets/file/Surat.pdf" type="application/pdf" width="100" height="100" alt="surat" /><br><a href="assets/file/Surat.pdf"type="application/pdf" alt="surat" target="_blank">Download Surat</a></td>
                           <td>Muhammad Faris Adira</td>
                           <td>07-09-2022</td>
                           <td>
-                            <button type="button" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></button>
+                            <a href="crud/pengajuan-pendaftaran/update.php" type="button" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></a>
                             <button type="button" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></button>
                           </td>
                         </tr>

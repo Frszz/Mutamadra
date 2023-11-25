@@ -171,7 +171,7 @@
                         <div class="row">
                             <div class="col-12">
                                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                                    <h4 class="mb-sm-0">Edit</h4>
+                                    <h4 class="mb-sm-0">Edit Pengajuan Pendaftaran</h4>
 
                                     <div class="page-title-right">
                                         <ol class="breadcrumb m-0">
@@ -221,7 +221,7 @@
                                         <div class="mb-3 row mt-5">
                                         <div class="col">
                                             <input type="submit" class="btn btn-success" value="Simpan" name="simpan">
-                                            <a href="../../daftar.php" type="button" class="btn btn-danger"><i class="ri-reply-fill"></i> Kembali</a>
+                                            <a href="../../mutasi.php" type="button" class="btn btn-danger"><i class="ri-reply-fill"></i> Kembali</a>
                                         </div>
                                         </div>
                                     </div>

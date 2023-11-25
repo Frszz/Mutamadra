@@ -107,8 +107,6 @@
                                     });
                                 });
                             </script>
-
-                            </div>
                             <?php
                                 $querySiswa = mysqli_query($con, "SELECT * FROM siswa WHERE id = '$id'");
                                 $master = mysqli_fetch_array($querySiswa);

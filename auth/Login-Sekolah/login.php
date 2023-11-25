@@ -45,9 +45,7 @@
                       echo "<script>window.location='../../sekolah/home.php';</script>";
                   } else{ ?>
                       <div class="login-rejected" id="login-rejected">
-                          <button class="btn-rejected" onclick="closeDiv()">Konfirmasi</button>
-                          <p class="failed-1"><strong>Login Gagal</strong></p>
-                          <p class="failed-2">Email / Password salah</p> 
+                          <p class="failed-2">Npsn / Password salah</p> 
                       </div>
                   <?php
                   }
@@ -55,7 +53,7 @@
               ?>
               <p><a href="../Password-user/password-sekolah.php"> Lupa Password ?</a></p>
               <div class="bungkus">
-                <a href="../login-user.php" class="btn solid back">Kembali</a>
+                <a href="../../index.html" class="btn solid back">Kembali</a>
                 <input type="submit" name="loginSekolah" value="Login" class="btn solid" />
               </div>
 

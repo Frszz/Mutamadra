@@ -51,12 +51,11 @@
         </header>
 
         <?php
-            $queryUtama = mysqli_query($con, "SELECT * FROM daftar_siswa WHERE id = '$id' && id_siswa != '$id'");
+            $queryUtama = mysqli_query($con, "SELECT * FROM daftar_siswa WHERE id_siswa != '$id'");
             $utama = mysqli_fetch_array($queryUtama);
             if($utama){
         ?>
                 <!-- From Daftar Siswa -->
-                <section id="before">
                     <div class="container">
                         <h3>Daftar (Siswa)</h3>
                         <script>
@@ -200,12 +199,10 @@
                             </div>
                         </form>
                     </div>
-                </section>
         <?php
             } else{
         ?>
                 <!-- Tabel Riwayat Pendaftaran -->
-                <section id="after">
                     <table id="riwayat">
                         <thead>
                             <tr>
@@ -250,7 +247,6 @@
                             ?>
                         </tbody>
                     </table>
-                </section>
         <?php
             }
         ?>

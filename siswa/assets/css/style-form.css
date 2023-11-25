@@ -405,3 +405,35 @@ footer {
 #riwayat td a:hover{
     color: darkgrey;
 }
+
+.not-complited{
+    background: darkcyan;
+    border-radius: 7px;
+    height: 100px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.not-complited p{
+    color: white;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.not-complited p a{
+    text-decoration: none;
+    color: darkcyan;
+    background: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+.not-complited p a:hover{
+    background: lightcyan;
+}
+input[type="text"]:read-only {
+    background-color: lightgray;
+}
+input[type="email"]:read-only {
+    background-color: lightgray;
+}

@@ -197,33 +197,51 @@
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%">
                       <thead>
                         <tr>
+                          <th>Pasfoto</th>
                           <th>NISN</th>
-                          <th>Nama Siswa</th>
-                          <th>Tanggal Daftar</th>
+                          <th>Nama Pendaftar</th>
+                          <th>Email Pendaftar</th>
+                          <th>No.Hp Pendaftar</th>
+                          <th>Tujuan</th>
                           <th>Asal Sekolah</th>
                           <th>Tujuan Sekolah</th>
-                          <th>Tujuan</th>
-                          <th>Surat</th>
+                          <th>Surat Pengajuan</th>
+                          <th>Tanggal Daftar</th>
                           <th>Status</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
 
                       <tbody>
-                        <tr>
-                          <td>221586746</td>
-                          <td>Muhammad Faris Adira</td>
-                          <td>07-09-2022</td>
-                          <td>Man 1</td>
-                          <td>Man 2</td>
-                          <td>tujuan</td>
-                          <td style="text-align:center"><embed src="assets/file/Surat.pdf"type="application/pdf" width="100" height="100" alt="surat" /><br><a href="assets/file/Surat.pdf" type="application/pdf" alt="surat" target="_blank">Download Surat</a></td>
-                          <td>Diterima/Ditolak</td>
-                          <td style="text-align: center;">
-                            <a href="crud/pengajuan-siswa/update.php" type="button" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></a>
-                            <button type="button" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></button>
-                          </td>
-                        </tr>
+                        <?php
+                          $query = "SELECT * FROM daftar_siswa";
+                          $sql_daftar_siswa = mysqli_query($con, $query) or die (mysqli_error($con));
+                          if(mysqli_num_rows($sql_daftar_siswa) > 0){
+                              while($data = mysqli_fetch_array($sql_daftar_siswa)){
+                        ?>
+                                <tr>
+                                  <td><img src="../siswa/assets/file/Pasfoto/<?=$data['pas_foto']?>" width="100" height="100" alt="Pasfoto Siswa"></td>
+                                  <td><?=$data['nisn']?></td>
+                                  <td><?=$data['nama_pendaftar']?></td>
+                                  <td><?=$data['email_pendaftar']?></td>
+                                  <td><?=$data['nohp_pendaftar']?></td>
+                                  <td><?=$data['tujuan']?></td>
+                                  <td><?=$data['asal_sekolah']?></td>
+                                  <td><?=$data['tujuan_sekolah']?></td>
+                                  <td style="text-align:center"><embed src="../siswa/assets/file/Surat_Daftar/<?=$data['surat_daftar']?>" type="application/pdf" width="100" height="100" alt="Surat Pendaftaran Siswa" /><br><a href="../siswa/assets/file/Surat_Daftar/<?=$data['surat_daftar']?>" type="application/pdf" target="_blank">Download Surat</a></td>
+                                  <td><?=$data['tgl_daftar']?></td>
+                                  <td><?=$data['status']?></td>
+                                  <td style="text-align: center;">
+                                    <a href="crud/pengajuan-siswa/update.php?id=<?=$data['id']?>" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></a>
+                                    <a href="crud/pengajuan-siswa/delete.php?id=<?=$data['id']?>" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></a>
+                                  </td>
+                                </tr>
+                        <?php
+                              }
+                          } else{
+                              echo "<tr><td colspan=\"4\" align=\"center\">Data Tidak Ditemukan</td></tr>";
+                          }
+                        ?>
                       </tbody>
                     </table>
                   </div>

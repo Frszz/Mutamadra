@@ -44,18 +44,23 @@
         <!-- Navbar Right -->
             <div class="main">
                 <a href="akun.php" class="user"><i class="ri-user-fill"></i>Akun</a>
-                <a href="../auth/Login-Sekolah/logout.php" class="user">Logout</a>
+                <a href="../auth/Login-Siswa/logout.php" class="user">Logout</a>
                 <div class="bx bx-menu" id="menu-icon"></div>
             </div>
-
         </header>
 
         <?php
-            $queryUtama = mysqli_query($con, "SELECT * FROM daftar_siswa WHERE id_siswa != '$id'");
+            $queryUtama = mysqli_query($con, "SELECT * FROM daftar_siswa");
             $utama = mysqli_fetch_array($queryUtama);
-            if($utama){
+            
+            if($utama['id_siswa'] != $id){
+                $querySiswa = mysqli_query($con, "SELECT * FROM siswa WHERE id = '$id'");
+                $siswa = mysqli_fetch_array($querySiswa);
+                $querySekolah = mysqli_query($con, "SELECT * FROM sekolah");
+                
+                if(!empty($siswa['nama_siswa']) && !empty($siswa['nisn']) && !empty($siswa['email_siswa']) && !empty($siswa['no_hp'])){
         ?>
-                <!-- From Daftar Siswa -->
+                    <!-- From Daftar Siswa -->
                     <div class="container">
                         <h3>Daftar (Siswa)</h3>
                         <script>
@@ -71,10 +76,6 @@
                             }
                         </script>
                         <?php
-                            $querySiswa = mysqli_query($con, "SELECT * FROM siswa WHERE id = '$id'");
-                            $siswa = mysqli_fetch_array($querySiswa);
-                            $querySekolah = mysqli_query($con, "SELECT * FROM sekolah");
-
                             if(isset($_POST['kirim'])){
                                 $dirFoto = "assets/file/Pasfoto/";
                                 $foto_file = $_FILES['pas_foto']['name'];
@@ -118,7 +119,9 @@
                                 $status = $_POST['status'];
 
                                 mysqli_query($con, "INSERT INTO daftar_siswa (id_siswa, id_sekolah, pas_foto, nisn, nama_pendaftar, email_pendaftar, nohp_pendaftar, tujuan, asal_sekolah, tujuan_sekolah, surat_daftar, tgl_daftar, status) VALUES ('$id', '$IdSklh', '$pas_foto', '$nisn', '$nama_pendaftar', '$email_pendaftar', '$nohp_pendaftar', '$tujuan', '$asal_sekolah', '$tujuan_sekolah', '$surat_daftar', CURRENT_TIMESTAMP(), '$status')") or die(mysqli_error($con));
-                                echo "<script>alert('Pendaftaran Berhasil');</script>";
+                                echo "<script>alert('Pendaftaran Berhasil');
+                                window.location='home.php';
+                                </script>";
                             }
                         ?>
                         <form method="POST" action="" enctype="multipart/form-data">
@@ -199,54 +202,61 @@
                             </div>
                         </form>
                     </div>
+        <?php   
+                } else{
+        ?>
+                    <div class="not-complited">
+                        <p>Lengkapi Terlebih Dahulu <a href="akun.php">Biodata</a> Kamu</p>
+                    </div>
         <?php
+                }
             } else{
         ?>
                 <!-- Tabel Riwayat Pendaftaran -->
-                    <table id="riwayat">
-                        <thead>
-                            <tr>
-                                <th>Pasfoto</th>
-                                <th>NISN</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>No. Hp</th>
-                                <th>Hal</th>
-                                <th>sekolah Asal</th>
-                                <th>Sekolah Tujuan</th>
-                                <th>Surat Daftar</th>
-                                <th>Tanggal Daftar</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                $query_riwayat = "SELECT * FROM daftar_siswa WHERE id_siswa = '$id'";
-                                $sql_riwayat = mysqli_query($con, $query_riwayat) or die (mysqli_error($con));
-                                if(mysqli_num_rows($sql_riwayat) > 0){
-                                    while($riwayat = mysqli_fetch_array($sql_riwayat)){
-                            ?>
-                                        <tr>
-                                            <td><img src="assets/file/Pasfoto/<?=$riwayat['pas_foto']?>" width="100" height="100" alt="Pasfoto"></td>
-                                            <td><?=$riwayat['nisn']?></td>
-                                            <td><?=$riwayat['nama_pendaftar']?></td>
-                                            <td><?=$riwayat['email_pendaftar']?></td>
-                                            <td><?=$riwayat['nohp_pendaftar']?></td>
-                                            <td><?=$riwayat['tujuan']?></td>
-                                            <td><?=$riwayat['asal_sekolah']?></td>
-                                            <td><?=$riwayat['tujuan_sekolah']?></td>
-                                            <td><embed src="assets/file/Surat_Daftar/<?=$riwayat['surat_daftar']?>" width="100" height="100" alt="Surat Daftar"><br><a href="assets/file/Surat_Daftar/<?=$riwayat['surat_daftar']?>" type="application/pdf" target="_blank">Download Surat</a></td>
-                                            <td><?=$riwayat['tgl_daftar']?></td>
-                                            <td><?=$riwayat['status']?></td>
-                                        </tr>
-                            <?php
-                                    }
-                                } else{
-                                    echo "<tr><td colspan=\"4\" align=\"center\">Data Tidak Ditemukan</td></tr>";
+                <table id="riwayat">
+                    <thead>
+                        <tr>
+                            <th>Pasfoto</th>
+                            <th>NISN</th>
+                            <th>Nama</th>
+                            <th>Email</th>
+                            <th>No. Hp</th>
+                            <th>Hal</th>
+                            <th>sekolah Asal</th>
+                            <th>Sekolah Tujuan</th>
+                            <th>Surat Daftar</th>
+                            <th>Tanggal Daftar</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            $query_riwayat = "SELECT * FROM daftar_siswa WHERE id_siswa = '$id'";
+                            $sql_riwayat = mysqli_query($con, $query_riwayat) or die (mysqli_error($con));
+                            if(mysqli_num_rows($sql_riwayat) > 0){
+                                while($riwayat = mysqli_fetch_array($sql_riwayat)){
+                        ?>
+                                    <tr>
+                                        <td><img src="assets/file/Pasfoto/<?=$riwayat['pas_foto']?>" width="100" height="100" alt="Pasfoto"></td>
+                                        <td><?=$riwayat['nisn']?></td>
+                                        <td><?=$riwayat['nama_pendaftar']?></td>
+                                        <td><?=$riwayat['email_pendaftar']?></td>
+                                        <td><?=$riwayat['nohp_pendaftar']?></td>
+                                        <td><?=$riwayat['tujuan']?></td>
+                                        <td><?=$riwayat['asal_sekolah']?></td>
+                                        <td><?=$riwayat['tujuan_sekolah']?></td>
+                                        <td><embed src="assets/file/Surat_Daftar/<?=$riwayat['surat_daftar']?>" width="100" height="100" alt="Surat Daftar"><br><a href="assets/file/Surat_Daftar/<?=$riwayat['surat_daftar']?>" type="application/pdf" target="_blank">Download Surat</a></td>
+                                        <td><?=$riwayat['tgl_daftar']?></td>
+                                        <td><?=$riwayat['status']?></td>
+                                    </tr>
+                        <?php
                                 }
-                            ?>
-                        </tbody>
-                    </table>
+                            } else{
+                                echo "<tr><td colspan=\"4\" align=\"center\">Data Tidak Ditemukan</td></tr>";
+                            }
+                        ?>
+                    </tbody>
+                </table>
         <?php
             }
         ?>

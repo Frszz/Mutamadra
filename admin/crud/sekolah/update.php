@@ -168,8 +168,8 @@
                 output.src = reader.result;
 
                 // Sembunyikan Surat Lama
-                var oldKTM = document.getElementById('oldSurat');
-                oldKTM.style.display = 'none';
+                var oldSurat = document.getElementById('oldSurat');
+                oldSurat.style.display = 'none';
             };
             reader.readAsDataURL(input.files[0]);
           }
@@ -264,7 +264,7 @@
                                           <label for="surat_sekolah" class="col-sm-2 col-form-label">Surat Sekolah</label>
                                           <div class="col-sm-10">
                                             <embed id="previewSurat" type="application/pdf" style="display: none; width :auto; height: auto;">
-                                            <embed id="oldSurat" src="../../assets/file/<?=$data['surat_sekolah']?>" type="application/pdf" width="auto" height="auto" alt="Surat Sekolah" alt="Foto">
+                                            <embed id="oldSurat" src="../../assets/file/<?=$data['surat_sekolah']?>" type="application/pdf" width="auto" height="auto" alt="Surat Sekolah">
                                             <input class="form-control" name="surat_sekolah" type="file" id="surat_sekolah" value="<?=$data['surat_sekolah']?>" accept=".pdf" onchange="tampilkanSurat(event)">
                                           </div>
                                         </div>

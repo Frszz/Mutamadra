@@ -18,7 +18,7 @@
         if(isset($_FILES['surat_sekolah']) && $_FILES['surat_sekolah']['error'] === UPLOAD_ERR_OK){
             $surat_file = $_FILES['surat_sekolah']['name'];
             $file_extension = pathinfo($surat_file, PATHINFO_EXTENSION);
-            if ($file_extension === 'pdf') {
+            if ($file_extension == 'pdf') {
                 $encrypted_name = md5(uniqid()) . '.pdf';
                 $surat_sekolah = $encrypted_name;
                 $temporary = $_FILES['surat_sekolah']['tmp_name'];

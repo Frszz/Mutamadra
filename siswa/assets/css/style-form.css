@@ -281,7 +281,7 @@ form .fields .input-field{
 .input-field input[type="date"]:valid{
     color: #333;
 }
-.container form button, .backBtn{
+.container form .submit, .backBtn{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -301,10 +301,10 @@ form .fields .input-field{
     font-size: 14px;
     font-weight: 400;
 }
-form button:hover{
+form .submit:hover{
     background-color: #265df2;
 }
-form button i,
+form .submit i,
 form .backBtn i{
     margin: 0 6px;
 }
@@ -384,4 +384,24 @@ footer {
   text-transform: uppercase;
   opacity: 0.4;
   font-weight: 200;
+}
+
+
+#riwayat{
+    border: 0;
+    color: white;
+    width: 100%;
+}
+#riwayat th,
+#riwayat td{
+    background: darkcyan;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+#riwayat td a{
+    color: white;
+}
+#riwayat td a:hover{
+    color: darkgrey;
 }

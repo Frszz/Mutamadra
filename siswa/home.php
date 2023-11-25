@@ -1,6 +1,7 @@
 <?php
   require_once "../config/config.php";
-  if(isset($_SESSION['nisnSiswa'])) {
+  if(isset($_SESSION['nisnSiswa']) && isset($_SESSION['idSiswa'])) {
+    $id = $_SESSION['idSiswa'];
 ?>
 <!DOCTYPE html>
 <html lang="en">

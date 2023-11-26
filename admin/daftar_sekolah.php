@@ -141,8 +141,8 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="daftar.php">Pengajuan Siswa</a></li>
-                  <li><a href="mutasi.php">Pengajuan Sekolah</a></li>
+                  <li><a href="daftar_siswa.php">Pengajuan Siswa</a></li>
+                  <li><a href="daftar_sekolah.php">Pengajuan Sekolah</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -203,7 +203,7 @@
                       </thead>
                       <tbody>
                         <?php
-                          $query = "SELECT * FROM daftar_sekolah INNER JOIN sekolah ON daftar_sekolah.id_sekolah = sekolah.id";
+                          $query = "SELECT daftar_sekolah.id AS id_daftar, sekolah.id AS id_sekolah, sekolah.npsn, sekolah.nama_sekolah, daftar_sekolah.tgl_buka, daftar_sekolah.tgl_tutup, daftar_sekolah.surat_registrasi FROM daftar_sekolah INNER JOIN sekolah ON daftar_sekolah.id_sekolah = sekolah.id";
                           $sql_daftar_sekolah = mysqli_query($con, $query) or die (mysqli_error($con));
                           if(mysqli_num_rows($sql_daftar_sekolah) > 0){
                               while($data = mysqli_fetch_array($sql_daftar_sekolah)){
@@ -215,7 +215,7 @@
                                   <td><?=$data['tgl_buka']?></td>
                                   <td><?=$data['tgl_tutup']?></td>
                                   <td style="text-align: center;">
-                                    <a href="crud/pengajuan-pendaftaran/delete.php?id=<?=$data['id']?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data Ini?')" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></a>
+                                    <a href="crud/pengajuan-pendaftaran/delete.php?id=<?=$data['id_daftar']?>" onclick="return confirm('Apakah Anda Ingin Menghapus Data Ini?')" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></a>
                                   </td>
                                 </tr>
                         <?php

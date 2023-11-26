@@ -88,7 +88,7 @@
                                         </div>
                                         <div class="text-right mt-3">
                                             <input type="submit" name="ubahpass" value="Save Changes" class="btn btn-primary">&nbsp;
-                                            <a href="home.php" type="button" class="btn btn-default">Back</a>
+                                            <a href="home.php" type="button" class="btn btn-danger">Back</a>
                                         </div>
                                     </div>
                                 </form>
@@ -190,7 +190,7 @@
                                         </div>
                                         <div class="text-right mt-3">
                                             <input type="submit" name="biodata" value="Save Changes" class="btn btn-primary">&nbsp;
-                                            <a href="home.php" type="button" class="btn btn-default">Back</a>
+                                            <a href="home.php" type="button" class="btn btn-danger">Back</a>
                                         </div>
                                     </div>
                                 </form>

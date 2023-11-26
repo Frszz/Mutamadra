@@ -20,9 +20,35 @@
 <body>
 
     <div class="container" id="container">
+
         <!-- Reset Password -->
         <div class="form-container reset">
-            <form>
+            <?php
+                if(isset($_POST['ubah'])){
+                    $email_admin = $_POST['email_admin'];
+                    $newPass = $_POST['newPass'];
+                    $confirmPass = $_POST['confirmPass'];
+                    $queryShow = mysqli_query($con, "SELECT * FROM admin WHERE email = '$email_admin'");
+                    $show = mysqli_fetch_assoc($queryShow);
+                    if(!empty($email_admin) && !empty($newPass) && !empty($confirmPass)){
+                        if($newPass == $confirmPass){
+                            mysqli_query($con, "UPDATE admin SET password = '$newPass' WHERE email = '$email_admin'");
+                            echo "<script>alert('Password Anda Berhasil Dirubah');
+                            window.location='login.php';
+                            </script>";
+                        } else{
+                            echo "<script>alert('Password Tidak Sesuai');
+                            window.location='login.php';
+                            </script>";
+                        }
+                    } else{
+                        echo "<script>alert('Email Harus Diisi');
+                        window.location='login.php';
+                        </script>";
+                    }
+                }
+            ?>
+            <form method="POST" action="">
                 <h1>Reset Password</h1>
                 <!-- Icons -->
                 <div class="social-icons">
@@ -30,19 +56,19 @@
                     <a href="#" class="icon"><i class="fa-solid fa-school"></i></a>
                 </div>
                 <!-- Form -->
-                <span>Masukan Nama dan Email Untuk Verifikasi</span>
+                <span>Masukkan Email Untuk Verifikasi</span>
                 <div class="log">
-                    <input type="text" placeholder="Nama">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password Baru">
-                    <input type="password" placeholder="Konfirmasi Password">
+                    <input type="email" name="email_admin" placeholder="Email" required>
+                    <input type="password" name="newPass" placeholder="Password Baru" required>
+                    <input type="password" name="confirmPass" placeholder="Konfirmasi Password" required>
                 </div>
                 <!-- Button -->
                 <div class="enter">
-                    <a href="login.php" type="button">Konfirmasi</a>
+                    <input type="submit" name="ubah" value="SUBMIT" style="cursor: pointer;">
                 </div> 
             </form>
         </div>
+
         <!-- Login -->
         <div class="form-container login">
             <form method="POST" action="">

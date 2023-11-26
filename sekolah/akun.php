@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="assets/css/style-akun.css">
         <!-- bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     </head>
     <body>
         <div class="container light-style flex-grow-1 container-p-y">
@@ -81,7 +82,7 @@
                                         </div>
                                         <div class="text-right mt-3">
                                             <input type="submit" name="ubahpass" class="btn btn-primary" value="Save Changes">&nbsp;
-                                            <a href="home.php" type="button" class="btn btn-default">Back</a>
+                                            <a href="home.php" type="button" class="btn btn-danger">Back</a>
                                         </div>
                                     </div>
                                 </form>
@@ -214,7 +215,7 @@
                                         </div>
                                         <div class="text-right mt-3">
                                             <input type="submit" class="btn btn-primary" name="biodata" value="Save Changes">&nbsp;
-                                            <a href="home.php" type="button" class="btn btn-default">Back</a>
+                                            <a href="home.php" type="button" class="btn btn-danger">Back</a>
                                         </div>
                                     </div>
                                 </form>

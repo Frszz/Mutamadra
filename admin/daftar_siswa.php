@@ -6,12 +6,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Pengajuan Sekolah | Sekolah</title>
+    <title>Pengajuan Siswa | Sekolah</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesdesign" name="author" />
     <!-- App favicon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
+
+    <!-- jquery.vectormap css -->
+    <link href="assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css" rel="stylesheet" type="text/css" />
 
     <!-- DataTables -->
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
@@ -141,8 +144,8 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="daftar.php">Pengajuan Siswa</a></li>
-                  <li><a href="mutasi.php">Pengajuan Sekolah</a></li>
+                  <li><a href="daftar_siswa.php">Pengajuan Siswa</a></li>
+                  <li><a href="daftar_sekolah.php">Pengajuan Pendaftaran</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -173,12 +176,12 @@
             <div class="row">
               <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                  <h4 class="mb-sm-0">Pengajuan pendaftaran</h4>
+                  <h4 class="mb-sm-0">Pengajuan Siswa</h4>
 
                   <div class="page-title-right">
                     <ol class="breadcrumb m-0">
                       <li class="breadcrumb-item"><a href="javascript: void(0);">Pengajuan</a></li>
-                      <li class="breadcrumb-item active">Pengajuan Pedndaftaran</li>
+                      <li class="breadcrumb-item active">Pengajuan Siswa</li>
                     </ol>
                   </div>
                 </div>
@@ -191,33 +194,45 @@
                 <div class="card">
                   <div class="card-body">
 
-                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                    <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%">
                       <thead>
                         <tr>
-                          <th>NPSN</th>
-                          <th>Nama Sekolah</th>
-                          <th>Surat Registrasi</th>
-                          <th>Tanggal Buka</th>
-                          <th>Tanggal Tutup</th>
+                          <th>Pasfoto</th>
+                          <th>NISN</th>
+                          <th>Nama Pendaftar</th>
+                          <th>Email Pendaftar</th>
+                          <th>No.Hp Pendaftar</th>
+                          <th>Tujuan</th>
+                          <th>Asal Sekolah</th>
+                          <th>Tujuan Sekolah</th>
+                          <th>Surat Pengajuan</th>
+                          <th>Tanggal Daftar</th>
+                          <th>Status</th>
                           <th>Aksi</th>
                         </tr>
                       </thead>
+
                       <tbody>
                         <?php
-                          $query = "SELECT * FROM daftar_sekolah INNER JOIN sekolah ON daftar_sekolah.id_sekolah = sekolah.id";
-                          $sql_daftar_sekolah = mysqli_query($con, $query) or die (mysqli_error($con));
-                          if(mysqli_num_rows($sql_daftar_sekolah) > 0){
-                              while($data = mysqli_fetch_array($sql_daftar_sekolah)){
+                          $query = "SELECT * FROM daftar_siswa";
+                          $sql_daftar_siswa = mysqli_query($con, $query) or die (mysqli_error($con));
+                          if(mysqli_num_rows($sql_daftar_siswa) > 0){
+                              while($data = mysqli_fetch_array($sql_daftar_siswa)){
                         ?>
                                 <tr>
-                                  <td><?=$data['npsn']?></td>
-                                  <td><?=$data['nama_sekolah']?></td>
-                                  <td align="center"><embed src="../sekolah/assets/file/<?=$data['surat_registrasi']?>" type="application/pdf" width="100" height="100" alt="Surat Pembukaan Pendaftaran" /><br><a href="../sekolah/assets/file/<?=$data['surat_registrasi']?>" type="application/pdf" target="_blank">Download Surat</a></td>
-                                  <td><?=$data['tgl_buka']?></td>
-                                  <td><?=$data['tgl_tutup']?></td>
+                                  <td><img src="../siswa/assets/file/Pasfoto/<?=$data['pas_foto']?>" width="100" height="100" alt="Pasfoto Siswa"></td>
+                                  <td><?=$data['nisn']?></td>
+                                  <td><?=$data['nama_pendaftar']?></td>
+                                  <td><?=$data['email_pendaftar']?></td>
+                                  <td><?=$data['nohp_pendaftar']?></td>
+                                  <td><?=$data['tujuan']?></td>
+                                  <td><?=$data['asal_sekolah']?></td>
+                                  <td><?=$data['tujuan_sekolah']?></td>
+                                  <td style="text-align:center"><embed src="../siswa/assets/file/Surat_Daftar/<?=$data['surat_daftar']?>" type="application/pdf" width="100" height="100" alt="Surat Pendaftaran Siswa" /><br><a href="../siswa/assets/file/Surat_Daftar/<?=$data['surat_daftar']?>" type="application/pdf" target="_blank">Download Surat</a></td>
+                                  <td><?=$data['tgl_daftar']?></td>
+                                  <td><?=$data['status']?></td>
                                   <td style="text-align: center;">
-                                    <a href="crud/pengajuan-pendaftaran/update.php?id=<?=$data['id']?>" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></a>
-                                    <a href="crud/pengajuan-pendaftaran/delete.php?id=<?=$data['id']?>" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></a>
+                                    <a href="crud/pengajuan-siswa/update.php?id=<?=$data['id']?>" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></a>
                                   </td>
                                 </tr>
                         <?php
@@ -330,7 +345,7 @@
 
     <script src="assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
     <script src="assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
-    
+
     <!-- Responsive examples -->
     <script src="assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
@@ -339,7 +354,6 @@
     <script src="assets/js/pages/datatables.init.js"></script>
 
     <script src="assets/js/app.js"></script>
-
   </body>
 </html>
 <?php

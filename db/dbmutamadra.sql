@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 26 Nov 2023 pada 04.11
+-- Waktu pembuatan: 26 Nov 2023 pada 18.02
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -59,7 +59,9 @@ CREATE TABLE `daftar_sekolah` (
 --
 
 INSERT INTO `daftar_sekolah` (`id`, `id_sekolah`, `surat_registrasi`, `tgl_buka`, `tgl_tutup`) VALUES
-(1, 1, 'f5656f14230ba048279966630700da2d.pdf', '2023-11-09', '2023-11-30');
+(2, 1, 'b9a9618d9361607061ebdd638ab16d1b.pdf', '2023-11-04', '2023-11-27'),
+(3, 2, 'd18b3926dce8fb8ef585aed9c5fc78f7.pdf', '2023-11-15', '2023-11-30'),
+(4, 3, '309e86265ed110c4b430ed576000fac6.pdf', '2023-11-09', '2023-11-29');
 
 -- --------------------------------------------------------
 
@@ -109,7 +111,8 @@ CREATE TABLE `sekolah` (
 
 INSERT INTO `sekolah` (`id`, `npsn`, `nama_sekolah`, `alamat`, `kab_kota`, `kecamatan`, `jenjang`, `surat_sekolah`, `email_sekolah`, `password_sekolah`) VALUES
 (1, '102030', 'SMA ISLAM AL-ULUM TERPADU', 'Jl. Tuasan', 'Medan', 'Medan Tembung', 'SMA', '317dcfe830bf86720d28a7ac1fd7905f.pdf', 'alulum@gmail.com', '444'),
-(2, '7267263', 'SMPN 4 Percontohan', 'Jl. Boy', 'Aceh Tamiang', 'Karang Baru', 'SMP', 'fa4325ddb7f1b432776aa60034e2bf7c.pdf', 'blabla@gmail.com', '123');
+(2, '7267263', 'SMPN 4 Percontohan', 'Jl. Boy', 'Aceh Tamiang', 'Karang Baru', 'SMP', 'fa4325ddb7f1b432776aa60034e2bf7c.pdf', 'blabla@gmail.com', '123'),
+(3, '111', 'SMA Muhammadiyah', 'Sunggal', 'Medan', 'Medan Sunggal', 'SMA', 'bc32e11cd571b15c990d9e7edd14cdf3.pdf', 'cekulah@gmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -138,7 +141,8 @@ CREATE TABLE `siswa` (
 INSERT INTO `siswa` (`id`, `id_sekolah`, `nisn`, `nama_siswa`, `tmpt_lahir`, `tgl_lahir`, `no_hp`, `gender`, `alamat`, `email_siswa`, `password_siswa`) VALUES
 (1, 1, '0702213184', 'Aldito Fayyadh Yustihar', 'Aceh', '2004-04-04', '087878992615', 'Laki-laki', 'Jl. Pancing', 'aldito@gmail.com', '123'),
 (2, 1, '444333', 'Budi Ahuy', 'London', '2023-11-09', '081234', 'Perempuan', ' Jl. Street ', 'fix@gmail.com', '123'),
-(3, 2, '999', 'Robert', 'Konoha', '2023-11-12', '06158292763', 'Laki-laki', ' Block. 5', 'siswa@gmail.com', '123');
+(3, 2, '999', 'Robert', 'Konoha', '2023-11-12', '06158292763', 'Laki-laki', ' Block. 5', 'siswa@gmail.com', '123'),
+(4, 3, '6969', 'Santoso Kurniawan', 'Amerika', '2023-11-15', '08123456789', 'Laki-laki', ' Jl. Mawar', 'brace@gmail.com', '123');
 
 --
 -- Indexes for dumped tables
@@ -194,25 +198,25 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `daftar_sekolah`
 --
 ALTER TABLE `daftar_sekolah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `daftar_siswa`
 --
 ALTER TABLE `daftar_siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `sekolah`
 --
 ALTER TABLE `sekolah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

@@ -50,8 +50,9 @@
         </header>
 
         <?php
-            $queryUtama = mysqli_query($con, "SELECT * FROM daftar_siswa");
+            $queryUtama = mysqli_query($con, "SELECT * FROM daftar_siswa WHERE id_siswa = '$id'");
             $utama = mysqli_fetch_array($queryUtama);
+            $date = date('d-m-Y');
             
             if(!isset($utama['id_siswa']) || $utama['id_siswa'] != $id){
                 $querySiswa = mysqli_query($con, "SELECT * FROM siswa WHERE id = '$id'");
@@ -179,15 +180,21 @@
                                             <label for="tujuan_sekolah">Tujuan Sekolah</label>
                                             <select class="form-select" id="tujuan_sekolah" name="tujuan_sekolah" required>
                                                 <option disabled selected style="display: none;">Pilih</option>
-                                                <?php
-                                                    while ($sekolah = mysqli_fetch_array($querySekolah)) {
-                                                ?>
-                                                    <option><?=$sekolah['nama_sekolah']?></option>
-                                                <?php
+                                            <?php
+                                                $date = date('Y-m-d');
+                                                $queryDaftar = mysqli_query($con, "SELECT * FROM daftar_sekolah INNER JOIN sekolah ON daftar_sekolah.id_sekolah = sekolah.id");
+                                                while ($hasil = mysqli_fetch_array($queryDaftar)) {
+                                                    $tutup = $hasil['tgl_tutup'];
+                                                    if ($date <= $tutup) {
+                                            ?>
+                                                        <option><?=$hasil['nama_sekolah']?></option>
+                                            <?php
+                                                    }
                                                 }
-                                                ?>
+                                            ?>
                                             </select>
                                         </div>
+
 
                                         <div class="input-field">
                                             <label for="surat_daftar">Surat Daftar (.pdf)</label>

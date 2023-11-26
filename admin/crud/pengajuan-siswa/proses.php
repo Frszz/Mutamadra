@@ -28,18 +28,18 @@
                 mysqli_query($con, "UPDATE siswa SET id_sekolah='$IdSklh' WHERE id = '$IdSiswa'");
                 mysqli_query($con, "DELETE FROM daftar_siswa WHERE id_siswa = '$IdSiswa'");
                 echo "<script>alert('Siswa Berhasil Diterima');
-                window.location='../../daftar.php';
+                window.location='../../daftar_siswa.php';
                 </script>";
             } else if($status == "Ditolak"){
                 unlink($dirFoto.$dataFile['pas_foto']);
                 unlink($dirSurat.$dataFile['surat_daftar']);
                 mysqli_query($con, "DELETE FROM daftar_siswa WHERE id_siswa = '$IdSiswa'");
                 echo "<script>alert('Siswa Telah Ditolak');
-                window.location='../../daftar.php';
+                window.location='../../daftar_siswa.php';
                 </script>";
             } else{
                 echo "<script>alert('Status Harus Diubah');
-                window.location='../../daftar.php';
+                window.location='../../daftar_siswa.php';
                 </script>";
             }
         }

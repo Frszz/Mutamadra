@@ -142,8 +142,8 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="daftar.php">Pengajuan Siswa</a></li>
-                  <li><a href="mutasi.php">Pengajuan Pendaftaran</a></li>
+                  <li><a href="daftar_siswa.php">Pengajuan Siswa</a></li>
+                  <li><a href="daftar_sekolah.php">Pengajuan Pendaftaran</a></li>
                 </ul>
               </li>
               <!-- end li -->
@@ -192,16 +192,20 @@
 
             <div class="col-xl-12">
               <div class="row">
+                <?php
+                  $queryJmlSiswaSMA = mysqli_query($con, "SELECT COUNT(*) AS jumlah_siswa_sma FROM siswa INNER JOIN sekolah ON siswa.id_sekolah = siswa.id WHERE sekolah.jenjang = 'SMA'");
+                  $jmlSiswaSMA = mysqli_fetch_assoc($queryJmlSiswaSMA);
+                ?>
                 <div class="col-xl-6 col-md-4">
                   <div class="card">
                     <div class="card-body p-0">
                       <div class="p-4">
                         <div class="d-flex">
                           <div class="flex-1">
-                            <h3 class="mb-3"><span>67</span></h3>
+                            <h3 class="mb-3"><span><?=$jmlSiswaSMA['jumlah_siswa_sma']?></span></h3>
                           </div>
                           <div class="">
-                            <p class="badge bg-soft-primary text-primary fw-bold font-size-12 mb-0">Pendaftaran SMA</p>
+                            <p class="badge bg-soft-primary text-primary fw-bold font-size-12 mb-0">SMA</p>
                           </div>
                         </div>
                         <h5 class="text-muted font-size-14 mb-0">Jumlah Siswa</h5>
@@ -212,16 +216,20 @@
                   <!-- end card -->
                 </div>
                 <!-- end col -->
+                <?php
+                  $queryJmlSiswaSMP = mysqli_query($con, "SELECT COUNT(*) AS jumlah_siswa_smp FROM siswa INNER JOIN sekolah ON siswa.id_sekolah = siswa.id WHERE sekolah.jenjang = 'SMP'");
+                  $jmlSiswaSMP = mysqli_fetch_assoc($queryJmlSiswaSMP);
+                ?>
                 <div class="col-xl-6 col-md-4">
                   <div class="card">
                     <div class="card-body p-0">
                       <div class="p-4">
                         <div class="d-flex">
                           <div class="flex-1">
-                            <h3 class="mb-3"><span>12</span></h3>
+                            <h3 class="mb-3"><span><?=$jmlSiswaSMP['jumlah_siswa_smp']?></span></h3>
                           </div>
                           <div class="">
-                            <p class="badge bg-soft-primary text-primary fw-bold font-size-12 mb-0">Pendaftaran MTS</p>
+                            <p class="badge bg-soft-primary text-primary fw-bold font-size-12 mb-0">SMP</p>
                           </div>
                         </div>
                         <h5 class="text-muted font-size-14 mb-0">Jumlah Siswa</h5>
@@ -232,19 +240,23 @@
                   <!-- end card -->
                 </div>
                 <!-- end col -->
+                <?php
+                  $queryJmlSMA = mysqli_query($con, "SELECT COUNT(*) AS jumlah_sma FROM sekolah WHERE jenjang = 'SMA'");
+                  $jmlSMA = mysqli_fetch_assoc($queryJmlSMA);
+                ?>
                 <div class="col-xl-6 col-md-4">
                   <div class="card">
                     <div class="card-body p-0">
                       <div class="p-4">
                         <div class="d-flex">
                           <div class="flex-1">
-                            <h3 class="mb-3"><span>9</span></h3>
+                            <h3 class="mb-3"><span><?=$jmlSMA['jumlah_sma']?></span></h3>
                           </div>
                           <div class="">
-                            <p class="badge bg-soft-primary text-primary fw-bold font-size-12 mb-0">Mutasi SMA</p>
+                            <p class="badge bg-soft-primary text-primary fw-bold font-size-12 mb-0">SMA</p>
                           </div>
                         </div>
-                        <h5 class="text-muted font-size-14 mb-0">Jumlah Siswa</h5>
+                        <h5 class="text-muted font-size-14 mb-0">Jumlah Sekolah</h5>
                       </div>
                     </div>
                     <!-- end cardbody -->
@@ -252,19 +264,23 @@
                   <!-- end card -->
                 </div>
                 <!-- end col -->
+                <?php
+                  $queryJmlSMP = mysqli_query($con, "SELECT COUNT(*) AS jumlah_smp FROM sekolah WHERE jenjang = 'SMP'");
+                  $jmlSMP = mysqli_fetch_assoc($queryJmlSMP);
+                ?>
                 <div class="col-xl-6 col-md-4">
                   <div class="card">
                     <div class="card-body p-0">
                       <div class="p-4">
                         <div class="d-flex">
                           <div class="flex-1">
-                            <h3 class="mb-3"><span>23</span></h3>
+                            <h3 class="mb-3"><span><?=$jmlSMP['jumlah_smp']?></span></h3>
                           </div>
                           <div class="">
-                            <p class="badge bg-soft-primary text-primary fw-bold font-size-12 mb-0">Mutasi MTS</p>
+                            <p class="badge bg-soft-primary text-primary fw-bold font-size-12 mb-0">SMP</p>
                           </div>
                         </div>
-                        <h5 class="text-muted font-size-14 mb-0">Jumlah Siswa</h5>
+                        <h5 class="text-muted font-size-14 mb-0">Jumlah Sekolah</h5>
                       </div>
                     </div>
                     <!-- end cardbody -->

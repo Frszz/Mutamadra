@@ -52,9 +52,9 @@
 
         <div class="main-content">
             <?php
-                $queryUtama = mysqli_query($con, "SELECT * FROM daftar_sekolah");
+                $queryUtama = mysqli_query($con, "SELECT * FROM daftar_sekolah WHERE id_sekolah = '$id'");
                 $utama = mysqli_fetch_array($queryUtama);
-                $date = date('d-m-Y');
+                $date = date('Y-m-d');
                 
                 if(!isset($utama['id_sekolah']) || $utama['id_sekolah'] != $id){
                     $querySekolah = mysqli_query($con, "SELECT * FROM sekolah WHERE id = '$id'");
@@ -106,7 +106,7 @@
 
                                             <div class="input-field">
                                                 <label for="surat_registrasi">Surat Penerimaan Siswa</label>
-                                                <input type="file" id="surat_registrasi" name="surat_registrasi" required>
+                                                <input type="file" id="surat_registrasi" name="surat_registrasi" accept=".pdf" required>
                                             </div>
                                         </div>
                                     </div>
@@ -157,56 +157,65 @@
             <?php
                     }
                 } else{
+                    $querySupport = mysqli_query($con, "SELECT * FROM daftar_sekolah WHERE id_sekolah = '$id'");
+                    $support = mysqli_fetch_array($querySupport);
+                    $tutup = $support['tgl_tutup'];
+                    if($date > $tutup){
+                        $directory = "assets/file/";
+                        unlink($directory.$support['surat_registrasi']);
+                        mysqli_query($con, "DELETE FROM daftar_sekolah WHERE id_sekolah = '$id'");
+                    } else{
             ?>
-                    <div class="second-main">
-                        <!-- Tabel Riwayat Pendaftaran -->
-                        <table id="riwayat">
-                            <thead>
-                                <tr>
-                                    <th>Surat Pendaftaran</th>
-                                    <th>Tanggal Buka</th>
-                                    <th>Tanggal Tutup</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                    $query_riwayat = "SELECT * FROM daftar_sekolah WHERE id_sekolah = '$id'";
-                                    $sql_riwayat = mysqli_query($con, $query_riwayat) or die (mysqli_error($con));
-                                    if(mysqli_num_rows($sql_riwayat) > 0){
-                                        while($riwayat = mysqli_fetch_array($sql_riwayat)){
-                                ?>
-                                            <tr>
-                                                <td><embed src="assets/file/<?=$riwayat['surat_registrasi']?>" width="100" height="100" alt="Surat Daftar"><br><a href="assets/file/<?=$riwayat['surat_registrasi']?>" type="application/pdf" target="_blank">Download Surat</a></td>
-                                                <td><?=$riwayat['tgl_buka']?></td>
-                                                <td><?=$riwayat['tgl_tutup']?></td>
-                                            </tr>
-                                <?php
+                        <div class="second-main">
+                            <!-- Tabel Riwayat Pendaftaran -->
+                            <table id="riwayat">
+                                <thead>
+                                    <tr>
+                                        <th>Surat Pendaftaran</th>
+                                        <th>Tanggal Buka</th>
+                                        <th>Tanggal Tutup</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        $query_riwayat = "SELECT * FROM daftar_sekolah WHERE id_sekolah = '$id'";
+                                        $sql_riwayat = mysqli_query($con, $query_riwayat) or die (mysqli_error($con));
+                                        if(mysqli_num_rows($sql_riwayat) > 0){
+                                            while($riwayat = mysqli_fetch_array($sql_riwayat)){
+                                    ?>
+                                                <tr>
+                                                    <td><embed src="assets/file/<?=$riwayat['surat_registrasi']?>" width="100" height="100" alt="Surat Daftar"><br><a href="assets/file/<?=$riwayat['surat_registrasi']?>" type="application/pdf" target="_blank">Download Surat</a></td>
+                                                    <td><?=$riwayat['tgl_buka']?></td>
+                                                    <td><?=$riwayat['tgl_tutup']?></td>
+                                                </tr>
+                                    <?php
+                                            }
+                                        } else{
+                                            echo "<tr><td colspan=\"4\" align=\"center\">Data Tidak Ditemukan</td></tr>";
                                         }
+                                    ?>
+                                </tbody>
+                            </table>
+                            <br>
+                            <div class="sum-daftar">
+                                <h4>Jumlah Pendaftar Tanggal : <span><?=$date?></span></h4>
+                                <?php
+                                    $siswa = "SELECT COUNT(*) AS jumlah_pendaftar FROM daftar_siswa WHERE id_sekolah = '$id'";
+                                    $jml_daftar = mysqli_query($con, $siswa) or die (mysqli_error($con));
+                                    if($jml_daftar){
+                                        $data = mysqli_fetch_assoc($jml_daftar);
+                                        $total = $data['jumlah_pendaftar'];
                                     } else{
-                                        echo "<tr><td colspan=\"4\" align=\"center\">Data Tidak Ditemukan</td></tr>";
+                                        $totalw = 0;
                                     }
                                 ?>
-                            </tbody>
-                        </table>
-                        <br>
-                        <div class="sum-daftar">
-                            <h4>Jumlah Pendaftar Tanggal : <span><?=$date?></span></h4>
-                            <?php
-                                $siswa = "SELECT COUNT(*) AS jumlah_pendaftar FROM daftar_siswa WHERE id_sekolah = '$id'";
-                                $jml_daftar = mysqli_query($con, $siswa) or die (mysqli_error($con));
-                                if($jml_daftar){
-                                    $data = mysqli_fetch_assoc($jml_daftar);
-                                    $total = $data['jumlah_pendaftar'];
-                                } else{
-                                    $totalw = 0;
-                                }
-                            ?>
-                            <div>
-                                <p><?=$total?> Orang</p>
+                                <div>
+                                    <p><?=$total?> Orang</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-            <?php
+            <?php               
+                    }
                 }
             ?>
         </div>

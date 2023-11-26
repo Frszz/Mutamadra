@@ -133,8 +133,8 @@
                   <span>Pengajuan</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="false">
-                  <li><a href="../../daftar.php">Pengajuan Siswa</a></li>
-                  <li><a href="../../mutasi.php">Pengajuan Pendaftaran</a></li>
+                  <li><a href="../../daftar_siswa.php">Pengajuan Siswa</a></li>
+                  <li><a href="../../daftar_sekolah.php">Pengajuan Pendaftaran</a></li>
                 </ul>
               </li>
               <!-- end li -->

@@ -97,6 +97,11 @@
                                 <input type="file" id="surat_registrasi" name="surat_registrasi" required>
                             </div>
 
+                            <div class="input-field" style="opacity: 0;">
+                                <label for="#">Jangan Dihapus</label>
+                                <input type="file" id="#" name="#" required>
+                            </div>
+
                         </div>
                     </div>
 

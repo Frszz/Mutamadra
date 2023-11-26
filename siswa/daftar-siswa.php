@@ -29,19 +29,19 @@
     <body>
         
         <header>
-        <!-- Navbar Left -->
+            <!-- Navbar Left -->
             <a href="home.php" class="logo">
                 <i class="ri-home-7-fill"></i><span>Mutamadra</span>
             </a>
 
-        <!-- Navbar Center -->
+            <!-- Navbar Center -->
             <ul class="navbar">
                 <li><a href="home.php">Home</a></li>
                 <li><a href="profil.php">Profil</a></li>
                 <li><a href="daftar-siswa.php" class="active">Daftar</a></li>
             </ul>
 
-        <!-- Navbar Right -->
+            <!-- Navbar Right -->
             <div class="main">
                 <a href="akun.php" class="user"><i class="ri-user-fill"></i>Akun</a>
                 <a href="../auth/Login-Siswa/logout.php" class="user">Logout</a>

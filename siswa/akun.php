@@ -119,8 +119,8 @@
                                     $no_hp = $_POST['no_hp'];
                                     $gender = $_POST['gender'];
                                     $alamat = $_POST['alamat'];
-                                    $email = $_POST['email'];
-                                    mysqli_query($con, "UPDATE siswa SET nisn = '$nisn', nama_siswa = '$nama_siswa', tmpt_lahir = '$tmpt_lahir', tgl_lahir = '$tgl_lahir', no_hp = '$no_hp', gender = '$gender', alamat = '$alamat', email_siswa = '$email' WHERE id = '$id_siswa'") or die (mysqli_error($con));
+                                    $email_siswa = $_POST['email_siswa'];
+                                    mysqli_query($con, "UPDATE siswa SET nisn = '$nisn', nama_siswa = '$nama_siswa', tmpt_lahir = '$tmpt_lahir', tgl_lahir = '$tgl_lahir', no_hp = '$no_hp', gender = '$gender', alamat = '$alamat', email_siswa = '$email_siswa' WHERE id = '$id_siswa'") or die (mysqli_error($con));
                                     echo "<script>
                                     alert('Data Berhasil Disimpan');
                                     window.location='akun.php';
@@ -163,7 +163,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label">Nomor Telepon</label>
-                                            <input type="text" name="no_hp" value="<?=$master['no_hp']?>" class="form-control" value="">
+                                            <input type="text" name="no_hp" value="<?=$master['no_hp']?>" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label">Jenis Kelamin</label>
@@ -186,7 +186,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="form-label">Email</label>
-                                            <input type="email" name="email" value="<?=$master['email_siswa']?>" class="form-control" value="">
+                                            <input type="email" name="email_siswa" value="<?=$master['email_siswa']?>" class="form-control">
                                         </div>
                                         <div class="text-right mt-3">
                                             <input type="submit" name="biodata" value="Save Changes" class="btn btn-primary">&nbsp;

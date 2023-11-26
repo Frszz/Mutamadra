@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Nov 2023 pada 07.00
+-- Waktu pembuatan: 26 Nov 2023 pada 04.11
 -- Versi server: 10.4.28-MariaDB
 -- Versi PHP: 8.2.4
 
@@ -54,6 +54,13 @@ CREATE TABLE `daftar_sekolah` (
   `tgl_tutup` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data untuk tabel `daftar_sekolah`
+--
+
+INSERT INTO `daftar_sekolah` (`id`, `id_sekolah`, `surat_registrasi`, `tgl_buka`, `tgl_tutup`) VALUES
+(1, 1, 'f5656f14230ba048279966630700da2d.pdf', '2023-11-09', '2023-11-30');
+
 -- --------------------------------------------------------
 
 --
@@ -76,13 +83,6 @@ CREATE TABLE `daftar_siswa` (
   `tgl_daftar` datetime NOT NULL DEFAULT current_timestamp(),
   `status` enum('Diproses','Diterima','Ditolak') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data untuk tabel `daftar_siswa`
---
-
-INSERT INTO `daftar_siswa` (`id`, `id_siswa`, `id_sekolah`, `pas_foto`, `nisn`, `nama_pendaftar`, `email_pendaftar`, `nohp_pendaftar`, `tujuan`, `asal_sekolah`, `tujuan_sekolah`, `surat_daftar`, `tgl_daftar`, `status`) VALUES
-(2, 2, 1, 'e63291368a190d1de7d72bc2c03ac548.jpg', '444333', 'Budi Ahuy', 'fix@gmail.com', '081234', 'Siswa Baru', 'SMP Tauran', 'SMA ISLAM AL-ULUM TERPADU', '98f8a7962e96195e4c62a083738bd10b.pdf', '2023-11-25 12:09:12', 'Diproses');
 
 -- --------------------------------------------------------
 
@@ -108,8 +108,8 @@ CREATE TABLE `sekolah` (
 --
 
 INSERT INTO `sekolah` (`id`, `npsn`, `nama_sekolah`, `alamat`, `kab_kota`, `kecamatan`, `jenjang`, `surat_sekolah`, `email_sekolah`, `password_sekolah`) VALUES
-(1, '102030', 'SMA ISLAM AL-ULUM TERPADU', 'Jl. Tuasan', 'Medan', 'Medan Tembung', 'SMA', 'b0f9f72bd7c591d5bb65c9cd9ac8d110.pdf', 'sekolah@gmail.com', '123'),
-(3, '7267263', 'SMP Mana', 'Jl. Boy', 'Medan', 'Medan Timur', 'SMP', 'fa4325ddb7f1b432776aa60034e2bf7c.pdf', 'blabla@gmail.com', '123');
+(1, '102030', 'SMA ISLAM AL-ULUM TERPADU', 'Jl. Tuasan', 'Medan', 'Medan Tembung', 'SMA', '317dcfe830bf86720d28a7ac1fd7905f.pdf', 'alulum@gmail.com', '444'),
+(2, '7267263', 'SMPN 4 Percontohan', 'Jl. Boy', 'Aceh Tamiang', 'Karang Baru', 'SMP', 'fa4325ddb7f1b432776aa60034e2bf7c.pdf', 'blabla@gmail.com', '123');
 
 -- --------------------------------------------------------
 
@@ -137,7 +137,8 @@ CREATE TABLE `siswa` (
 
 INSERT INTO `siswa` (`id`, `id_sekolah`, `nisn`, `nama_siswa`, `tmpt_lahir`, `tgl_lahir`, `no_hp`, `gender`, `alamat`, `email_siswa`, `password_siswa`) VALUES
 (1, 1, '0702213184', 'Aldito Fayyadh Yustihar', 'Aceh', '2004-04-04', '087878992615', 'Laki-laki', 'Jl. Pancing', 'aldito@gmail.com', '123'),
-(2, NULL, '444333', 'Budi Ahuy', 'London', '2023-11-09', '081234', 'Perempuan', ' Jl. Street ', 'fix@gmail.com', '123');
+(2, 1, '444333', 'Budi Ahuy', 'London', '2023-11-09', '081234', 'Perempuan', ' Jl. Street ', 'fix@gmail.com', '123'),
+(3, 2, '999', 'Robert', 'Konoha', '2023-11-12', '06158292763', 'Laki-laki', ' Block. 5', 'siswa@gmail.com', '123');
 
 --
 -- Indexes for dumped tables
@@ -161,7 +162,7 @@ ALTER TABLE `daftar_sekolah`
 --
 ALTER TABLE `daftar_siswa`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_siswa` (`id_siswa`),
+  ADD UNIQUE KEY `id_siswa` (`id_siswa`),
   ADD KEY `id_sekolah` (`id_sekolah`);
 
 --
@@ -193,7 +194,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT untuk tabel `daftar_sekolah`
 --
 ALTER TABLE `daftar_sekolah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT untuk tabel `daftar_siswa`
@@ -205,13 +206,13 @@ ALTER TABLE `daftar_siswa`
 -- AUTO_INCREMENT untuk tabel `sekolah`
 --
 ALTER TABLE `sekolah`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT untuk tabel `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)

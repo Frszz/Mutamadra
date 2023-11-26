@@ -272,7 +272,7 @@
                                         <div class="row mb-3">
                                             <label for="email_sekolah" class="col-sm-2 col-form-label">Email Sekolah</label>
                                             <div class="col-sm-10">
-                                                <input class="form-control" name="email_sekolah" type="text" value="<?=$data['email_sekolah']?>" id="email_sekolah">
+                                                <input class="form-control" name="email_sekolah" type="email" value="<?=$data['email_sekolah']?>" id="email_sekolah">
                                             </div>
                                         </div>
                                         <!-- end row -->

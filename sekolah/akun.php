@@ -1,108 +1,239 @@
+<?php
+  require_once "../config/config.php";
+  if(isset($_SESSION['npsnSekolah']) && isset($_SESSION['idSekolah'])) {
+    $id = $_SESSION['idSekolah'];
+?>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil | Mutamadra</title>
-    <!-- css -->
-    <link rel="stylesheet" href="assets/css/style-akun.css">
-    <!-- bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body>
-    <div class="container light-style flex-grow-1 container-p-y">
-        <h4 class="font-weight-bold py-3 mb-4">
-            Profil Akun
-        </h4>
-        <div class="card overflow-hidden">
-            <div class="row no-gutters row-bordered row-border-light">
-                <div class="col-md-3 pt-0">
-                    <div class="list-group list-group-flush account-settings-links">
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#account-change-password">Ubah Password</a>
-                        <a class="list-group-item list-group-item-action" data-toggle="list"
-                            href="#sekolah">Formulir Sekolah</a>
-                    </div>
-                </div>
-                <div class="col-md-9">
-                    <div class="tab-content">
-                        <div class="tab-pane fade" id="account-change-password">
-                            <div class="card-body pb-2">
-                                <div class="form-group">
-                                    <label class="form-label">Password Lama</label>
-                                    <input type="password" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Password Baru</label>
-                                    <input type="password" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Konfirmasi Password</label>
-                                    <input type="password" class="form-control">
-                                </div>
-                            </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profil | Mutamadra</title>
+        <!-- css -->
+        <link rel="stylesheet" href="assets/css/style-akun.css">
+        <!-- bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container light-style flex-grow-1 container-p-y">
+            <h4 class="font-weight-bold py-3 mb-4">
+                Profil Akun
+            </h4>
+            <div class="card overflow-hidden">
+                <div class="row no-gutters row-bordered row-border-light">
+                    <div class="col-md-3 pt-0">
+                        <div class="list-group list-group-flush account-settings-links">
+                            <a class="list-group-item list-group-item-action" data-toggle="list"
+                                href="#account-change-password">Ubah Password</a>
+                            <a class="list-group-item list-group-item-action" data-toggle="list"
+                                href="#sekolah">Formulir Sekolah</a>
                         </div>
-                        <div class="tab-pane fade" id="sekolah">
-                            <div class="card-body pb-2">
-                                <h6 class="mb-4">Data Sekolah</h6>
-                                <div class="form-group">
-                                    <label class="form-label">Nama Sekolah</label>
-                                    <input type="text" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">NPSN</label>
-                                    <input type="number" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Nomor Telepon</label>
-                                    <input type="number" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Jenjang</label>
-                                    <select class="custom-select">
-                                        <option>SMA</option>
-                                        <option>MTS</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Alamat</label>
-                                    <input type="text" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Kecamatan</label>
-                                    <input type="text" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Kabupaten/Kota</label>
-                                    <input type="text" class="form-control" value="">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label" for="file">Surat Sekolah</label>
-                                    <input type="file" class="form-control" id="file" name="file">
-                                </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="tab-content">
+                            <?php
+                                if(isset($_POST['ubahpass'])){
+                                    $oldPass = $_POST['oldPass'];
+                                    $newPass = $_POST['newPass'];
+                                    $confirmPass = $_POST['confirmPass'];
+
+                                    $queryPass = mysqli_query($con, "SELECT password_sekolah FROM sekolah WHERE id = '$id'");
+                                    $resultPass = mysqli_fetch_array($queryPass);
+
+                                    if($oldPass == $resultPass['password_sekolah']){
+                                        if($newPass == $confirmPass){
+                                            mysqli_query($con, "UPDATE sekolah SET password_sekolah = '$newPass' WHERE id = '$id'") or die (mysqli_error($con));
+                                            echo "<script>
+                                            alert('Password Berhasil Diubah');
+                                            window.location='akun.php';
+                                            </script>";
+                                        } else{
+                                            echo "<script>alert('Password Tidak Sesuai');</script>";
+                                        }
+                                    } else{
+                                        echo "<script>alert('Password Salah');</script>";
+                                    }
+                                }
+                            ?>
+                            <div class="tab-pane fade" id="account-change-password">
+                                <form method="POST" action="">
+                                    <div class="card-body pb-2">
+                                        <div class="form-group">
+                                            <label class="form-label">Password Lama</label>
+                                            <input type="password" name="oldPass" id="oldPass" class="form-control">
+                                            <span class="show-hide">
+                                                <i class="fa-solid fa-eye unhide"></i>
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Password Baru</label>
+                                            <input type="password" name="newPass" id="newPass" class="form-control">
+                                            <span class="show-hide">
+                                                <i class="fa-solid fa-eye unhide"></i>
+                                            </span>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Konfirmasi Password</label>
+                                            <input type="password" name="confirmPass" id="confirmPass" class="form-control">
+                                            <span class="show-hide">
+                                                <i class="fa-solid fa-eye unhide"></i>
+                                            </span>
+                                        </div>
+                                        <div class="text-right mt-3">
+                                            <input type="submit" name="ubahpass" class="btn btn-primary" value="Save Changes">&nbsp;
+                                            <a href="home.php" type="button" class="btn btn-default">Back</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <script>
+                                const passwordInputs = document.querySelectorAll('.password-input input');
+                                const unhideButtons = document.querySelectorAll('.unhide');
+
+                                unhideButtons.forEach((button, index) => {
+                                    button.addEventListener('click', function() {
+                                        if (passwordInputs[index].type === 'password') {
+                                            passwordInputs[index].type = 'text';
+                                        } else {
+                                            passwordInputs[index].type = 'password';
+                                        }
+                                    });
+                                });
+                            </script>
+                            <?php
+                                $querySekolah = mysqli_query($con, "SELECT * FROM sekolah WHERE id = '$id'");
+                                $master = mysqli_fetch_array($querySekolah);
+                                if(isset($_POST['biodata'])){
+                                    $id_sekolah = $_POST['id'];
+                                    $npsn = $_POST['npsn'];
+                                    $nama_sekolah = $_POST['nama_sekolah'];
+                                    $alamat = $_POST['alamat'];
+                                    $kab_kota = $_POST['kab_kota'];
+                                    $kecamatan = $_POST['kecamatan'];
+                                    $jenjang = $_POST['jenjang'];
+                                    $email_sekolah = $_POST['email_sekolah'];
+
+                                    $querySurat = mysqli_query($con, "SELECT surat_sekolah FROM sekolah WHERE id = '$id'");
+                                    $row = mysqli_fetch_array($querySurat);
+                                    $existing_file = $row['surat_sekolah'];
+                                    $dir = "../admin/assets/file/";
+                                    if(isset($_FILES['surat_sekolah']) && $_FILES['surat_sekolah']['error'] === UPLOAD_ERR_OK){
+                                        $surat_file = $_FILES['surat_sekolah']['name'];
+                                        $file_extension = pathinfo($surat_file, PATHINFO_EXTENSION);
+                                        if ($file_extension == 'pdf') {
+                                            $encrypted_name = md5(uniqid()) . '.pdf';
+                                            $surat_sekolah = $encrypted_name;
+                                            $temporary = $_FILES['surat_sekolah']['tmp_name'];
+                                            if($existing_file != $surat_sekolah){
+                                                $lokasi = $dir . $existing_file;
+                                                unlink($lokasi);
+                                            } else {
+                                                $surat_sekolah = $existing_file;
+                                            }
+                                            move_uploaded_file($temporary, $dir . $surat_sekolah);
+                                        } else{
+                                            $surat_sekolah = $existing_file;
+                                            echo "<script>alert('Hanya File PDF Saja');</script>";
+                                        }
+                                    } else{
+                                        $surat_sekolah = $existing_file;
+                                    }
+
+                                    mysqli_query($con, "UPDATE sekolah SET npsn = '$npsn', nama_sekolah = '$nama_sekolah', alamat = '$alamat', kab_kota = '$kab_kota', kecamatan = '$kecamatan', jenjang = '$jenjang', surat_sekolah = '$surat_sekolah', email_sekolah = '$email_sekolah' WHERE id = '$id_sekolah'") or die (mysqli_error($con));
+                                    echo "<script>
+                                    alert('Data Berhasil Disimpan');
+                                    window.location='akun.php';
+                                    </script>";
+                                }
+                            ?>
+                            <script>
+                                function tampilkanSurat(event) {
+                                    var input = event.target;
+                                    var reader = new FileReader();
+                                    reader.onload = function() {
+                                        var output = document.getElementById('previewSurat');
+                                        output.style.display = 'block';
+                                        output.src = reader.result;
+
+                                        // Sembunyikan Surat Lama
+                                        var oldSurat = document.getElementById('oldSurat');
+                                        oldSurat.style.display = 'none';
+                                    };
+                                    reader.readAsDataURL(input.files[0]);
+                                }
+                            </script>
+                            <div class="tab-pane fade" id="sekolah">
+                                <form method="POST" action="" enctype="multipart/form-data">
+                                    <div class="card-body pb-2">
+                                        <h6 class="mb-4">Data Sekolah</h6>
+                                        <input type="hidden" name="id" value="<?=$id?>">
+                                        <div class="form-group">
+                                            <label class="form-label">NPSN</label>
+                                            <input type="number" name="npsn" class="form-control" value="<?=$master['npsn']?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Nama Sekolah</label>
+                                            <input type="text" name="nama_sekolah" class="form-control" value="<?=$master['nama_sekolah']?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Alamat</label>
+                                            <input type="text" name="alamat" class="form-control" value="<?=$master['alamat']?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Kabupaten/Kota</label>
+                                            <input type="text" name="kab_kota" class="form-control" value="<?=$master['kab_kota']?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Kecamatan</label>
+                                            <input type="text" name="kecamatan" class="form-control" value="<?=$master['kecamatan']?>">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Jenjang</label>
+                                            <?php
+                                                echo "<select class=\"custom-select\" id=\"jenjang\" name=\"jenjang\">
+                                                    <option value=\"\" disabled selected style=\"display:none;\">Pilih</option>";
+                                                    $category = mysqli_query($con, "SHOW COLUMNS FROM `sekolah` WHERE `field` = 'jenjang'");
+                                                    while($result = mysqli_fetch_row($category)){
+                                                        foreach(explode("','",substr($result[1],6,-2)) as $option){
+                                                        $selected = ($option == $master['jenjang']) ? 'selected' : '';
+                                                        echo "<option $selected>$option</option>";
+                                                        }
+                                                    }
+                                                echo "</select>";
+                                            ?>
+                                        </div>
+                                        <embed id="previewSurat" type="application/pdf" style="display: none; width :auto; height: auto;">
+                                        <embed id="oldSurat" src="../admin/assets/file/<?=$master['surat_sekolah']?>" type="application/pdf" width="auto" height="auto" alt="Surat Sekolah">
+                                        <div class="form-group">
+                                            <label class="form-label" for="surat_sekolah">Surat Sekolah</label>
+                                            <input type="file" class="form-control" id="surat_sekolah" name="surat_sekolah" accept=".pdf" onchange="tampilkanSurat(event)">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" name="email_sekolah" class="form-control" value="<?=$master['email_sekolah']?>">
+                                        </div>
+                                        <div class="text-right mt-3">
+                                            <input type="submit" class="btn btn-primary" name="biodata" value="Save Changes">&nbsp;
+                                            <a href="home.php" type="button" class="btn btn-default">Back</a>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="text-right mt-3">
-            <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
-            <a href="home.php" type="button" class="btn btn-default">Back</a>
-        </div>
-    </div>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="text/javascript">
+        <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript">
 
-    </script>
-</body>
-
+        </script>
+    </body>
 </html>
+<?php
+  } else{
+      echo "<script>window.location='../auth/Login-Sekolah/login.php';</script>";
+  }
+?>

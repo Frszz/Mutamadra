@@ -1,6 +1,6 @@
 <?php
   require_once "../../config/config.php";
-  if(isset($_SESSION['npsnSekolah'])) {
+  if(isset($_SESSION['npsnSekolah']) && isset($_SESSION['idSekolah'])) {
       echo "<script>window.location='../../sekolah/home.php';</script>";
   } else {
 ?>
@@ -41,7 +41,9 @@
                   $pass = trim(mysqli_real_escape_string($con, $_POST['password']));
                   $sql_login = mysqli_query($con, "SELECT * FROM sekolah WHERE npsn = '$npsn' AND password_sekolah = '$pass'") or die (mysqli_error($con));
                   if(mysqli_num_rows($sql_login) > 0){
+                      $sekolah = mysqli_fetch_array($sql_login); 
                       $_SESSION['npsnSekolah'] = $npsn;
+                      $_SESSION['idSekolah'] = $sekolah['id'];
                       echo "<script>window.location='../../sekolah/home.php';</script>";
                   } else{ ?>
                       <div class="login-rejected" id="login-rejected">

@@ -194,6 +194,7 @@
                     <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                       <thead>
                         <tr>
+                          <th>NPSN</th>
                           <th>Nama Sekolah</th>
                           <th>Surat Registrasi</th>
                           <th>Tanggal Buka</th>
@@ -201,18 +202,30 @@
                           <th>Aksi</th>
                         </tr>
                       </thead>
-
                       <tbody>
-                        <tr>
-                          <td>221586746</td>
-                          <td style="text-align:center"><embed src="assets/file/Surat.pdf" type="application/pdf" width="100" height="100" alt="surat" /><br><a href="assets/file/Surat.pdf"type="application/pdf" alt="surat" target="_blank">Download Surat</a></td>
-                          <td>Muhammad Faris Adira</td>
-                          <td>07-09-2022</td>
-                          <td>
-                            <a href="crud/pengajuan-pendaftaran/update.php" type="button" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></a>
-                            <button type="button" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></button>
-                          </td>
-                        </tr>
+                        <?php
+                          $query = "SELECT * FROM daftar_sekolah INNER JOIN sekolah ON daftar_sekolah.id_sekolah = sekolah.id";
+                          $sql_daftar_sekolah = mysqli_query($con, $query) or die (mysqli_error($con));
+                          if(mysqli_num_rows($sql_daftar_sekolah) > 0){
+                              while($data = mysqli_fetch_array($sql_daftar_sekolah)){
+                        ?>
+                                <tr>
+                                  <td><?=$data['npsn']?></td>
+                                  <td><?=$data['nama_sekolah']?></td>
+                                  <td align="center"><embed src="../sekolah/assets/file/<?=$data['surat_registrasi']?>" type="application/pdf" width="100" height="100" alt="Surat Pembukaan Pendaftaran" /><br><a href="../sekolah/assets/file/<?=$data['surat_registrasi']?>" type="application/pdf" target="_blank">Download Surat</a></td>
+                                  <td><?=$data['tgl_buka']?></td>
+                                  <td><?=$data['tgl_tutup']?></td>
+                                  <td style="text-align: center;">
+                                    <a href="crud/pengajuan-pendaftaran/update.php?id=<?=$data['id']?>" class="btn btn-primary mb-3"><i class="ri-pencil-fill"></i></a>
+                                    <a href="crud/pengajuan-pendaftaran/delete.php?id=<?=$data['id']?>" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill"></i></a>
+                                  </td>
+                                </tr>
+                        <?php
+                              }
+                          } else{
+                              echo "<tr><td colspan=\"4\" align=\"center\">Data Tidak Ditemukan</td></tr>";
+                          }
+                        ?>
                       </tbody>
                     </table>
                   </div>

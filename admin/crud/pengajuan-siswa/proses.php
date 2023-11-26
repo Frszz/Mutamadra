@@ -38,7 +38,9 @@
                 window.location='../../daftar.php';
                 </script>";
             } else{
-                echo "<script>alert('Status Harus Diubah');</script>";
+                echo "<script>alert('Status Harus Diubah');
+                window.location='../../daftar.php';
+                </script>";
             }
         }
     } else{

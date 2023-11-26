@@ -53,7 +53,7 @@
             $queryUtama = mysqli_query($con, "SELECT * FROM daftar_siswa");
             $utama = mysqli_fetch_array($queryUtama);
             
-            if($utama['id_siswa'] != $id){
+            if(!isset($utama['id_siswa']) || $utama['id_siswa'] != $id){
                 $querySiswa = mysqli_query($con, "SELECT * FROM siswa WHERE id = '$id'");
                 $siswa = mysqli_fetch_array($querySiswa);
                 $querySekolah = mysqli_query($con, "SELECT * FROM sekolah");

@@ -157,7 +157,7 @@
             <?php
                     }
                 } else{
-                    $querySupport = mysqli_query($con, "SELECT * FROM daftar_sekolah WHERE id_sekolah = '$id'");
+                    $querySupport = mysqli_query($con, "SELECT tgl_tutup FROM daftar_sekolah WHERE id_sekolah = '$id'");
                     $support = mysqli_fetch_array($querySupport);
                     $tutup = $support['tgl_tutup'];
                     if($date > $tutup){
